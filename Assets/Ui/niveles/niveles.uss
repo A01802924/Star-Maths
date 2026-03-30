@@ -1,0 +1,17 @@
+:root {
+}
+
+.botones {
+    font-size: 65px;
+    -unity-font-definition: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap_SemiCondensed-SemiBoldItalic.ttf?fileID=12800000&guid=e214a0f6a3dd29b43ac7b0a247b0ab32&type=3#Asap_SemiCondensed-SemiBoldItalic");
+    color: rgb(165, 215, 255);
+    -unity-text-align: middle-center;
+}
+
+.botones:hover {
+    scale: 1.1 1.1;
+}
+
+.botones:active {
+    opacity: 0.35;
+}
