@@ -12,7 +12,7 @@
     position: absolute;
 }
 
-.inputsLabel {
+.inputsLabelInicio {
     flex-wrap: nowrap;
     flex-direction: column;
     width: 400px;
@@ -41,4 +41,14 @@
 .incio-registro {
     font-size: 30px;
     color: rgb(255, 255, 255);
+}
+
+.inputsLabelRegistro {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 400px;
+    height: 100px;
+    -unity-font-definition: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap_SemiExpanded-ExtraBoldItalic.ttf?fileID=12800000&guid=c32ee0853b2c29c4ea6e3359e1c81f7a&type=3#Asap_SemiExpanded-ExtraBoldItalic");
+    color: rgb(252, 255, 213);
+    font-size: 23px;
 }
