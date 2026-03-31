@@ -1,0 +1,21 @@
+:root {
+}
+
+.boton {
+    position: absolute;
+}
+
+.boton:hover {
+    scale: 1.15 1.15;
+}
+
+.boton:active {
+    opacity: 0.42;
+}
+
+.texto {
+    -unity-font-definition: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/Righteous-Regular.ttf?fileID=12800000&guid=3365d868468c1f143aa3fbb4d8a4e397&type=3#Righteous-Regular");
+    -unity-font-style: normal;
+    font-size: 40px;
+    color: rgb(252, 255, 227);
+}
