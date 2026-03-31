@@ -17,18 +17,23 @@ public class moverNave : MonoBehaviour
     private float timerImpulsando;
     private float cooldownTimer;
     private bool impulsando;
+    private disparaNave disparador;
 
     private Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        disparador = GetComponentInChildren<disparaNave>();
     }
 
     void Update()
     {
         relojImpulso();
-        if (impulsando) return;
+        if (impulsando)
+        {
+            return;
+        }
 
         Vector2 mov = iaMove.ReadValue<Vector2>();
         rb.linearVelocity = mov * velocidad;
@@ -38,17 +43,22 @@ public class moverNave : MonoBehaviour
     {
         iaMove.Enable();
         iaImpulso.Enable();
+        iaDisparo.Enable();
 
         iaImpulso.performed += Impulso;
+        iaDisparo.performed += Disparo;
     }
 
     void OnDisable()
     {
         iaImpulso.Disable();
+        iaDisparo.Disable();
+
         iaImpulso.performed -= Impulso;
+        iaDisparo.performed -= Disparo;
     }
 
-    public void Impulso(InputAction.CallbackContext context)
+    private void Impulso(InputAction.CallbackContext context)
     {
         if (impulsando || cooldownTimer > 0)
         {
@@ -84,5 +94,10 @@ public class moverNave : MonoBehaviour
         {
             impulsando = false;
         }
+    }
+
+    private void Disparo(InputAction.CallbackContext context)
+    {
+        disparador.Disparar();
     }
 }
