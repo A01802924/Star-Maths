@@ -3,9 +3,10 @@
 
 .botones {
     font-size: 65px;
-    -unity-font-definition: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap_SemiCondensed-SemiBoldItalic.ttf?fileID=12800000&guid=e214a0f6a3dd29b43ac7b0a247b0ab32&type=3#Asap_SemiCondensed-SemiBoldItalic");
-    color: rgb(165, 215, 255);
+    -unity-font-definition: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/Asap-VariableFont_wdth,wght.ttf?fileID=12800000&guid=ffb12b5421e80c54bb53230665414438&type=3#Asap-VariableFont_wdth,wght");
+    color: rgb(255, 255, 250);
     -unity-text-align: middle-center;
+    -unity-font-style: bold;
 }
 
 .botones:hover {

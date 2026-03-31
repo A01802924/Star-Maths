@@ -1,0 +1,27 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Ui/Menu%20Final/MenuFinal.uss?fileID=7433441132597879392&amp;guid=b44e0f521b09d4857a0a90110ca938f6&amp;type=3#MenuFinal"/>
+    <ui:VisualElement name="MenuFinal" style="flex-grow: 1; display: flex;">
+        <ui:Label text="FIN DEL JUEGO" name="Titulo" class="titulo" style="color: rgb(253, 255, 213);"/>
+        <ui:VisualElement name="ParteInferior" style="flex-grow: 1;">
+            <ui:VisualElement name="Menu" class="menuInferior" style="flex-grow: 1; width: 80%; height: 70%; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; border-left-color: rgb(255, 248, 220); border-right-color: rgb(255, 248, 220); border-top-color: rgb(255, 248, 220); border-bottom-color: rgb(255, 248, 220); border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; background-image: none; background-size: 130% 120%;">
+                <ui:Label text="Puntuación :" name="Score" class="score" style="color: rgb(253, 255, 213);"/>
+                <ui:Label text="Tiempo :" name="Time" class="score" style="color: rgb(253, 255, 213);"/>
+                <ui:VisualElement name="SeccionEstrellas" class="estrellas" style="flex-grow: 1; justify-content: space-around; width: 70%;">
+                    <ui:VisualElement name="Estrellas" style="flex-grow: 1; display: flex; justify-content: space-around; flex-direction: row; align-self: center;">
+                        <ui:Image name="Estrella_1" class="imagenes" style="flex-direction: row; width: 250px; display: none;"/>
+                        <ui:Image name="Estrella_2" class="imagenes" style="flex-direction: row; width: 250px; display: none;"/>
+                        <ui:Image name="Estrella_1N" class="imagenes" style="flex-direction: row; width: 250px; display: flex; -unity-background-image-tint-color: rgb(56, 56, 56);"/>
+                        <ui:Image name="Estrella_2N" class="imagenes" style="flex-direction: row; width: 250px; display: flex; -unity-background-image-tint-color: rgb(56, 56, 56);"/>
+                        <ui:Image name="Estrella_3" class="imagenes" style="flex-direction: row-reverse; width: 250px; align-self: center; justify-content: flex-start; display: none;"/>
+                        <ui:Image name="Estrella_3N" class="imagenes" style="flex-direction: row-reverse; width: 250px; align-self: center; justify-content: flex-start; display: flex; -unity-background-image-tint-color: rgb(56, 56, 56);"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="Botones" class="seccionBotones" style="flex-grow: 1;">
+                    <ui:Button text="REPETIR&#10;NIVEL" name="Repetir" class="botones" style="font-size: 30px; -unity-font-style: bold; background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Button_Images/Highlighted_Sprite/medium/short-blue-highlight-medium.png?fileID=2800000&amp;guid=047c9ac7da128f048aa00dfff8c885aa&amp;type=3#short-blue-highlight-medium&quot;);"/>
+                    <ui:Button text="MENU&#10;PRINCIPAL" name="Salir" class="botones" style="font-size: 30px; -unity-font-style: bold; background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Button_Images/Highlighted_Sprite/large/short-blue-highlight-large.png?fileID=2800000&amp;guid=eac975a2bf4045b47b3b05afa8767c3a&amp;type=3#short-blue-highlight-large&quot;);"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
