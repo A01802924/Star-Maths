@@ -10,6 +10,11 @@
     align-items: center;
     background-image: none;
     position: absolute;
+    justify-content: center;
+    align-content: flex-start;
+    align-self: stretch;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 .inputsLabelInicio {
