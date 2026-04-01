@@ -10,18 +10,11 @@ public class MenuManager : MonoBehaviour
     private UIDocument UIDocument;
     private VisualElement contenedorInicio;
     private VisualElement contenedorRegistro;
-    private VisualElement MenuPrincipal;
-    private VisualElement ModosJuego;
+
     private Label lblRegistro;
     private Label lblIniciarSesion;
     private Button btnMenu;
     private Button btnMenu2;
-    private Button btnHome;
-    private Button regresar;
-    private Button Jugar;
-    private Button btnInfo;
-    private Button salir;
-
     void OnEnable()
     {
         UIDocument = GetComponent<UIDocument>();
@@ -30,8 +23,6 @@ public class MenuManager : MonoBehaviour
         //obteniendo referencias a UI Elements
         contenedorInicio = root.Q<VisualElement>("ContenedorInicio");
         contenedorRegistro = root.Q<VisualElement>("ContenedorRegistro");
-        MenuPrincipal = root.Q<VisualElement>("MenuPrincipal");
-        ModosJuego = root.Q<VisualElement>("Modos");
         lblRegistro = root.Q<Label>("Registro");
         lblIniciarSesion = root.Q<Label>("InicioSesion");
         btnMenu = root.Q<Button>("Ingresar");
