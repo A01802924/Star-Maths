@@ -1,6 +1,9 @@
 using System;
+using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
+
 
 public class MenuManager : MonoBehaviour
 {
@@ -8,10 +11,16 @@ public class MenuManager : MonoBehaviour
     private VisualElement contenedorInicio;
     private VisualElement contenedorRegistro;
     private VisualElement MenuPrincipal;
+    private VisualElement ModosJuego;
     private Label lblRegistro;
     private Label lblIniciarSesion;
     private Button btnMenu;
     private Button btnMenu2;
+    private Button btnHome;
+    private Button regresar;
+    private Button Jugar;
+    private Button btnInfo;
+    private Button salir;
 
     void OnEnable()
     {
@@ -22,10 +31,13 @@ public class MenuManager : MonoBehaviour
         contenedorInicio = root.Q<VisualElement>("ContenedorInicio");
         contenedorRegistro = root.Q<VisualElement>("ContenedorRegistro");
         MenuPrincipal = root.Q<VisualElement>("MenuPrincipal");
+        ModosJuego = root.Q<VisualElement>("Modos");
         lblRegistro = root.Q<Label>("Registro");
         lblIniciarSesion = root.Q<Label>("InicioSesion");
         btnMenu = root.Q<Button>("Ingresar");
         btnMenu2 = root.Q<Button>("Ingresar2");
+      
+
 
 
         lblRegistro.RegisterCallback<ClickEvent>(OnRegistroClicked);
@@ -34,14 +46,10 @@ public class MenuManager : MonoBehaviour
         btnMenu2.RegisterCallback<ClickEvent>(OnMenuClicked);
 
     }
-
+  
     private void OnMenuClicked(ClickEvent evt)
     {
-        contenedorInicio.style.display = DisplayStyle.None;
-        contenedorRegistro.style.display = DisplayStyle.None;
-        MenuPrincipal.style.display = DisplayStyle.Flex;
-        
-        Debug.Log("Cambiando a pantalla de Menú Principal");
+        SceneManager.LoadScene("MenuPrincipalScene");
     }
 
     private void OnIniciarSesionClicked(ClickEvent evt)
