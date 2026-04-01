@@ -68,7 +68,7 @@ public class MenuPausa : MonoBehaviour
     private void VolverMenuPrincipal()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MenuPrincipal");
+        SceneManager.LoadScene("MenuPrincipalScene");
     }
 
     private void Pausar()

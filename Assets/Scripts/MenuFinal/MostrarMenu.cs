@@ -140,11 +140,11 @@ public class MostrarMenu : MonoBehaviour
 
     private void RepetirNivel()
     {
-        SceneManager.LoadScene("JuegoJefe");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void MenuPrincipal()
     {
-        SceneManager.LoadScene("MenuPrincipal");
+        SceneManager.LoadScene("MenuPrincipalScene");
     }
 }
