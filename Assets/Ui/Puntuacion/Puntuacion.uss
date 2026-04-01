@@ -1,0 +1,101 @@
+:root {
+}
+
+.scene_title {
+    font-size: 130px;
+    -unity-font-definition: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/Righteous-Regular.ttf?fileID=12800000&guid=3365d868468c1f143aa3fbb4d8a4e397&type=3#Righteous-Regular");
+    -unity-font-style: normal;
+    -unity-text-align: middle-center;
+    color: rgb(254, 238, 184);
+    -unity-text-outline-width: 3px;
+    -unity-text-outline-color: rgb(255, 254, 255);
+}
+
+.position-number-text {
+    font-size: 60px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap-ExtraBold.ttf?fileID=12800000&guid=274dc19cec2e12942b644b43a2983224&type=3#Asap-ExtraBold");
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    color: rgb(38, 28, 71);
+}
+
+.username-text {
+    font-size: 60px;
+    -unity-text-align: middle-left;
+    color: rgb(255, 255, 255);
+}
+
+.score-number-text {
+    font-size: 60px;
+    -unity-text-align: middle-right;
+    color: rgb(255, 255, 255);
+    -unity-font-style: normal;
+}
+
+.get-back-button {
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    background-image: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Button_Images/Source_Image_Sprites/extra%20large/short-blue-extra-large.png?fileID=2800000&guid=c1186c6c57955e74286697f5a74fa36d&type=3#short-blue-extra-large");
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 35px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap-BoldItalic.ttf?fileID=12800000&guid=6792dbba7e995324b9ab819d40bb30ce&type=3#Asap-BoldItalic");
+    padding-top: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+}
+
+.get-back-button:hover {
+    scale: 1.1 1.1;
+    background-image: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Button_Images/Highlighted_Sprite/extra%20large/short-blue-highlight-extra-large.png?fileID=2800000&guid=624d474650167f342abc875a633bf3bf&type=3#short-blue-highlight-extra-large");
+}
+
+.get-back-button:active {
+    background-image: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Button_Images/Pressed_Sprites/Extra_Large/short-blue-pressed-extra-large.png?fileID=2800000&guid=dadfdc6c75932634e8c2206d06746312&type=3#short-blue-pressed-extra-large");
+}
+
+.unity-base-slider__dragger {
+    background-image: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Settings_&_Menu_Components/Extra%20Large/vertical-scroll-bar-handle-extra-large.png?fileID=2800000&guid=93df4a5f296156b4cad5dd08da3f296e&type=3#vertical-scroll-bar-handle-extra-large");
+    border-left-color: rgba(0, 0, 0, 0.5);
+    border-right-color: rgba(0, 0, 0, 0.5);
+    border-top-color: rgba(0, 0, 0, 0.5);
+    border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+
+.unity-base-slider__tracker {
+    background-image: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Settings_&_Menu_Components/Medium/vertical-scroll-bar-container-medium.png?fileID=2800000&guid=43fc6327486320847a35db395ec8e606&type=3#vertical-scroll-bar-container-medium");
+    border-left-color: rgba(0, 0, 0, 0.53);
+    border-right-color: rgba(0, 0, 0, 0.53);
+    border-top-color: rgba(0, 0, 0, 0.53);
+    border-bottom-color: rgba(0, 0, 0, 0.53);
+}
+
+.unity-base-slider__dragger-border {
+    background-color: rgb(49, 41, 74);
+}
+
+.unity-scroller__low-button {
+    background-image: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=6936960519852013934&guid=5e8031e43a47b044899a938fe3637244&type=3#arrow-up@2x");
+    background-color: rgba(0, 0, 0, 0);
+    -unity-background-image-tint-color: rgb(254, 238, 184);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.unity-scroller__high-button {
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    background-image: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-1304905567622442630&guid=5e8031e43a47b044899a938fe3637244&type=3#arrow-down@2x");
+    background-color: rgba(0, 0, 0, 0);
+    -unity-background-image-tint-color: rgb(254, 238, 184);
+}
