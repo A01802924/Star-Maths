@@ -1,0 +1,10 @@
+:root {
+}
+
+.salir {
+    width: 100px;
+    height: 100px;
+    align-self: flex-end;
+}
+
+

@@ -33,8 +33,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Mundos.unity
     guid: c6de6a97ff5b6de4db7154b10c5fd20d
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 6c0c645600ca3f6479d6c15c44b419f9
+  - enabled: 1
     path: Assets/Scenes/JuegoMeteoritos.unity
     guid: b9b5643f5c1cc444fa194511597f9bcd
+  - enabled: 1
+    path: Assets/Scenes/Puntuacion.unity
+    guid: dcc4327c3b8bee848b4ef1586130d823
+  - enabled: 1
+    path: Assets/Scenes/Personalizar.unity
+    guid: f52bf3cf13c9856489f774456196dc0d
+  - enabled: 1
+    path: Assets/Scenes/Configuration.unity
+    guid: 5c8d4967b88f7bb42b89317e6c48dfb0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: e9c2ccde543a741ec86d30b069b0c397, type: 3}
   m_UseUCBPForAssetBundles: 0
