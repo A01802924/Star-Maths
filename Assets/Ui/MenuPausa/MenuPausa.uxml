@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Ui/MenuPausa.uss?fileID=7433441132597879392&amp;guid=067e4c5f559404589980af6384c45c47&amp;type=3#MenuPausa"/>
+    <ui:VisualElement name="MenuPausa" class="fondo" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.74); display: none;">
+        <ui:Label text="MENU DE PAUSA" name="Titulo" class="titulo" style="top: 80px;"/>
+        <ui:VisualElement name="Menu" class="menu" style="flex-grow: 0; top: 100px; height: 60%; align-items: auto; align-self: center; width: 50%; align-content: flex-end; justify-content: space-around; flex-direction: column;">
+            <ui:Button text="Reanudar&#10;" name="Reanudar" class="botones" style="border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; font-size: 40px;"/>
+            <ui:Button text="Reiniciar&#10;" name="Reiniciar" class="botones" style="border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; font-size: 40px;"/>
+            <ui:Button text="Configuración" name="Opciones" class="botones" style="border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; font-size: 35px;"/>
+            <ui:Button text="Menú&#10;Principal" name="MenuPrincipal" class="botones" style="font-size: 35px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Button text="" name="BotonPausa" class="botonPausa" style="background-color: rgba(188, 188, 188, 0); background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Picto_Icons/White/pause-128.png?fileID=2800000&amp;guid=fc03ad66d32e43244b652520a5ac0cd2&amp;type=3#pause-128&quot;); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;"/>
+</ui:UXML>

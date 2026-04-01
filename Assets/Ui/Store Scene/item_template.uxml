@@ -1,0 +1,12 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Ui/Store%20Scene/item_template.uss?fileID=7433441132597879392&amp;guid=2c412183c5c562249b40c330bc0788ec&amp;type=3#item_template"/>
+    <ui:VisualElement name="ItemContainer" class="container item_container" style="width: 350px; height: 350px;">
+        <ui:Label text="AQUA" enable-rich-text="true" name="ItemName" class="item_title" style="width: 100%; height: 15%;"/>
+        <ui:Label text="Item Type" name="ItemType" class="item_type_text item_type" style="width: 100%; height: 10%;"/>
+        <ui:VisualElement name="ItemImage" style="flex-grow: 1; width: 100%; height: 60%; background-image: url(&quot;project://database/Assets/Sprites/Stylized%202D%20Space%20Shooter/Sprites/Medium%20-%20No%20Light/Ships%20-%20No%20Light/Ship_3_B_Medium_NoLight.png?fileID=2800000&amp;guid=41850719afd044048b532170aad7cf0d&amp;type=3#Ship_3_B_Medium_NoLight&quot;); -unity-text-align: middle-center; -unity-background-scale-mode: scale-to-fit;"/>
+        <ui:VisualElement name="PriceContainer" style="flex-grow: 1; flex-direction: row; width: 100%; height: 15%; -unity-text-align: upper-left; justify-content: center; align-self: center; align-content: center;">
+            <ui:Label text="15" name="ItemPrice" class="price_text item_price" style="-unity-text-align: middle-right; width: 80%; height: 100%; align-self: center; align-content: center; color: rgb(244, 244, 244);"/>
+            <ui:Image source="project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Icons/star-512.png?fileID=2800000&amp;guid=c312c96aabd780b458e35126d6eb218e&amp;type=3#star-512" name="StarImage" style="-unity-text-align: middle-center; width: 20%; height: 70%; align-self: center; align-content: center;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

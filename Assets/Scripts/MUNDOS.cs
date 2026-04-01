@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class MUNDOS : MonoBehaviour
@@ -25,6 +26,15 @@ void OnEnable()
         var moon = root.Q<Button>("MOON");
         var union = root.Q<Button>("UNION");
 
+        var info= root.Q<Button>("info");
+
+        var home = root.Q<Button>("home");
+
+        var regresar = root.Q<Button>("regresar");
+
+        var confi = root.Q<Button>("Configuracion");
+
+
         earth.RegisterCallback<MouseEnterEvent>(evt =>
         {
             suma.AddToClassList("OBSCURO");
@@ -35,6 +45,9 @@ void OnEnable()
             suma.RemoveFromClassList("OBSCURO");
         });
 
+        earth.RegisterCallback<ClickEvent>(AbrirNiveles);
+        
+
         neptune.RegisterCallback<MouseEnterEvent>(evt =>
         {
             resta.AddToClassList("OBSCURO");
@@ -44,6 +57,8 @@ void OnEnable()
         {
             resta.RemoveFromClassList("OBSCURO");
         });
+        
+        neptune.RegisterCallback<ClickEvent>(AbrirNiveles);
 
         uranus.RegisterCallback<MouseEnterEvent>(evt =>
         {
@@ -54,6 +69,8 @@ void OnEnable()
         {
             multiplicacion.RemoveFromClassList("OBSCURO");
         });
+        
+        uranus.RegisterCallback<ClickEvent>(AbrirNiveles);
 
         pluto.RegisterCallback<MouseEnterEvent>(evt =>
         {
@@ -65,6 +82,8 @@ void OnEnable()
             division.RemoveFromClassList("OBSCURO");
         });
 
+        pluto.RegisterCallback<ClickEvent>(AbrirNiveles);
+
         moon.RegisterCallback<MouseEnterEvent>(evt =>
         {
             union.AddToClassList("OBSCURO");
@@ -75,6 +94,39 @@ void OnEnable()
             union.RemoveFromClassList("OBSCURO");
         });
 
+        moon.RegisterCallback<ClickEvent>(AbrirNiveles);
 
+        void AbrirNiveles(ClickEvent evt)
+        {
+            SceneManager.LoadScene("Niveles");
+        }
+
+        info.RegisterCallback<ClickEvent>(AbrirInfo);
+
+        void AbrirInfo(ClickEvent evt)
+        {
+            SceneManager.LoadScene("Informacion");
+        }
+
+        home.RegisterCallback<ClickEvent>(AbrirHome);
+
+        void AbrirHome(ClickEvent evt)
+        {
+        SceneManager.LoadScene("MenuPrincipalScene");
+        }
+
+        regresar.RegisterCallback<ClickEvent>(AbrirRegresar);
+        void AbrirRegresar(ClickEvent evt)
+        {
+            SceneManager.LoadScene("ModosJuegoScene");
+        }
+
+        confi.RegisterCallback<ClickEvent>(AbrirConfi);
+        void AbrirConfi(ClickEvent evt)
+        {
+            SceneManager.LoadScene("Configuration");
+        }
     }
+    
+        
 }

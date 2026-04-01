@@ -19,6 +19,8 @@ public class MostrarMenu : MonoBehaviour
     private Image estrella3ND;
     private VisualElement menu;
 
+    private moverNave naveController;
+
     //
     private Label score;
     private int totalPuntos = 150000;
@@ -59,6 +61,8 @@ public class MostrarMenu : MonoBehaviour
         //Ocultamos menu al inicio
         menu.style.display = DisplayStyle.None;
 
+        naveController = FindAnyObjectByType<moverNave>();
+
         //Muestra el menu tras 5 segundos
         StartCoroutine(MuestraMenu(5f));
 
@@ -71,6 +75,11 @@ public class MostrarMenu : MonoBehaviour
     {
         yield return new WaitForSeconds(segundos);
         menu.style.display = DisplayStyle.Flex;
+
+        if(naveController != null)
+        {
+            naveController.enabled = false;
+        }
 
         //Se hace la animación en orden
         yield return StartCoroutine(AnimarScore(0, totalPuntos, 2f));
@@ -140,11 +149,11 @@ public class MostrarMenu : MonoBehaviour
 
     private void RepetirNivel()
     {
-        SceneManager.LoadScene("JuegoJefe");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void MenuPrincipal()
     {
-        SceneManager.LoadScene("MenuPrincipal");
+        SceneManager.LoadScene("MenuPrincipalScene");
     }
 }

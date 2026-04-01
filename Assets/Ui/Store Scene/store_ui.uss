@@ -47,3 +47,31 @@
     font-size: 50px;
     -unity-font-definition: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap-SemiBoldItalic.ttf?fileID=12800000&guid=ce95205ef417460469c7ef474b0e4e11&type=3#Asap-SemiBoldItalic");
 }
+
+.unity-scroller__low-button {
+    background-image: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=6936960519852013934&guid=5e8031e43a47b044899a938fe3637244&type=3#arrow-up@2x");
+    -unity-background-image-tint-color: rgb(250, 248, 250);
+    background-color: rgba(157, 140, 157, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.unity-scroller__high-button {
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    background-image: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-1304905567622442630&guid=5e8031e43a47b044899a938fe3637244&type=3#arrow-down@2x");
+    background-color: rgba(157, 140, 157, 0);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+}
+
+
+
+
+
+.unity-tracker {
+    background-image: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Settings_&_Menu_Components/Extra%20Large/vertical-scroll-bar-container-extra-large.png?fileID=2800000&guid=44972e3d8da0f7a45aa1d4511254269b&type=3#vertical-scroll-bar-container-extra-large");
+}
