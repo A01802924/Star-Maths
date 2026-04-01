@@ -11,13 +11,14 @@ public class detectaColision : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") || transform.position.x <= -13)
+        if (collision.CompareTag("Player"))
         {
             meteoros.perder();
         }
         if (collision.CompareTag("Bala"))
         {
             Destroy(gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }
