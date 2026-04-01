@@ -28,6 +28,12 @@ void OnEnable()
 
         var info= root.Q<Button>("info");
 
+        var home = root.Q<Button>("home");
+
+        var regresar = root.Q<Button>("regresar");
+
+        var confi = root.Q<Button>("Configuracion");
+
 
         earth.RegisterCallback<MouseEnterEvent>(evt =>
         {
@@ -101,5 +107,26 @@ void OnEnable()
         {
             SceneManager.LoadScene("Informacion");
         }
+
+        home.RegisterCallback<ClickEvent>(AbrirHome);
+
+        void AbrirHome(ClickEvent evt)
+        {
+        SceneManager.LoadScene("MenuPrincipalScene");
+        }
+
+        regresar.RegisterCallback<ClickEvent>(AbrirRegresar);
+        void AbrirRegresar(ClickEvent evt)
+        {
+            SceneManager.LoadScene("ModosJuegoScene");
+        }
+
+        confi.RegisterCallback<ClickEvent>(AbrirConfi);
+        void AbrirConfi(ClickEvent evt)
+        {
+            SceneManager.LoadScene("Configuration");
+        }
     }
+    
+        
 }
