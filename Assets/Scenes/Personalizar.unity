@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 1013576238}
   - component: {fileID: 1013576237}
   - component: {fileID: 1013576239}
+  - component: {fileID: 1013576240}
   m_Layer: 5
   m_Name: StoreUI
   m_TagString: Untagged
@@ -239,6 +240,18 @@ MonoBehaviour:
     itemIcon: {fileID: 21300000, guid: 2199d812104d43e4fac2215f13fb1fbb, type: 3}
     isAlreadyOwned: 0
   itemTemplate: {fileID: 9197481963319205126, guid: f65b402c82f84f641a96f3b67b64c5c1, type: 3}
+--- !u!114 &1013576240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013576236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf81ba7c24bc7474ea093cdda00d7517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GetBackButtonStore
 --- !u!1 &1016878774
 GameObject:
   m_ObjectHideFlags: 0

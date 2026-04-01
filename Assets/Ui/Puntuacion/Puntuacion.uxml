@@ -59,6 +59,6 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:ScrollView>
-        <ui:Button text="Regresar" name="Button" class="get-back-button" style="position: absolute; top: 83px; left: 64px;"/>
+        <ui:Button text="Regresar" name="GetBackButton" class="get-back-button" style="position: absolute; top: 83px; left: 64px;"/>
     </ui:VisualElement>
 </ui:UXML>
