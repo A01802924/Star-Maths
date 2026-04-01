@@ -1,0 +1,75 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Ui/Configuration%20Modal/ConfigurationModal.uss?fileID=7433441132597879392&amp;guid=62aa866e8e49c1a468d44a838f6844fe&amp;type=3#ConfigurationModal"/>
+    <ui:VisualElement name="ModalContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.33); width: 100%; height: 100%;">
+        <ui:VisualElement name="TutorialContainer" style="flex-grow: 1; padding-top: 50px; padding-right: 75px; padding-bottom: 50px; padding-left: 75px; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Containers/Extra%20Large/setting-container-extra-large.png?fileID=2800000&amp;guid=aa3438aa1d398674d8b1a32c1176337f&amp;type=3#setting-container-extra-large&quot;); background-color: rgba(22, 20, 57, 0);">
+            <ui:VisualElement name="BodyContainer" style="flex-grow: 1; margin-top: 75px; margin-right: 75px; margin-bottom: 75px; margin-left: 75px;">
+                <ui:Label text="CONFIGURACIÓN" enable-rich-text="true" name="Header" class="scene_title"/>
+                <ui:TabView name="ConfigTabs">
+                    <ui:Tab label="" name="Screen" icon-image="project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Picto_Icons/Config_Icons/monitor-white.png?fileID=2800000&amp;guid=1c0fb6e6215c0004c94f207ae716dc37&amp;type=3#monitor-white">
+                        <ui:VisualElement name="ScreenContainer" style="flex-grow: 1;">
+                            <ui:Label text="Pantalla" name="ScreenHeader" class="section_header"/>
+                            <ui:VisualElement name="BrightnessContainer" style="flex-grow: 1; flex-direction: row; justify-content: space-between; align-items: stretch; align-content: flex-start; align-self: auto; margin-top: 50px;">
+                                <ui:Slider label="Brillo" value="42" high-value="100" name="Slider" class="body_text slider_text" style="margin-top: 2px; width: 93%;"/>
+                                <ui:Label text="85%" name="BrightnessPercentage" class="body_text slider_meaning_text" style="width: 7%; -unity-text-align: middle-center; margin-top: 2px;"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement name="ResolutionContainer" style="flex-grow: 1; flex-direction: row; justify-content: space-between; align-items: stretch; align-content: flex-start; align-self: auto; margin-top: 50px;">
+                                <ui:Slider label="Calidad" value="42" high-value="100" name="Slider" class="body_text slider_text" style="margin-top: 2px; width: 93%;"/>
+                                <ui:Label text="Alta" name="BrightnessPercentage" class="body_text slider_meaning_text" style="width: 7%; -unity-text-align: middle-center; margin-top: 2px;"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:Tab>
+                    <ui:Tab label="" name="Audio" icon-image="project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Picto_Icons/Config_Icons/musical_note-white.png?fileID=2800000&amp;guid=24200fa7d83aae44dadd32dd76e932bb&amp;type=3#musical_note-white">
+                        <ui:VisualElement name="AudioContainer" style="flex-grow: 1;">
+                            <ui:Label text="Audio" name="AudioHeader" class="section_header"/>
+                            <ui:VisualElement name="BrightnessContainer" style="flex-grow: 1; flex-direction: row; justify-content: space-between; align-items: stretch; align-content: flex-start; align-self: auto; margin-top: 50px;">
+                                <ui:Slider label="Música" value="42" high-value="100" name="Slider" class="body_text slider_text" style="margin-top: 2px; width: 93%;"/>
+                                <ui:Label text="60" name="BrightnessPercentage" class="body_text slider_meaning_text" style="width: 7%; -unity-text-align: middle-center; margin-top: 2px;"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement name="ResolutionContainer" style="flex-grow: 1; flex-direction: row; justify-content: space-between; align-items: stretch; align-content: flex-start; align-self: auto; margin-top: 50px;">
+                                <ui:Slider label="Efectos" value="42" high-value="100" name="Slider" class="body_text slider_text" style="margin-top: 2px; width: 93%;"/>
+                                <ui:Label text="80" name="BrightnessPercentage" class="body_text slider_meaning_text" style="width: 7%; -unity-text-align: middle-center; margin-top: 2px;"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:Tab>
+                    <ui:Tab label="" name="Controls" icon-image="project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Picto_Icons/Config_Icons/games-white.png?fileID=2800000&amp;guid=990a28e7dc6c2954c8cda129bd997be7&amp;type=3#games-white" style="height: 524px;">
+                        <ui:VisualElement name="ControlsContainer" style="flex-grow: 1;">
+                            <ui:Label text="Controles" name="ControlsHeader" class="section_header"/>
+                            <ui:VisualElement name="ControlsGrid" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; justify-content: center; width: 100%; height: 100%; margin-top: 50px;">
+                                <ui:VisualElement name="LeftControl" style="flex-grow: 1; flex-direction: row; flex-wrap: nowrap; justify-content: center; width: 50%;">
+                                    <ui:Label text="IZQUIERDA" name="Label" class="control-name-text" style="width: 278px;"/>
+                                    <ui:Label text="A" class="control-text control-key-text" style="width: 253px;"/>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="RightControl" style="flex-grow: 1; flex-direction: row; flex-wrap: nowrap; justify-content: center; width: 50%;">
+                                    <ui:Label text="DERECHA" class="control-name-text" style="width: 278px;"/>
+                                    <ui:Label text="D" class="control-text control-key-text" style="width: 253px;"/>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="UpControl" style="flex-grow: 1; flex-direction: row; flex-wrap: nowrap; justify-content: center; width: 50%;">
+                                    <ui:Label text="ARRIBA" class="control-name-text" style="width: 278px;"/>
+                                    <ui:Label text="W" class="control-text control-key-text" style="width: 253px;"/>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="DownControl" style="flex-grow: 1; flex-direction: row; flex-wrap: nowrap; justify-content: center; width: 50%;">
+                                    <ui:Label text="ABAJO" class="control-name-text" style="width: 278px;"/>
+                                    <ui:Label text="S" class="control-text control-key-text" style="width: 253px;"/>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="ShootControl" style="flex-grow: 1; flex-direction: row; flex-wrap: nowrap; justify-content: center; width: 50%;">
+                                    <ui:Label text="DISPARO" class="control-name-text" style="width: 278px;"/>
+                                    <ui:Label text="SPACE" class="control-text control-key-text" style="width: 253px;"/>
+                                </ui:VisualElement>
+                                <ui:VisualElement name="PauseControl" style="flex-grow: 1; flex-direction: row; flex-wrap: nowrap; justify-content: center; width: 50%;">
+                                    <ui:Label text="PAUSA" class="control-name-text" style="width: 278px;"/>
+                                    <ui:Label text="ESC" class="control-text control-key-text" style="width: 253px;"/>
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:Tab>
+                </ui:TabView>
+                <ui:VisualElement name="ConfigButtons" style="flex-grow: 1; flex-direction: row; flex-wrap: nowrap; justify-content: space-evenly; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; align-items: center;">
+                    <ui:Button text="Reestablecer Todo" name="RestoreDefault" class="default-button"/>
+                    <ui:Button text="Guardar Cambios" name="SaveChangesButton" class="save-button"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Button text="" name="CloseButton" class="close_button" style="position: absolute; top: 37px; left: 1752px; right: 61px; bottom: 939px; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Button_Images/Source_Image_Sprites/extra%20large/close-button-extra-large.png?fileID=2800000&amp;guid=a8d80b07a224ab64ea89aa1c2cf2db4c&amp;type=3#close-button-extra-large&quot;); -unity-background-scale-mode: scale-to-fit; background-size: 100% 100%; background-color: rgba(188, 188, 188, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); width: 100px; height: 100px;"/>
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-grow: 1;"/>
+</ui:UXML>
