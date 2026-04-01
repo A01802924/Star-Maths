@@ -74,4 +74,5 @@
 .botones:hover {
     transition-duration: 0.35s;
     scale: 1.1 1.1;
+    color: rgb(252, 255, 213);
 }
