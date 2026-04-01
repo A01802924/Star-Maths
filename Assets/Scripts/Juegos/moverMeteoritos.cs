@@ -13,6 +13,10 @@ public class moverMeteoritos : MonoBehaviour
     void FixedUpdate()
     {
         rb.linearVelocityX = velocidad * -1;
+        if (transform.position.x <= -14)
+        {
+            perder();
+        }
     }
 
     public void perder()
