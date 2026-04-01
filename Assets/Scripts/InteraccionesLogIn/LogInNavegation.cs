@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
     private Label lblRegistro;
     private Label lblIniciarSesion;
     private Button btnMenu;
+    private Button btnMenu2;
 
     void OnEnable()
     {
@@ -24,11 +25,13 @@ public class MenuManager : MonoBehaviour
         lblRegistro = root.Q<Label>("Registro");
         lblIniciarSesion = root.Q<Label>("InicioSesion");
         btnMenu = root.Q<Button>("Ingresar");
+        btnMenu2 = root.Q<Button>("Ingresar2");
 
 
         lblRegistro.RegisterCallback<ClickEvent>(OnRegistroClicked);
         lblIniciarSesion.RegisterCallback<ClickEvent>(OnIniciarSesionClicked);
         btnMenu.RegisterCallback<ClickEvent>(OnMenuClicked);
+        btnMenu2.RegisterCallback<ClickEvent>(OnMenuClicked);
 
     }
 
