@@ -62,7 +62,8 @@ public class MenuPausa : MonoBehaviour
 
     private void MenuOpciones()
     {
-        print("Menú opciones abierto");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Configuration");
     }
 
     private void VolverMenuPrincipal()

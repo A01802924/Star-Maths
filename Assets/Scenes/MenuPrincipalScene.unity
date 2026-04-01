@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 814314621}
   - component: {fileID: 814314620}
   - component: {fileID: 814314622}
+  - component: {fileID: 814314623}
   m_Layer: 5
   m_Name: UIMenu
   m_TagString: Untagged
@@ -370,6 +371,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f102182e390b314f9b4132fd0337040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuPrincipal
+--- !u!114 &814314623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814314619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc33945de2aec44188093ed267885457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Creditos
+  speed: 150
 --- !u!1001 &1473191756
 PrefabInstance:
   m_ObjectHideFlags: 0

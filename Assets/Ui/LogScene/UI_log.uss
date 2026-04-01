@@ -57,3 +57,14 @@
     color: rgb(252, 255, 213);
     font-size: 23px;
 }
+
+.titulo {
+}
+
+.texto {
+    font-size: 40px;
+    -unity-font-style: bold-and-italic;
+    -unity-font-definition: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap-Black.ttf?fileID=12800000&guid=55e4db458c396694dbc945bf487b97f0&type=3#Asap-Black");
+    color: rgb(255, 255, 255);
+    white-space: normal;
+}
