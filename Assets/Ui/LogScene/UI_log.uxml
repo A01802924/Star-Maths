@@ -24,7 +24,7 @@
             </ui:RadioButtonGroup>
             <ui:DropdownField label="Grado Escolar" name="Grado" choices="1,2,3,4,5,6" style="-unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap_SemiExpanded-ExtraBoldItalic.ttf?fileID=12800000&amp;guid=c32ee0853b2c29c4ea6e3359e1c81f7a&amp;type=3#Asap_SemiExpanded-ExtraBoldItalic&quot;); color: rgb(252, 255, 213); font-size: 25px;"/>
             <ui:Label text="¿Ya tienes cuenta? &lt;color=#34B132&gt;&lt;u&gt;Inicia sesion&lt;/u&gt;&lt;/color&gt;" name="InicioSesion" class="incio-registro" style="top: 25px; position: relative; left: 0; font-size: 25px;"/>
-            <ui:Button text="Ingresar" name="Ingresar" class="botones" style="color: rgb(0, 0, 0); top: 25px; background-color: rgba(188, 188, 188, 0); width: 400px; height: 100px;"/>
+            <ui:Button text="Ingresar" name="Ingresar2" class="botones" style="color: rgb(0, 0, 0); top: 25px; background-color: rgba(188, 188, 188, 0); width: 400px; height: 100px;"/>
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="MenuPrincipal" class="contenedor" style="display: none;">
