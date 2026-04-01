@@ -41,6 +41,8 @@
     border-right-color: rgba(56, 56, 56, 0);
     border-top-color: rgba(56, 56, 56, 0);
     border-bottom-color: rgba(56, 56, 56, 0);
+    transition-duration: 0.35s;
+    scale: 1 1;
 }
 
 .incio-registro {
@@ -67,4 +69,9 @@
     -unity-font-definition: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap-Black.ttf?fileID=12800000&guid=55e4db458c396694dbc945bf487b97f0&type=3#Asap-Black");
     color: rgb(255, 255, 255);
     white-space: normal;
+}
+
+.botones:hover {
+    transition-duration: 0.35s;
+    scale: 1.1 1.1;
 }
