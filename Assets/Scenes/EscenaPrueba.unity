@@ -385,6 +385,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3427087615079023916, guid: 8d1bc3ae7ede96349a4b75a841a932f9, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8587222695343965607, guid: 8d1bc3ae7ede96349a4b75a841a932f9, type: 3}
       propertyPath: m_Name
       value: fondo
@@ -445,6 +449,10 @@ PrefabInstance:
     - target: {fileID: 2812977194463986063, guid: 2501270bc3713a645843b2ce99433848, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2974537646969642840, guid: 2501270bc3713a645843b2ce99433848, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
