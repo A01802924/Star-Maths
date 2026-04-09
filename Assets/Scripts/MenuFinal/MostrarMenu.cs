@@ -29,10 +29,12 @@ public class MostrarMenu : MonoBehaviour
     private Label time;
     private int totalTiempo = 180;
 
+    private string nombreEscena;
 
     void Start()
     {
-        
+        nombreEscena = "";
+
         menuFinal = GetComponent<UIDocument>(); 
         var root = menuFinal.rootVisualElement;
         
@@ -64,16 +66,16 @@ public class MostrarMenu : MonoBehaviour
         naveController = FindAnyObjectByType<moverNave>();
 
         //Muestra el menu tras 5 segundos
-        StartCoroutine(MuestraMenu(5f));
-
-        
-        
+        StartCoroutine(MuestraMenu());     
     }
 
-
-    private IEnumerator MuestraMenu(float segundos)
+    public void escenaPrevia(string name)
     {
-        yield return new WaitForSeconds(segundos);
+        nombreEscena = name;
+    }
+
+    private IEnumerator MuestraMenu()
+    {
         menu.style.display = DisplayStyle.Flex;
 
         if(naveController != null)
@@ -149,7 +151,7 @@ public class MostrarMenu : MonoBehaviour
 
     private void RepetirNivel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(nombreEscena);
     }
 
     private void MenuPrincipal()

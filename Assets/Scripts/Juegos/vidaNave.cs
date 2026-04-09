@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class vidaNave : MonoBehaviour
 {
     private int vidas = 6;
+    private MostrarMenu MM;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,6 +16,7 @@ public class vidaNave : MonoBehaviour
         if (vidas <= 0)
         {
             Destroy(gameObject);
+            MM.escenaPrevia("nose");
             SceneManager.LoadScene("MenuFinal");
         }
     }

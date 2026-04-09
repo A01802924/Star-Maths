@@ -33,7 +33,7 @@ public class lanzarMeteoritos : MonoBehaviour
 
     void Lanzar()
     {
-        num = Random.Range(0, 2);
+        num = Random.Range(0, 3);
         Instantiate(meteoritos[num], transform.position, transform.rotation);
     }
 }
