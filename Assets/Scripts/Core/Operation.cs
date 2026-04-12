@@ -37,10 +37,7 @@ namespace Assets.Scripts.Core
 
             if (operand.symbol == '-' && terms.secondTerm > terms.firstTerm)
             {
-                (terms.firstTerm, terms.secondTerm) = (terms.secondTerm, terms.firstTerm); // Is this the correct way to get close to the C++ std::swap() global function? Or should I do it as below:
-                // int temp = terms.firstTerm;
-                // terms.firstTerm = terms.secondTerm;
-                // terms.secondTerm = temp;
+                (terms.firstTerm, terms.secondTerm) = (terms.secondTerm, terms.firstTerm);
             }
             else if (operand.symbol == '/' && terms.firstTerm % terms.secondTerm != 0)
                 terms.firstTerm += terms.secondTerm - (terms.firstTerm % terms.secondTerm);
