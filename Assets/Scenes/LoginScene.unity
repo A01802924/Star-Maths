@@ -484,6 +484,8 @@ GameObject:
   - component: {fileID: 1942313003}
   - component: {fileID: 1942313002}
   - component: {fileID: 1942313004}
+  - component: {fileID: 1942313005}
+  - component: {fileID: 1942313006}
   m_Layer: 5
   m_Name: UI_log
   m_TagString: Untagged
@@ -536,11 +538,35 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942313001}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9db6ab29021a9544db78f4601952520f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LogInNavegation
+--- !u!114 &1942313005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942313001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a34b84d8c737c1f4cafda1ae53b318df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LoginBD
+--- !u!114 &1942313006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942313001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5c2c2939063554884dfd1877d88d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RegistroBD
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
