@@ -52,7 +52,7 @@ public class LoginBD : MonoBehaviour
     string json = JsonUtility.ToJson(data);
 
     
-    UnityWebRequest request = UnityWebRequest.Post("http://18.233.166.175:8080/login", json, "application/json"); //aqui esta el unitywebrequest el url esta declarado hasta arriba y post para enviar los datos al servidor 
+    UnityWebRequest request = UnityWebRequest.Post("https://ejqqvbkeso7awheffaw6brvsdi0prujw.lambda-url.us-east-1.on.aws/login", json, "application/json"); //aqui esta el unitywebrequest el url esta declarado hasta arriba y post para enviar los datos al servidor 
  
 
     yield return request.SendWebRequest(); //yo regreso de la funcion mientras, es lo que hace que regrese de inmediato arriba es el segundo thread de la programacion espera a que se complete la solicitud web antes de continuar con el siguiente paso

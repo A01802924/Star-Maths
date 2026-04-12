@@ -42,8 +42,8 @@ public class RegistroBD : MonoBehaviour
      {
          var root = GetComponent<UIDocument>().rootVisualElement;
 
-         tfUsuario = root.Q<TextField>("Usuario");
-         tfPassword = root.Q<TextField>("Contrasenia");
+         tfUsuario = root.Q<TextField>("Usuario2");
+         tfPassword = root.Q<TextField>("Contrasenia2");
          tfcorreoElectronico = root.Q<TextField>("CorreoElectronico");
          tfNombre = root.Q<TextField>("NombreJugador");
          tfApellido = root.Q<TextField>("ApellidoJugador");
@@ -75,7 +75,7 @@ public class RegistroBD : MonoBehaviour
         };
         string json = JsonUtility.ToJson(data);
 
-        UnityWebRequest request = UnityWebRequest.Post("http://18.233.166.175:8080/registro", json, "application/json"); 
+        UnityWebRequest request = UnityWebRequest.Post("https://ejqqvbkeso7awheffaw6brvsdi0prujw.lambda-url.us-east-1.on.aws/registro", json, "application/json"); 
         
         yield return request.SendWebRequest();
         if (request.result == UnityWebRequest.Result.Success)

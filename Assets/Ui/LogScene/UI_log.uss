@@ -25,8 +25,8 @@
     border-top-width: 25px;
     border-bottom-width: 25px;
     -unity-font-definition: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap_SemiExpanded-ExtraBoldItalic.ttf?fileID=12800000&guid=c32ee0853b2c29c4ea6e3359e1c81f7a&type=3#Asap_SemiExpanded-ExtraBoldItalic");
-    color: rgb(252, 255, 213);
-    height: 200px;
+    color: rgb(0, 0, 0);
+    height: 150px;
 }
 
 .botones {
@@ -54,10 +54,13 @@
     flex-direction: column;
     flex-wrap: nowrap;
     width: 400px;
-    height: 100px;
+    height: 60px;
     -unity-font-definition: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap_SemiExpanded-ExtraBoldItalic.ttf?fileID=12800000&guid=c32ee0853b2c29c4ea6e3359e1c81f7a&type=3#Asap_SemiExpanded-ExtraBoldItalic");
-    color: rgb(252, 255, 213);
+    color: rgb(0, 0, 0);
     font-size: 23px;
+}
+
+.inputsLabelRegistro:active {
 }
 
 .titulo {
