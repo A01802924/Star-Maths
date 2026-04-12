@@ -50,6 +50,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Configuration.unity
     guid: 5c8d4967b88f7bb42b89317e6c48dfb0
+  - enabled: 1
+    path: Assets/Scenes/CoreTest/SelectLevel.unity
+    guid: eab0fd3201e3e4144b3293b299c5af1d
+  - enabled: 1
+    path: Assets/Scenes/CoreTest/PlayLevelGame.unity
+    guid: 6674798cf8fde0f48be6b811ff92601a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: e9c2ccde543a741ec86d30b069b0c397, type: 3}
   m_UseUCBPForAssetBundles: 0

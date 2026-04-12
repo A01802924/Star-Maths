@@ -1,0 +1,72 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Ui/QuestionGeneratorTest/LevelGame/LevelGame.uss?fileID=7433441132597879392&amp;guid=4bedb7bc3b09d4f4da20801f59fa18b4&amp;type=3#LevelGame"/>
+    <ui:VisualElement name="MainContainer" style="flex-grow: 1;">
+        <ui:Label text="Core Test" name="TestTitle" class="test-title"/>
+        <ui:Label text="Level Game Scene" name="SceneTitle" class="scene-title"/>
+        <ui:VisualElement name="GameContainer" style="flex-grow: 1; display: flex;">
+            <ui:Label text="Dynamic Level Info Label" name="LevelInfo" class="scene-title"/>
+            <ui:VisualElement name="QuestionContainer" style="flex-grow: 1; flex-direction: row; justify-content: center;">
+                <ui:Label text="QUESTION" name="Question" class="test-title"/>
+                <ui:Label text="=" name="EqualsSeparator" class="test-title"/>
+                <ui:Label text="ANSWER" name="Answer" class="test-title"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="InputContainer" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; align-items: stretch; margin-top: 30px; margin-bottom: 30px; margin-right: 650px; margin-left: 650px; align-content: stretch; justify-content: space-evenly;">
+                <ui:Button text="0" name="Number0" class="button-input"/>
+                <ui:Button text="1" name="Number1" class="button-input"/>
+                <ui:Button text="2" name="Number2" class="button-input"/>
+                <ui:Button text="3" name="Number3" class="button-input"/>
+                <ui:Button text="4" name="Number4" class="button-input"/>
+                <ui:Button text="5" name="Number5" class="button-input"/>
+                <ui:Button text="6" name="Number6" class="button-input"/>
+                <ui:Button text="7" name="Number7" class="button-input"/>
+                <ui:Button text="8" name="Number8" class="button-input"/>
+                <ui:Button text="DEL" name="Delete" class="button-input"/>
+                <ui:Button text="9" name="Number9" class="button-input"/>
+                <ui:Button text="=" name="Equals" class="button-input"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="LivesContainer" style="flex-grow: 1; flex-direction: row; position: absolute; top: 750px; left: 50px;">
+                <ui:Image name="HeartIcon" source="project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Icons/heart-512.png?fileID=2800000&amp;guid=ecb728ecbc6be7c4caa96151292103cc&amp;type=3#heart-512" style="width: 100px; height: 100px;"/>
+                <ui:Label text="Hearts:" name="HeartsLabel" class="scene-title"/>
+                <ui:Label text="5" name="CurrentLives" class="scene-title"/>
+                <ui:Label text="/ 5" name="InitialLives" class="scene-title"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="GoalContainer" style="flex-grow: 1; flex-direction: row; position: absolute; top: 757px; left: 1499px;">
+                <ui:Label text="Goal:" name="GoalLabel" class="scene-title"/>
+                <ui:Label text="0" name="CurrentCorrects" class="scene-title"/>
+                <ui:Label text="/" name="Separator" class="scene-title"/>
+                <ui:Label text="20" name="CorrectsGoal" class="scene-title"/>
+                <ui:Image source="project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Icons/trophy-512.png?fileID=2800000&amp;guid=0f6fc999507e06342a18689a809c3df5&amp;type=3#trophy-512" name="GoalIcon" style="width: 100px; height: 100px;"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="StatsContainer" style="flex-grow: 1; margin-top: 100px; margin-bottom: 100px; display: none;">
+            <ui:Label text="Is Victory?" name="GameResult" class="test-title"/>
+            <ui:VisualElement name="DetailsContainer" style="flex-grow: 1; margin-right: 400px; margin-left: 400px; margin-top: 50px;">
+                <ui:Label text="Stats" name="StatsTitle" class="scene-title"/>
+                <ui:VisualElement name="LivesStatContainer" style="flex-grow: 1; flex-direction: row; justify-content: flex-start;">
+                    <ui:Label text="Remaining Lives:" name="RemainingLivesLabel" class="body-text"/>
+                    <ui:Label text="1" name="FinalLives" class="body-text"/>
+                    <ui:Label text="/" name="Separator" class="body-text"/>
+                    <ui:Label text="5" name="InitialLives" class="body-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="TotalQuestionsContainer" style="flex-grow: 1; flex-direction: row; justify-content: flex-start;">
+                    <ui:Label text="Total of Generated Questions:" name="TotalQuestionsLabel" class="body-text"/>
+                    <ui:Label text="20" name="TotalQuestionsNumber" class="body-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="CorrectQuestionsContainer" style="flex-grow: 1; flex-direction: row; justify-content: flex-start;">
+                    <ui:Label text="&#x9;Answered Correctly:" name="CorrectQuestionsLabel" class="body-text"/>
+                    <ui:Label text="18" name="CorrectQuestionsNumber" class="body-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="IncorrectQuestionsContainer" style="flex-grow: 1; flex-direction: row;">
+                    <ui:Label text="&#x9;Answered Incorrectly:" name="IncorreectQuestionsLabel" class="body-text"/>
+                    <ui:Label text="2" name="IncorrectQuestionsNumber" class="body-text"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="PlayTimeContainer" style="flex-grow: 1; flex-direction: row;">
+                    <ui:Label text="Play time:" name="PlayTimeLabel" class="body-text"/>
+                    <ui:Label text="58.52" name="PlayTimeNumber" class="body-text"/>
+                    <ui:Label text="s" name="SecondsLabel" class="body-text"/>
+                </ui:VisualElement>
+                <ui:Button text="New Game" name="NewGameButton" class="button-play" style="align-self: center;"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
