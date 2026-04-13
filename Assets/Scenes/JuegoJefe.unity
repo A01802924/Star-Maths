@@ -169,7 +169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8083996947051373467, guid: 47c8d68615a264cbe9d6bae918576468, type: 3}
       propertyPath: m_Name
-      value: UIMenuPausa
+      value: HUD
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -52,8 +52,22 @@ TemporaryDependencyNodeTargetIdentifier=netstandard2.1
 /warnaserror+:NU1605
 
 [sourceFiles]
+Assets/Scripts/BD_connections/
+ LoginBD.cs
+ RegistroBD.cs
 Assets/Scripts/
  Configuration/GetBackConfigButton.cs
+ Core/
+  DiscreteRandom.cs
+  Domain.cs
+  Game.cs
+  IRandom.cs
+  Level.cs
+  LevelFactory.cs
+  LevelGame.cs
+  Operation.cs
+  SessionData.cs
+  UniformRandom.cs
  Info/Info.cs
  InteraccionesLogIn/
   LlegarALog.cs
@@ -80,8 +94,13 @@ Assets/Scripts/
  MUNDOS.cs
  Niveles/ControlesNiveles.cs
  Notas.cs
+ QuestionGeneratorTest/
+  PlayLevelGame/PlayLevelGame.cs
+  SelectLevel/SelectLevel.cs
  Ranking/GetBackRankingButton.cs
- Store Scene/GetBackButtonStore.cs
+ Store Scene/
+  GetBackButton.cs
+  GetBackButtonStore.cs
  Tutorial Modal/
   DisplayVideo.cs
   GetBackStoreButton.cs

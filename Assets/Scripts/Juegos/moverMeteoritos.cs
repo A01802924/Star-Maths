@@ -3,7 +3,7 @@ using UnityEngine;
 public class moverMeteoritos : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private float velocidad = 3f;
+    private float velocidad = 6.7f;
 
     void Start()
     {
