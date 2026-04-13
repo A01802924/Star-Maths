@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b003cd2018475e4885fa7788123f68c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::vidaNave
+  vidas: 3
 --- !u!1 &4245057454449048126
 GameObject:
   m_ObjectHideFlags: 0

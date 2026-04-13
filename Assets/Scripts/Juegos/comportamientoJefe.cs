@@ -11,6 +11,7 @@ public class comportamientoJefe : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        Invoke("Victoria", 15f);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

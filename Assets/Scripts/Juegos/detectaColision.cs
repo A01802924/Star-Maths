@@ -3,6 +3,7 @@ using UnityEngine;
 public class detectaColision : MonoBehaviour
 {
     private moverMeteoritos meteoros;
+    private bool golpeo = false;
 
     void Start()
     {
@@ -11,9 +12,16 @@ public class detectaColision : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (golpeo)
+        {
+            return;
+        }
         if (collision.CompareTag("Player"))
         {
+            golpeo = true;
+            vidaNave.instance.vidas--;
             meteoros.perder();
+            MenuPausa.instance.ActualizarVidas();
         }
         if (collision.CompareTag("Bala"))
         {
