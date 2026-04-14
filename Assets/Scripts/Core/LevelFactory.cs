@@ -100,8 +100,8 @@ namespace Assets.Scripts.Core
                         case 3:
                             operations = new List<Operation>
                             {
-                                new("addition", 12.5, 0, 0, 0, 100, 50, 149),
-                                new("subtraction", 12.5, 0, 0, 0, 100, 10, 99),
+                                new("addition", 12.5f, 0, 0, 0, 100, 50, 149),
+                                new("subtraction", 12.5f, 0, 0, 0, 100, 10, 99),
                                 new("multiplication", 75, 0, 0, 0, 100, 1, 12)
                             };
                             correctAnswersGoal = 10;

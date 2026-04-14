@@ -56,3 +56,10 @@
     width: 128px;
     height: 128px;
 }
+
+.respuestas {
+    font-size: 100px;
+    -unity-font-style: bold;
+    color: rgb(255, 255, 255);
+    margin-right: 25px;
+}

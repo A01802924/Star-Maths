@@ -19,10 +19,10 @@ namespace Assets.Scripts.Core
     public class Operation
     {
         private Operand operand;
-        public double Frequency { get; private set; }
+        public float Frequency { get; private set; }
         private Domain domain;
-        public Operation(string op, double freq,
-        double freq5, double freq3, double freq2, double freqR,
+        public Operation(string op, float freq,
+        float freq5, float freq3, float freq2, float freqR,
         int domainStart, int domainEnd)
         {
             operand = new Operand(op);
@@ -40,7 +40,9 @@ namespace Assets.Scripts.Core
                 (terms.firstTerm, terms.secondTerm) = (terms.secondTerm, terms.firstTerm);
             }
             else if (operand.symbol == '/' && terms.firstTerm % terms.secondTerm != 0)
+            {
                 terms.firstTerm += terms.secondTerm - (terms.firstTerm % terms.secondTerm);
+            }
             
             int answer = 0;
             

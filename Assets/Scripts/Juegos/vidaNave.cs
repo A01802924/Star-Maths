@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class vidaNave : MonoBehaviour
 {
     public int vidas = 3;
+    public int correctas = 0;
 
     public static vidaNave instance;
 

@@ -18,4 +18,8 @@
             <ui:Image name="Vida1" class="vidas"/>
         </ui:VisualElement>
     </ui:VisualElement>
+    <ui:VisualElement name="Respuestas" style="flex-grow: 1; align-items: flex-end; justify-content: space-around;">
+        <ui:Label text="x" name="Res1" class="respuestas"/>
+        <ui:Label text="y" name="Res2" class="respuestas"/>
+    </ui:VisualElement>
 </ui:UXML>

@@ -4,6 +4,7 @@ public class detectaColision : MonoBehaviour
 {
     private moverMeteoritos meteoros;
     private bool golpeo = false;
+    public bool valor;
 
     void Start()
     {
@@ -25,6 +26,11 @@ public class detectaColision : MonoBehaviour
         }
         if (collision.CompareTag("Bala"))
         {
+            if (valor)
+            {
+                vidaNave.instance.correctas++;
+            }
+            
             Destroy(gameObject);
             Destroy(collision.gameObject);
         }

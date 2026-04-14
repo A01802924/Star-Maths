@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1117167343173618913}
   - component: {fileID: 7297499448505176093}
   - component: {fileID: 6964683425910051962}
+  - component: {fileID: 2184046317007169545}
   m_Layer: 5
   m_Name: UIMenuPausa
   m_TagString: Untagged
@@ -68,3 +69,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f202a3ddede64e8bb3a42a4152998f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuPausa
+--- !u!114 &2184046317007169545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8083996947051373467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e4f82425f08294d972cdf7cbbf4710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::controladorOperaciones

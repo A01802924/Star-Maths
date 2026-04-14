@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 [System.Serializable]
 public struct Ships
 {
+    public int index;
     public string name;
     public int price;
     public Sprite shipIcon;
