@@ -5,8 +5,8 @@
             <ui:Label text="¡VICTORIA!" name="Victoria" class="titulo" style="color: rgb(253, 255, 213); display: flex;"/>
         </ui:VisualElement>
         <ui:VisualElement name="ParteInferior" style="flex-grow: 1;">
-            <ui:VisualElement name="Menu" class="menuInferior" style="flex-grow: 1; width: 80%; height: 70%; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; border-left-color: rgb(255, 248, 220); border-right-color: rgb(255, 248, 220); border-top-color: rgb(255, 248, 220); border-bottom-color: rgb(255, 248, 220); border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; background-image: none; background-size: 130% 120%; display: flex;">
-                <ui:VisualElement name="ContenedorMenu" class="contenedores" style="flex-grow: 1; height: 100%; display: flex;">
+            <ui:VisualElement name="Menu" class="menuInferior" style="flex-grow: 1; width: 80%; height: 70%; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; border-left-color: rgb(255, 248, 220); border-right-color: rgb(255, 248, 220); border-top-color: rgb(255, 248, 220); border-bottom-color: rgb(255, 248, 220); border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; background-image: none; background-size: 130% 120%; display: none;">
+                <ui:VisualElement name="ContenedorMenu" class="contenedores" style="flex-grow: 1; height: 100%; display: none;">
                     <ui:Label text="Puntuación :" name="Score" class="score" style="color: rgb(253, 255, 213);"/>
                     <ui:Label text="Tiempo :" name="Time" class="score" style="color: rgb(253, 255, 213);"/>
                     <ui:VisualElement name="SeccionEstrellas" class="estrellas" style="flex-grow: 1; justify-content: space-around; width: 70%;">
