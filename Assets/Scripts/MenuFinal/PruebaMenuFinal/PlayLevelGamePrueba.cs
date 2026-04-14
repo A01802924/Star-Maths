@@ -63,6 +63,7 @@ public class PlayLevelGamePrueba : MonoBehaviour
         }
         //menuFinal = GetComponent<MostrarMenu>();
 
+        var datos = DatosPartida.instance;
         
         DisplayNewQuestion();
     }
@@ -139,18 +140,29 @@ public class PlayLevelGamePrueba : MonoBehaviour
         int numpreguntas = game.QuestionCounter;
         int preguntasC = numpreguntas + (vidas - vidasI);
         int preguntasI = vidasI - vidas;
-        float ratio = (float)preguntasC / numpreguntas;
-        int puntos =  Mathf.RoundToInt(ratio* 10000000 - ((vidasI - vidas) * 100) + 10000 / (int)game.getPlayTimeSeconds());
+        // float ratio = (float)preguntasC / numpreguntas;
+        //int puntos =  Mathf.RoundToInt(ratio* 10000000 - ((vidasI - vidas) * 100) + 10000 / (int)game.getPlayTimeSeconds());
 
         if (isVictory)
         {
-            StartCoroutine(MostrarMenu.instance.MuestraMenu(puntos, timeF, vidas, numpreguntas, preguntasC, preguntasI));    
+            StartCoroutine(MostrarMenu.instance.MuestraMenu(timeF, vidas, vidasI, numpreguntas, preguntasC, preguntasI));    
         }
         else
         {
             menuFinal.MuestraGameOver();
         }
 
+        // datos.vidasIniciales = game.InitialLives;
+        // DatosPartida.instance.vidas = game.CurrentLives;
+        // DatosPartida.instance.numPreguntas = game.Level.CorrectAnswersGoal;
+        // DatosPartida.instance.numPreguntasCorrectas = game.Level.CorrectAnswersGoal + (game.CurrentLives - game.InitialLives);
+        // DatosPartida.instance.numPreguntasIncorrectas = game.InitialLives - game.CurrentLives;
+        // DatosPartida.instance.time = (float)game.getPlayTimeSeconds();
+
+        // if (isVictory)
+        // {
+        //     StartCoroutine(MostrarMenu.MuestraMenu(DatosPartida.instance.CalcularPuntaje(),))
+        // }
     }
 
     public void DisplayNewQuestion()

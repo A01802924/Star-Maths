@@ -310,6 +310,7 @@ public class MostrarMenu : MonoBehaviour
     private Label preguntasIncorrecto;
     private Button cerrarStats;
     private int vidasRes;
+    private int vidasI;
     private int preguntasT;
     private int preguntasC;
     private int preguntasI;
@@ -412,16 +413,20 @@ public class MostrarMenu : MonoBehaviour
         nombreEscena = name;
     }
 
-    public IEnumerator MuestraMenu(int puntos, float tiempo, int vidasRestantes, int totalPreguntas, int resCorrectas, int resIncorrectas)
+    public IEnumerator MuestraMenu(float tiempo, int vidasRestantes, int vidasIniciales, int totalPreguntas, int resCorrectas, int resIncorrectas)
     {
         vidasRes = vidasRestantes;
+        vidasI = vidasIniciales;
+
         preguntasT = totalPreguntas;
         preguntasC = resCorrectas;
         preguntasI = resIncorrectas;
-
-        totalPuntos = puntos;
         totalTiempo = tiempo;
+
+        totalPuntos = CalcularPuntaje(vidasRes, vidasIniciales, preguntasT, preguntasC, totalTiempo);
+
         menu.style.display = DisplayStyle.Flex;
+        menuParInf.style.display = DisplayStyle.Flex;
         contenedorMenu.style.display = DisplayStyle.Flex;
 
         if(naveController != null)
@@ -515,4 +520,17 @@ public class MostrarMenu : MonoBehaviour
     {
         SceneManager.LoadScene("MenuPrincipalScene");
     }
+
+    public int CalcularPuntaje(int vi, int vr, int np, int npc, float t)
+    {
+        int vidasPerdidas = vi - vr;
+        float ratio = (float)npc / np;
+
+        int puntosBase = Mathf.RoundToInt(ratio * 10000);
+        int penalizacion = vidasPerdidas * 500;
+        int bonoTiempo = Mathf.Max(0, (int)(10000 / t));
+
+        return puntosBase - penalizacion + bonoTiempo;
+    }
+
 }
