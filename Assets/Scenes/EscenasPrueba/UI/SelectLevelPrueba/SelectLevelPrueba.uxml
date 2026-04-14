@@ -1,0 +1,20 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Ui/QuestionGeneratorTest/SelectLevel/SelectLevel.uss?fileID=7433441132597879392&amp;guid=92536de061f58be4d8ac175890da6453&amp;type=3#SelectLevel"/>
+    <ui:VisualElement name="MainContainer" style="flex-grow: 1; align-items: center; justify-content: space-around;">
+        <ui:Label text="Core Test" name="TestTitle" class="test-title"/>
+        <ui:Label text="Selecting Level" name="SceneTitle" class="scene-title"/>
+        <ui:RadioButtonGroup label="Select a World" name="WorldRadioGroup" style="flex-direction: column; align-items: center;">
+            <ui:RadioButton label="Additions" name="AdditionOption"/>
+            <ui:RadioButton label="Subtraction" name="SubtractionOption"/>
+            <ui:RadioButton label="Multiplication" name="MultiplicationOption"/>
+            <ui:RadioButton label="Division" name="DivisionOption"/>
+        </ui:RadioButtonGroup>
+        <ui:RadioButtonGroup label="Radio Button Group" name="LevelRadioGroup" style="flex-direction: column; align-items: center;">
+            <ui:RadioButton label="Level 1" name="Level1"/>
+            <ui:RadioButton label="Level 2" name="Level2"/>
+            <ui:RadioButton label="Level 3" name="Level3"/>
+            <ui:RadioButton label="Level 4" name="Level4"/>
+        </ui:RadioButtonGroup>
+        <ui:Button text="Play" name="PlayButton" class="button-play"/>
+    </ui:VisualElement>
+</ui:UXML>

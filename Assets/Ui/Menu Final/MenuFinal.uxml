@@ -1,27 +1,51 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Ui/Menu%20Final/MenuFinal.uss?fileID=7433441132597879392&amp;guid=b44e0f521b09d4857a0a90110ca938f6&amp;type=3#MenuFinal"/>
-    <ui:VisualElement name="MenuFinal" style="flex-grow: 1; display: flex;">
-        <ui:Label text="FIN DEL JUEGO" name="Titulo" class="titulo" style="color: rgb(253, 255, 213);"/>
+    <ui:VisualElement name="MenuFinal" style="flex-grow: 1; display: flex; background-color: rgba(0, 0, 0, 0.6); background-image: url(&quot;project://database/Assets/Sprites/Planets%20with%20Space%20Background%20in%20Flat%20Style/Planets%20and%20Background/Space.png?fileID=2800000&amp;guid=4ecb598b03c4c5b45bea92168edb3474&amp;type=3#Space&quot;);">
+        <ui:VisualElement name="Titulos" style="flex-grow: 1; height: 1px; max-height: 200px;">
+            <ui:Label text="¡VICTORIA!" name="Victoria" class="titulo" style="color: rgb(253, 255, 213); display: flex;"/>
+        </ui:VisualElement>
         <ui:VisualElement name="ParteInferior" style="flex-grow: 1;">
-            <ui:VisualElement name="Menu" class="menuInferior" style="flex-grow: 1; width: 80%; height: 70%; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; border-left-color: rgb(255, 248, 220); border-right-color: rgb(255, 248, 220); border-top-color: rgb(255, 248, 220); border-bottom-color: rgb(255, 248, 220); border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; background-image: none; background-size: 130% 120%;">
-                <ui:Label text="Puntuación :" name="Score" class="score" style="color: rgb(253, 255, 213);"/>
-                <ui:Label text="Tiempo :" name="Time" class="score" style="color: rgb(253, 255, 213);"/>
-                <ui:VisualElement name="SeccionEstrellas" class="estrellas" style="flex-grow: 1; justify-content: space-around; width: 70%;">
-                    <ui:VisualElement name="Estrellas" style="flex-grow: 1; display: flex; justify-content: space-around; flex-direction: row; align-self: center;">
-                        <ui:Image name="Estrella_1" class="imagenes" style="flex-direction: row; width: 250px; display: none;"/>
-                        <ui:Image name="Estrella_2" class="imagenes" style="flex-direction: row; width: 250px; display: none;"/>
-                        <ui:Image name="Estrella_1N" class="imagenes" style="flex-direction: row; width: 250px; display: flex; -unity-background-image-tint-color: rgb(56, 56, 56);"/>
-                        <ui:Image name="Estrella_2N" class="imagenes" style="flex-direction: row; width: 250px; display: flex; -unity-background-image-tint-color: rgb(56, 56, 56);"/>
-                        <ui:Image name="Estrella_3" class="imagenes" style="flex-direction: row-reverse; width: 250px; align-self: center; justify-content: flex-start; display: none;"/>
-                        <ui:Image name="Estrella_3N" class="imagenes" style="flex-direction: row-reverse; width: 250px; align-self: center; justify-content: flex-start; display: flex; -unity-background-image-tint-color: rgb(56, 56, 56);"/>
+            <ui:VisualElement name="Menu" class="menuInferior" style="flex-grow: 1; width: 80%; height: 70%; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; border-left-color: rgb(255, 248, 220); border-right-color: rgb(255, 248, 220); border-top-color: rgb(255, 248, 220); border-bottom-color: rgb(255, 248, 220); border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px; border-left-width: 10px; background-image: none; background-size: 130% 120%; display: flex;">
+                <ui:VisualElement name="ContenedorMenu" class="contenedores" style="flex-grow: 1; height: 100%; display: flex;">
+                    <ui:Label text="Puntuación :" name="Score" class="score" style="color: rgb(253, 255, 213);"/>
+                    <ui:Label text="Tiempo :" name="Time" class="score" style="color: rgb(253, 255, 213);"/>
+                    <ui:VisualElement name="SeccionEstrellas" class="estrellas" style="flex-grow: 1; justify-content: space-around; width: 70%;">
+                        <ui:VisualElement name="Estrellas" style="flex-grow: 1; display: flex; justify-content: space-around; flex-direction: row; align-self: center;">
+                            <ui:Image name="Estrella_1" class="imagenes" style="flex-direction: row; width: 250px; display: none;"/>
+                            <ui:Image name="Estrella_2" class="imagenes" style="flex-direction: row; width: 250px; display: none;"/>
+                            <ui:Image name="Estrella_1N" class="imagenes" style="flex-direction: row; width: 250px; display: flex; -unity-background-image-tint-color: rgb(56, 56, 56);"/>
+                            <ui:Image name="Estrella_2N" class="imagenes" style="flex-direction: row; width: 250px; display: flex; -unity-background-image-tint-color: rgb(56, 56, 56);"/>
+                            <ui:Image name="Estrella_3" class="imagenes" style="flex-direction: row-reverse; width: 250px; align-self: center; justify-content: flex-start; display: none;"/>
+                            <ui:Image name="Estrella_3N" class="imagenes" style="flex-direction: row-reverse; width: 250px; align-self: center; justify-content: flex-start; display: flex; -unity-background-image-tint-color: rgb(56, 56, 56);"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Botones" class="seccionBotones" style="flex-grow: 1;">
+                        <ui:Button text="REPETIR&#10;NIVEL" name="Repetir" class="botones" style="font-size: 30px; -unity-font-style: bold; background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Button_Images/Highlighted_Sprite/medium/short-blue-highlight-medium.png?fileID=2800000&amp;guid=047c9ac7da128f048aa00dfff8c885aa&amp;type=3#short-blue-highlight-medium&quot;);"/>
+                        <ui:Button text="MENU&#10;PRINCIPAL" name="Salir" class="botones" style="font-size: 30px; -unity-font-style: bold; background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Button_Images/Highlighted_Sprite/large/short-blue-highlight-large.png?fileID=2800000&amp;guid=eac975a2bf4045b47b3b05afa8767c3a&amp;type=3#short-blue-highlight-large&quot;);"/>
+                        <ui:Button text="RESUMEN" name="Resumen" class="botones" style="background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Button_Images/Highlighted_Sprite/large/short-blue-highlight-large.png?fileID=2800000&amp;guid=eac975a2bf4045b47b3b05afa8767c3a&amp;type=3#short-blue-highlight-large&quot;); font-size: 30px; -unity-font-style: bold;"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="Botones" class="seccionBotones" style="flex-grow: 1;">
-                    <ui:Button text="REPETIR&#10;NIVEL" name="Repetir" class="botones" style="font-size: 30px; -unity-font-style: bold; background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Button_Images/Highlighted_Sprite/medium/short-blue-highlight-medium.png?fileID=2800000&amp;guid=047c9ac7da128f048aa00dfff8c885aa&amp;type=3#short-blue-highlight-medium&quot;);"/>
-                    <ui:Button text="MENU&#10;PRINCIPAL" name="Salir" class="botones" style="font-size: 30px; -unity-font-style: bold; background-color: rgba(188, 188, 188, 0); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Button_Images/Highlighted_Sprite/large/short-blue-highlight-large.png?fileID=2800000&amp;guid=eac975a2bf4045b47b3b05afa8767c3a&amp;type=3#short-blue-highlight-large&quot;);"/>
+                <ui:VisualElement name="ContenedorResumen" class="contenedores" style="flex-grow: 1; display: none;">
+                    <ui:Label text="ESTADÍSTICAS" name="TituloStats" style="font-size: 50px; -unity-font-style: bold; color: rgb(253, 255, 213); align-self: auto; -unity-text-align: middle-center; -unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap-Black.ttf?fileID=12800000&amp;guid=55e4db458c396694dbc945bf487b97f0&amp;type=3#Asap-Black&quot;); height: 100px;"/>
+                    <ui:VisualElement name="Stats" style="flex-grow: 1; width: 85%; align-self: center; justify-content: space-between; height: 150px;">
+                        <ui:Label text="VIDAS RESTANTES: " name="Vidas" class="stats"/>
+                        <ui:Label text="TOTAL DE PREGUNTAS:" name="Preguntas" class="stats"/>
+                        <ui:Label text="RESPUESTAS CORRECTAS:" name="Correcto" class="stats"/>
+                        <ui:Label text="RESPUESTAS INCORRECTAS:" name="Incorrecto" class="stats"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="BotonesStats" style="flex-grow: 1; align-content: auto; justify-content: center; height: 1px;">
+                        <ui:Button text="CERRAR" name="CerrarStats" class="botones" style="width: 200px; height: 100px; align-self: center; justify-content: flex-start; align-items: auto; font-size: 35px; -unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap-Black.ttf?fileID=12800000&amp;guid=55e4db458c396694dbc945bf487b97f0&amp;type=3#Asap-Black&quot;);"/>
+                    </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement style="flex-grow: 1;"/>
+            <ui:VisualElement name="MenuGameOver" style="flex-grow: 1; width: 80%; height: 80%; align-self: center; display: none;">
+                <ui:Label text="GAME OVER" name="GameOver" style="width: 100%; height: 500px; font-size: 200px; -unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/8-bit-operator/8bitOperatorPlus8-Bold.ttf?fileID=12800000&amp;guid=8077e79d276ee4f4989326a4ab5e1899&amp;type=3#8bitOperatorPlus8-Bold&quot;); -unity-font-style: bold; color: rgb(253, 255, 213); -unity-text-align: middle-center;"/>
+                <ui:VisualElement name="BotonesGO" class="seccionBotones" style="flex-grow: 1;">
+                    <ui:Button text="REPETIR&#10;NIVEL" name="RepetirGO" class="botones" style="width: 300px; height: 150px;"/>
+                    <ui:Button text="MENU&#10;PRINCIPAL" name="SalirGO" class="botones" style="width: 300px; height: 150px;"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; height: 100px; max-height: 150px;"/>
     </ui:VisualElement>
 </ui:UXML>
