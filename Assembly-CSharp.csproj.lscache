@@ -74,6 +74,7 @@ Assets/Scripts/
   LogInNavegation.cs
  Juegos/
   comportamientoJefe.cs
+  controladorOperaciones.cs
   crearMeteoritos.cs
   detectaColision.cs
   disparaNave.cs
@@ -81,7 +82,6 @@ Assets/Scripts/
   moverBala.cs
   moverMeteoritos.cs
   moverNave.cs
-  UI/GenerarPregunta.cs
   vidaNave.cs
  MenuFinal/
   CerrarJuego.cs
