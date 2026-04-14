@@ -18,6 +18,8 @@ public class PlayLevelGame : MonoBehaviour
     void Start()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
+        UniformRandom asteroid = new UniformRandom(1, 2);
+        asteroid.GetRandom();
 
         game = new LevelGame(LevelFactory.BuildLevel(SessionData.SelectedWorldID, SessionData.SelectedLevelID));
 
@@ -50,15 +52,14 @@ public class PlayLevelGame : MonoBehaviour
         DisplayNewQuestion();
     }
 
-    void NewGame(ClickEvent evt)
+    public void NewGame(ClickEvent evt)
     {
         SessionData.ClearGameData();
         SceneManager.LoadScene("SelectLevel");
     }
 
-    void TryInput(ClickEvent evt)
+    public void TryInput(ClickEvent evt)
     {
-        print("Container clicked!");
         VisualElement clickedElement = evt.target as VisualElement;
         if (clickedElement == inputContainer)
         {
