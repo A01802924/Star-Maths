@@ -8,10 +8,17 @@ public class controladorOperaciones : MonoBehaviour
     private Label operacion;
     private Label res1;
     private Label res2;
-    private (string operation, int result) question;
+    private (string operation, int result, int falso) question;
+
+    public static controladorOperaciones instance;
     
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        
         game = new LevelGame(LevelFactory.BuildLevel(3, 1));
 
         var root = GetComponent<UIDocument>().rootVisualElement;
@@ -23,7 +30,7 @@ public class controladorOperaciones : MonoBehaviour
         generarOperacion(Random.Range(1, 3));
     }
 
-    void generarOperacion(int num)
+    public void generarOperacion(int num)
     {
         question = game.GenerateQuestion();
 
@@ -32,15 +39,14 @@ public class controladorOperaciones : MonoBehaviour
         if (num == 1)
         {
             res1.text = question.result.ToString();
-            // res2.text = question.false.ToString();
-            // m1.valor = true;
-            // m2.valor = false;
+            res2.text = question.falso.ToString();
+            SessionData.meteoritoCorrecto = 1;
+
         } else
         {
             res2.text = question.result.ToString();
-            // res1.text = question.false.ToString();
-            // m2.valor = true;
-            // m1.valor = false;
+            res1.text = question.falso.ToString();
+            SessionData.meteoritoCorrecto = 2;
         }
     }
 }

@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02c2392f75e7cd42bc7228e713dd02a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::detectaColision
+  valor: 0
 --- !u!1 &8506709558299609161
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,3 +359,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02c2392f75e7cd42bc7228e713dd02a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::detectaColision
+  valor: 0

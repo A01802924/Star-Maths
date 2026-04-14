@@ -116,9 +116,4 @@ public class MenuPausa : MonoBehaviour
             vida3.style.display = DisplayStyle.None;
         }
     }
-
-    public void ActualizarOperacion(string txt)
-    {
-        operacion.text = txt;
-    }
 }

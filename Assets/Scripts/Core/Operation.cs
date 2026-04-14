@@ -29,7 +29,7 @@ namespace Assets.Scripts.Core
             Frequency = freq;
             domain = new Domain(freq5, freq3, freq2, freqR, domainStart, domainEnd);
         }
-        public (string, int) GenerateOperation()
+        public (string, int, int) GenerateOperation()
         {
             (int firstTerm, int secondTerm) terms;
             terms.firstTerm = domain.generateNumber();
@@ -64,7 +64,7 @@ namespace Assets.Scripts.Core
 
             string stringOperation = terms.firstTerm.ToString() + " " + ((char)operand.symbol).ToString() + " " + terms.secondTerm.ToString();
 
-            return (stringOperation, answer);
+            return (stringOperation, answer, answer + terms.secondTerm);
         }
     }
 }

@@ -12,7 +12,7 @@ public class PlayLevelGamePrueba : MonoBehaviour
     private VisualElement inputContainer;
     private Button playNewGameButton;
     private string answer = "";
-    private (string operation, int result) question;
+    private (string operation, int result, int falso) question;
     private LevelGame game;
     private int correctCounter = 0;
     private VisualElement root;

@@ -33,7 +33,7 @@ namespace Assets.Scripts.Core
             return cronometer.Elapsed.TotalSeconds;
         }
 
-        public (string, int) GenerateQuestion()
+        public (string, int, int) GenerateQuestion()
         {
             ++QuestionCounter;
             return Level.GetRandomOperation().GenerateOperation();
