@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VectorGraphics;
 
 public class lanzarMeteoritos : MonoBehaviour
 {

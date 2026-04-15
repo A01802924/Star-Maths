@@ -105,6 +105,7 @@ public class MenuPausa : MonoBehaviour
 
     public void ActualizarVidas()
     {
+        vidaNave.instance.vidas--;
         int vidas = vidaNave.instance.vidas;
 
         if ( vidas == 0 )

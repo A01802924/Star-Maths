@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2974537646969642840}
   - component: {fileID: 61703173822680664}
   - component: {fileID: 4113285894706104287}
-  - component: {fileID: 7333366388405072225}
   - component: {fileID: 4333302072392968020}
   - component: {fileID: 7791399078818091422}
   m_Layer: 0
@@ -170,52 +169,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.1, y: 1.1}
   m_EdgeRadius: 0
---- !u!61 &7333366388405072225
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 949196625796052508}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1.28, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.1, y: 1.1}
-  m_EdgeRadius: 0
 --- !u!114 &4333302072392968020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +277,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::vidaNave
   vidas: 3
+  correctas: 0
+  creadorMeteoritos: {fileID: 6814934651122688937, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
+  menuFinal: {fileID: 0}
+  menuPausa: {fileID: 0}
 --- !u!1 &4245057454449048126
 GameObject:
   m_ObjectHideFlags: 0

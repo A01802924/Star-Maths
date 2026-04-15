@@ -487,51 +487,11 @@ Transform:
   - {fileID: 1902264198}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &986676327
+--- !u!1 &986676327 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6814934651122688937, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
+  m_PrefabInstance: {fileID: 4275271839027552743}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 986676328}
-  - component: {fileID: 986676329}
-  m_Layer: 0
-  m_Name: generadorMeteoritos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &986676328
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986676327}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &986676329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986676327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04041fe2ac34e7f43a1ffd721f61221b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::crearMeteoritos
-  meteoritos: {fileID: 507605255656686896, guid: 158059faab773954a9ecaf660753e54f, type: 3}
 --- !u!1 &1749314341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,11 +1014,72 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 7791399078818091422, guid: 2501270bc3713a645843b2ce99433848, type: 3}
+      propertyPath: creadorMeteoritos
+      value: 
+      objectReference: {fileID: 986676327}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2501270bc3713a645843b2ce99433848, type: 3}
+--- !u!1001 &4275271839027552743
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6515184926512266328, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515184926512266328, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515184926512266328, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515184926512266328, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515184926512266328, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515184926512266328, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515184926512266328, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515184926512266328, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515184926512266328, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515184926512266328, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814934651122688937, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
+      propertyPath: m_Name
+      value: generadorMeteoritos
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
 --- !u!1001 &7523026023951317129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1124,6 +1145,6 @@ SceneRoots:
   - {fileID: 7523026023951317129}
   - {fileID: 2054843416}
   - {fileID: 708929058}
-  - {fileID: 986676328}
+  - {fileID: 4275271839027552743}
   - {fileID: 1917235975}
   - {fileID: 506080898}

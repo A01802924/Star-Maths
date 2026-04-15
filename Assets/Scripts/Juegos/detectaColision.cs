@@ -20,14 +20,16 @@ public class detectaColision : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision)
-    {
+    {        
+        if (golpeo)
+        {
+            meteoros.destruirMeteoritos();
+        }
         if (collision.CompareTag("Player"))
         {
             golpeo = true;
-            vidaNave.instance.vidas--;
             meteoros.destruirMeteoritos();
             MenuPausa.instance.ActualizarVidas();
-            print($"Quedan {vidaNave.instance.vidas} vidas");
         }
         if (collision.CompareTag("Bala"))
         {
@@ -35,9 +37,12 @@ public class detectaColision : MonoBehaviour
             {
                 vidaNave.instance.correctas++;
                 print("Respuesa Correcta");
+                if (vidaNave.instance.correctas >= 5)
+                {
+                    vidaNave.instance.Ganar();
+                }
             } else
             {
-                vidaNave.instance.vidas--;
                 print("Respuesta Incorrecta");
                 MenuPausa.instance.ActualizarVidas();
             }
@@ -46,10 +51,6 @@ public class detectaColision : MonoBehaviour
 
             meteoros.destruirMeteoritos();
             Destroy(collision.gameObject);
-        }
-        if (golpeo)
-        {
-            meteoros.destruirMeteoritos();
         }
     }
 }
