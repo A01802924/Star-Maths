@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Ui/Menu%20Final/MenuFinal.uss?fileID=7433441132597879392&amp;guid=b44e0f521b09d4857a0a90110ca938f6&amp;type=3#MenuFinal"/>
-    <ui:VisualElement name="MenuFinal" style="flex-grow: 1; display: flex; background-color: rgba(0, 0, 0, 0.6); background-image: url(&quot;project://database/Assets/Sprites/Planets%20with%20Space%20Background%20in%20Flat%20Style/Planets%20and%20Background/Space.png?fileID=2800000&amp;guid=4ecb598b03c4c5b45bea92168edb3474&amp;type=3#Space&quot;);">
+    <ui:VisualElement name="MenuFinal" style="flex-grow: 1; display: flex; background-color: rgba(0, 0, 0, 0.6); background-image: url(&quot;project://database/Assets/Sprites/Planets%20with%20Space%20Background%20in%20Flat%20Style/Planets%20and%20Background/Space.png?fileID=2800000&amp;guid=4ecb598b03c4c5b45bea92168edb3474&amp;type=3#Space&quot;); position: relative; transform-origin: center center 1px;">
         <ui:VisualElement name="Titulos" style="flex-grow: 1; height: 1px; max-height: 200px;">
             <ui:Label text="¡VICTORIA!" name="Victoria" class="titulo" style="color: rgb(253, 255, 213); display: flex;"/>
         </ui:VisualElement>

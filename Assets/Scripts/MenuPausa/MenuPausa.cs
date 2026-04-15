@@ -9,10 +9,11 @@ public class MenuPausa : MonoBehaviour
     public static MenuPausa instance;
 
     private VisualElement menuPausa;
-    private VisualElement HUD;
+    public VisualElement HUD;
     private VisualElement vida1;
     private VisualElement vida2;
     private VisualElement vida3;
+    public VisualElement respuestas;
 
     private Button resume;
     private Button restart;
@@ -39,6 +40,7 @@ public class MenuPausa : MonoBehaviour
         vida1 = root.Q<VisualElement>("Vida1");
         vida2 = root.Q<VisualElement>("Vida2");
         vida3 = root.Q<VisualElement>("Vida3");
+        respuestas = root.Q<VisualElement>("Respuestas");
 
         resume = root.Q<Button>("Reanudar");
         restart = root.Q<Button>("Reiniciar");

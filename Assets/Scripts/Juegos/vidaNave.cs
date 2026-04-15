@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class vidaNave : MonoBehaviour
 {
@@ -7,6 +8,18 @@ public class vidaNave : MonoBehaviour
     public int correctas = 0;
 
     public static vidaNave instance;
+
+    [SerializeField] private MostrarMenu menuFinal;
+    [SerializeField] private MenuPausa menuPausa;
+
+
+    void Start()
+    {
+        if(menuFinal == null)
+        {
+            menuFinal = FindAnyObjectByType<MostrarMenu>();
+        }
+    }
 
     void Awake()
     {
@@ -22,6 +35,9 @@ public class vidaNave : MonoBehaviour
         {
             vidas--;
             MenuPausa.instance.ActualizarVidas();
+            MenuPausa.instance.respuestas.style.display = DisplayStyle.None;
+            MenuPausa.instance.HUD.style.display = DisplayStyle.None;
+            menuFinal.MuestraGameOver();
         }
     }
 

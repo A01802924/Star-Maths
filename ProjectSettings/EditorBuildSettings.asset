@@ -45,7 +45,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Puntuacion.unity
     guid: dcc4327c3b8bee848b4ef1586130d823
   - enabled: 1
-    path: Assets/Scenes/Personalizar.unity
+    path: Assets/Scenes/Store.unity
     guid: f52bf3cf13c9856489f774456196dc0d
   - enabled: 1
     path: Assets/Scenes/Configuration.unity

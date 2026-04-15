@@ -1,10 +1,10 @@
+using Assets.Scripts.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class ControlesNiveles : MonoBehaviour
 {
-    private UIDocument nieveles;
     private Button nivel1;
     private Button nivel2;
     private Button nivel3;
@@ -26,18 +26,19 @@ public class ControlesNiveles : MonoBehaviour
         regresar = root.Q<Button>("regresar");
         home = root.Q<Button>("home");
 
-        nivel1.clicked += MostrarGameplay;
-        nivel2.clicked += MostrarGameplay;
-        nivel3.clicked += MostrarGameplay;
-        nivel4.clicked += MostrarGameplay;
+        nivel1.clicked += () => MostrarGameplay(1);
+        nivel2.clicked += () => MostrarGameplay(2);
+        nivel3.clicked += () => MostrarGameplay(3);
+        nivel4.clicked += () => MostrarGameplay(4);
 
         info.clicked += MostrarInfo;
         regresar.clicked += Regresar;
         home.clicked += VolverMenuPrincipal;
     }
 
-    private void MostrarGameplay()
+    private void MostrarGameplay(int levelIndex)
     {
+        SessionData.SelectedLevelID = levelIndex;
         SceneManager.LoadScene("JuegoMeteoritos");
     }
 

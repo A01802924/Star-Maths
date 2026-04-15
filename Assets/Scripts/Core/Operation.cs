@@ -12,7 +12,7 @@ namespace Assets.Scripts.Core
             name = operand;
             if (name == "addition") symbol = '+';
             if (name == "subtraction") symbol = '-';
-            if (name == "multiplication") symbol = '*';
+            if (name == "multiplication") symbol = 'X';
             if (name == "division") symbol = '/';
         }
     }
@@ -45,22 +45,29 @@ namespace Assets.Scripts.Core
             }
             
             int answer = 0;
+
+            int wrongAnswer = 0;
             
             switch (operand.symbol)
             {
                 case '+':
                     answer = terms.firstTerm + terms.secondTerm;
+                    if (terms.firstTerm % 10 == 9 || terms.secondTerm % 10 == 9)
+                    {
+                        wrongAnswer = answer - 10;
+                    }
                     break;
                 case '-':
                     answer = terms.firstTerm - terms.secondTerm;
                     break;
-                case '*':
+                case 'X':
                     answer = terms.firstTerm * terms.secondTerm;
                     break;
                 case '/':
                     answer = terms.firstTerm / terms.secondTerm;
                     break;
             }
+
 
             string stringOperation = terms.firstTerm.ToString() + " " + ((char)operand.symbol).ToString() + " " + terms.secondTerm.ToString();
 
