@@ -27,7 +27,7 @@ public class Info : MonoBehaviour
         tienda.RegisterCallback<ClickEvent>(AbrirTienda);
         void AbrirTienda(ClickEvent evt)
         {
-            SceneManager.LoadScene("Personalizar");
+            SceneManager.LoadScene("Store");
         }
 
         tutoral.RegisterCallback<ClickEvent>(AbrirTutorial);

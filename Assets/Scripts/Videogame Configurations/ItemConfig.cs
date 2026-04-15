@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 using Assets.Scripts.Core;
 using System;
 
-[System.Serializable]
+[Serializable]
 public struct Items
 {
     public int index;

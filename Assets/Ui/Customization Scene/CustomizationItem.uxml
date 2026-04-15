@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Ui/Customization%20Scene/CustomizationItem.uss?fileID=7433441132597879392&amp;guid=acb16a26d8cd4e24db63af0baa13855c&amp;type=3#CustomizationItem"/>
+    <ui:VisualElement name="MainContainer" class="item-container" style="flex-grow: 1;">
+        <ui:Label text="ITEM TITLE" name="ItemTitle" class="item-title"/>
+        <ui:VisualElement name="ItemSource" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/Stylized%202D%20Space%20Shooter/Sprites/Large/Ships/Ship_1_C_Large.png?fileID=2800000&amp;guid=9e1f24f738b65f04a94ae898ec81d0a5&amp;type=3#Ship_1_C_Large&quot;); -unity-background-scale-mode: scale-to-fit;"/>
+        <ui:VisualElement name="BlockLayerContainer" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; align-items: center; justify-content: center; display: none; top: -1px; left: 0;">
+            <ui:Image name="LockIconSource" source="project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Icons/lock-2-512.png?fileID=2800000&amp;guid=f7264247b4a1e6643922227c1251ce5f&amp;type=3#lock-2-512" style="width: 75%; height: 75%;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
