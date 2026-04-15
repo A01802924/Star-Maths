@@ -18,10 +18,16 @@ public class vidaNave : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (vidas <= 0)
+        if (collision.CompareTag("Meteorito"))
         {
-            Destroy(gameObject);
-            SceneManager.LoadScene("MenuFinal");
+            vidas--;
+            MenuPausa.instance.ActualizarVidas();
         }
+    }
+
+    public void Perder()
+    {
+        Destroy(gameObject);
+            SceneManager.LoadScene("MenuFinal");
     }
 }

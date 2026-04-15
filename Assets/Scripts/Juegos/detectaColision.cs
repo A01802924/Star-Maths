@@ -10,7 +10,7 @@ public class detectaColision : MonoBehaviour
     void Start()
     {
         meteoros = GetComponentInParent<moverMeteoritos>();
-        if (transform.position.y == 2.8f)
+        if (transform.position.y >= 0f)
         {
             valor = 1;
         } else
@@ -21,16 +21,13 @@ public class detectaColision : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (golpeo)
-        {
-            return;
-        }
         if (collision.CompareTag("Player"))
         {
             golpeo = true;
             vidaNave.instance.vidas--;
-            meteoros.perder();
+            meteoros.destruirMeteoritos();
             MenuPausa.instance.ActualizarVidas();
+            print($"Quedan {vidaNave.instance.vidas} vidas");
         }
         if (collision.CompareTag("Bala"))
         {
@@ -47,8 +44,12 @@ public class detectaColision : MonoBehaviour
 
             controladorOperaciones.instance.generarOperacion(Random.Range(1, 3));
 
-            Destroy(gameObject);
+            meteoros.destruirMeteoritos();
             Destroy(collision.gameObject);
+        }
+        if (golpeo)
+        {
+            meteoros.destruirMeteoritos();
         }
     }
 }

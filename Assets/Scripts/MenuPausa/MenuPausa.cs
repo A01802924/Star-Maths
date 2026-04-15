@@ -108,6 +108,7 @@ public class MenuPausa : MonoBehaviour
         if ( vidas == 0 )
         {
             vida1.style.display = DisplayStyle.None;
+            vidaNave.instance.Perder();
         } else if ( vidas == 1 )
         {
             vida2.style.display = DisplayStyle.None;

@@ -15,11 +15,11 @@ public class moverMeteoritos : MonoBehaviour
         rb.linearVelocityX = velocidad * -1;
         if (transform.position.x <= -14)
         {
-            perder();
+            destruirMeteoritos();
         }
     }
 
-    public void perder()
+    public void destruirMeteoritos()
     {
         Destroy(gameObject);
     }

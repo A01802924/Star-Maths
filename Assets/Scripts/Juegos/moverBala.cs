@@ -8,12 +8,16 @@ public class moverBala : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 1.2f);
     }
 
     void FixedUpdate()
     {
         rb.linearVelocityX = velocidad * 1;
+        if (transform.position.x >= 10f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
