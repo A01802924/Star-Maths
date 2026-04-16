@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Assets.Scripts.Core;
 using UnityEditor;
 using UnityEngine;
@@ -16,8 +17,10 @@ public class Customize : MonoBehaviour
     private VisualTreeAsset visualTree;
     private EventCallback<ClickEvent> _selectItem;
     private VisualElement selectedItemSource;
+    private VisualElement currentShipSelected;
+    private VisualElement currentProjectileSelected;
+    private VisualElement currentTrailSelected;
     private Button getBackButton;
-
     void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -46,7 +49,6 @@ public class Customize : MonoBehaviour
         projectileHeaderWindowContainer.RegisterCallback<ClickEvent>(evt => { DisplayProjectileScrollableContainer(); });
         trailHeaderWindowContainer.RegisterCallback<ClickEvent>(evt => { DisplayTrailScrollableContainer(); });
     }
-
     private void GetBack(ClickEvent evt)
     {
         SceneManager.LoadScene("Store");
@@ -169,32 +171,86 @@ public class Customize : MonoBehaviour
             }
             _selectItem = (evt) =>
             {
-                DisplayItem(item, type);
+                SelectNewItem(item, type, newItem);
             };
             newItem.RegisterCallback(_selectItem);
+            if (item == SessionData.CurrentShipItem)
+            {
+                currentShipSelected = newItem;
+                newItem.AddToClassList("item-container--active");
+            }
+            else if (item == SessionData.CurrentProjectileItem)
+            {
+                currentProjectileSelected = newItem;
+                newItem.AddToClassList("item-container--active");
+            }
+            else if (item == SessionData.CurrentTrailItem)
+            {
+                currentTrailSelected = newItem;
+                newItem.AddToClassList("item-container--active");
+            }
+            else
+            {
+                newItem.AddToClassList("item-container--enable-hover");
+            }
         }
         container.Add(newItem);
     }
-
-    private void DisplayItem(Item item, char type)
+    private void ChangeItemSelectionStyle(VisualElement newUIElement, VisualElement formerUIElement)
     {
+        formerUIElement.RemoveFromClassList("item-container--active");
+        formerUIElement.AddToClassList("item-container--enable-hover");
+        newUIElement.AddToClassList("item-container--active");
+        newUIElement.RemoveFromClassList("item-container--enable-hover");
+    }
+    private void SelectNewItem(Item item, char type, VisualElement uiElement)
+    {
+        /*
+        Recomiendo encarecidamente llamar desde aquí la función de gestión de la base de datos:
+        TODO: Cada vez que el usuario llame a la función SelectNewItem(), el sistema
+        debería enviar estos cambios a las bases de datos:
+        - Qué nuevo elemento acaba de seleccionar el usuario como su preferido
+          (teniendo en cuenta que todos los usuarios deben tener SIEMPRE SOLO UNA nave, UN proyectil
+          y UNA estela como sus selecciones de elementos actuales, de modo que sean estos los que
+          el sistema utilice cuando el usuario inicie una partida)
+        Tengan en cuenta que dichos cambios de datos se pueden recuperar con bastante facilidad de la
+        clase estática SessionData mediante sus atributos SessionData.CurrentShipItem,
+        SessionData.CurrentProjectileItem y SessionData.CurrentTrailItem
+        */
         selectedItemSource.style.backgroundImage = new StyleBackground(item.itemIcon);
         switch (type)
         {
             case 'S':
                 SessionData.CurrentShipItem = item;
-                print("New Ship Selection: " + item.name);
+                ChangeItemSelectionStyle(uiElement, currentShipSelected);
+                currentShipSelected = uiElement;
                 break;
             case 'P':
                 SessionData.CurrentProjectileItem = item;
-                print("New Projectile Selection: " + item.name);
+                ChangeItemSelectionStyle(uiElement, currentProjectileSelected);
+                currentProjectileSelected = uiElement;
                 break;
             case 'T':
                 SessionData.CurrentTrailItem = item;
-                print("New Trail Selection: " + item.name);
+                ChangeItemSelectionStyle(uiElement, currentTrailSelected);
+                currentTrailSelected = uiElement;
                 break;
             default:
                 break;
         }
+        /*
+        Y llamar al final la función con sus respectivos parámetros:
+        SendItemSelectionToDB(item, type);
+        Podrían manejar el tipo de Item por la variable char type, casi con la misma
+        lógica como se implementó en esta función (a través de un switch).
+        */
     }
+    /*
+    Quizás crear una función como:
+    private void SendItemSelectionToDB(Item item, char type) {
+        Líneas de código
+    }
+    O, mejor aún, crear una clase DataBase para agrupar
+    todas las funciones relacionadas con la base de datos
+    */
 }

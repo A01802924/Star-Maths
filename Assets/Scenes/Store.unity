@@ -188,57 +188,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0224370f0a99045b5ef93a110abaf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemConfig
-  itemsToSell:
-  - name: AQUA
-    price: 850
-    type: Nave
-    itemIcon: {fileID: 21300000, guid: bdb159c0c4f610e4788dfa6ecaf938a6, type: 3}
-    isAlreadyOwned: 0
-  - name: PHOENIX
-    price: 1600
-    type: Nave
-    itemIcon: {fileID: 21300000, guid: b66e4261661ae184e881d420f2a72b82, type: 3}
-    isAlreadyOwned: 0
-  - name: SUPERNOVA
-    price: 2200
-    type: Nave
-    itemIcon: {fileID: 21300000, guid: 7dde8bac5f0863d4fab7e6f531a09ecb, type: 3}
-    isAlreadyOwned: 0
-  - name: SUPERSONIC
-    price: 2000
-    type: Disparo
-    itemIcon: {fileID: 21300000, guid: d73e4377df4a4ab47a678e940409695e, type: 3}
-    isAlreadyOwned: 0
-  - name: ELECTRIC
-    price: 1600
-    type: Disparo
-    itemIcon: {fileID: 21300000, guid: a427bb93135fb4448b7d406a0936ecc0, type: 3}
-    isAlreadyOwned: 0
-  - name: HARLEM
-    price: 1600
-    type: Disparo
-    itemIcon: {fileID: 21300000, guid: 9335146e11f96434ebd8316285f4fea6, type: 3}
-    isAlreadyOwned: 0
-  - name: AQUA SET
-    price: 20000
-    type: Bundle
-    itemIcon: {fileID: 21300000, guid: 617606f20d8eda042aa9d159012260e2, type: 3}
-    isAlreadyOwned: 0
-  - name: PHOENIX SET
-    price: 20000
-    type: Bundle
-    itemIcon: {fileID: 21300000, guid: e6d0810885ee1ed419e06139b7a0e0b8, type: 3}
-    isAlreadyOwned: 0
-  - name: SUPERNOVA SET
-    price: 20000
-    type: Bundle
-    itemIcon: {fileID: 21300000, guid: e0f18b3ec117cda44a99cbf4064d0a2d, type: 3}
-    isAlreadyOwned: 0
-  - name: EXTRA LIFE
-    price: 20000
-    type: Comodin
-    itemIcon: {fileID: 21300000, guid: 2199d812104d43e4fac2215f13fb1fbb, type: 3}
-    isAlreadyOwned: 0
   itemTemplate: {fileID: 9197481963319205126, guid: f65b402c82f84f641a96f3b67b64c5c1, type: 3}
 --- !u!114 &1013576240
 MonoBehaviour:

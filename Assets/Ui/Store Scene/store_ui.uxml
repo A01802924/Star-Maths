@@ -1,14 +1,34 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Ui/Store%20Scene/store_ui.uss?fileID=7433441132597879392&amp;guid=b4d594f44cde0b74eace31755f4fb295&amp;type=3#store_ui"/>
-    <ui:VisualElement name="MainContainer" style="flex-grow: 1; margin-top: 40px; margin-right: 40px; margin-bottom: 0; margin-left: 40px; flex-direction: row; align-content: auto; align-self: auto; justify-content: space-between; width: 100%; height: 15%; max-width: none; padding-right: 100px;">
-        <ui:Button text="Regresar" name="GetBackButton" class="button" style="align-self: center; align-content: center; height: 80%; width: 250px;"/>
+    <ui:VisualElement name="MainContainer" style="flex-grow: 1; margin-top: 40px; margin-right: 40px; margin-bottom: 0; margin-left: 40px; flex-direction: row; align-content: auto; align-self: auto; justify-content: center; width: 100%; height: 15%; max-width: none; padding-right: 100px;">
+        <ui:Button text="Regresar" name="GetBackButton" tabindex="1" class="button" style="align-self: center; align-content: center; height: 80%; width: 250px; position: absolute; left: 3%;"/>
         <ui:Label text="TIENDA" name="SceneTitle" class="scene_title" style="align-self: center; align-content: center; height: 100%;"/>
-        <ui:VisualElement name="StarContainer" style="flex-grow: 1; flex-direction: row; align-self: center; align-content: center; max-width: 20%; max-height: 100px;">
+        <ui:VisualElement name="StarContainer" style="flex-grow: 1; flex-direction: row; align-self: center; align-content: center; max-width: 20%; max-height: 100px; position: absolute; right: 7%;">
             <ui:Label text="0" name="NumStars" class="star_text" style="align-self: center; align-content: center; width: 80%; padding-right: 20px; height: 100%;"/>
             <ui:Image source="project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Icons/star-512.png?fileID=2800000&amp;guid=c312c96aabd780b458e35126d6eb218e&amp;type=3#star-512" name="StarImage" style="align-self: center; align-content: center; width: 20%; height: 100%;"/>
         </ui:VisualElement>
+        <ui:VisualElement name="BackpackButton" tabindex="1" class="backpack-button"/>
     </ui:VisualElement>
-    <ui:ScrollView name="ItemGrid" style="flex-direction: column; flex-wrap: wrap; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Containers/Large/shop-container-large.png?fileID=2800000&amp;guid=51e8cb52d3793474d877b232da872c46&amp;type=3#shop-container-large&quot;); background-color: rgba(0, 0, 0, 0); border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); padding-top: 100px; padding-right: 100px; padding-bottom: 100px; padding-left: 100px; width: 100%; height: 85%; justify-content: center;"/>
+    <ui:VisualElement name="StoreContainer" style="flex-grow: 1; flex-direction: column; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Containers/Extra%20Large/shop-container-extra-large.png?fileID=2800000&amp;guid=b8d58338d003e9b4892fc675b7d2e47d&amp;type=3#shop-container-extra-large&quot;); padding-top: 100px; padding-right: 100px; padding-bottom: 100px; padding-left: 100px; width: 100%; height: 85%;">
+        <ui:VisualElement name="OptionHeader" style="width: 100%; height: 10%; flex-direction: row; margin-left: 0; margin-right: 0; padding-right: 150px; padding-left: 150px; padding-top: 0; padding-bottom: 0;">
+            <ui:VisualElement name="ShipHeaderContainer" class="header-container" style="border-top-left-radius: 50px; border-bottom-left-radius: 50px; width: 100%; height: 100%;">
+                <ui:Image name="ShipIconSource" source="project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Picto_Icons/White/rocket-white.png?fileID=2800000&amp;guid=712dca1beacade046bfabfc20e331527&amp;type=3#rocket-white"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="ProjectileHeaderContainer" class="header-container" style="width: 100%; height: 100%;">
+                <ui:Image name="ProjectileIconSource" source="project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Picto_Icons/White/bomb-white.png?fileID=2800000&amp;guid=5241e498b0013474abe41edb85c1c188&amp;type=3#bomb-white"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="TrailHeaderContainer" class="header-container" style="width: 100%; height: 100%;">
+                <ui:Image name="TrailIconSource" source="project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Picto_Icons/White/shooting-star-white.png?fileID=2800000&amp;guid=97e8aaa36b258d5489220a2940fde09a&amp;type=3#shooting-star-white"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="BundleHeaderContainer" class="header-container" style="border-top-right-radius: 50px; border-bottom-right-radius: 50px; width: 100%; height: 100%;">
+                <ui:Image name="BndleIconSource" source="project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Picto_Icons/White/bundle-white.png?fileID=2800000&amp;guid=ecba94cf4d449f843a913f5ae42e335d&amp;type=3#bundle-white"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:ScrollView name="ShipItemGrid" style="position: absolute; top: 22%; width: 86%; height: 65%; left: 7%;"/>
+        <ui:ScrollView name="ProjectileItemGrid" style="position: absolute; top: 22%; width: 86%; height: 65%; left: 7%;"/>
+        <ui:ScrollView name="TrailItemGrid" style="position: absolute; top: 22%; width: 86%; height: 65%; left: 7%;"/>
+        <ui:ScrollView name="BundleItemGrid" style="position: absolute; top: 22%; width: 86%; height: 65%; left: 7%;"/>
+    </ui:VisualElement>
     <ui:VisualElement name="PopUpUnaffordableDialogContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.7); position: absolute; width: 100%; height: 100%; display: none;">
         <ui:VisualElement name="UnaffordableDialogContainer" style="flex-grow: 1;">
             <ui:VisualElement name="UnaffordableDialogFrameContainer" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Containers/Extra%20Large/loot-found-container-extra-large.png?fileID=2800000&amp;guid=9c632ac46848f2147a60719b6cb281ec&amp;type=3#loot-found-container-extra-large&quot;); background-size: 80% 80%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 270px; padding-right: 340px; padding-bottom: 270px; padding-left: 340px; justify-content: space-around;">

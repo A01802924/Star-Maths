@@ -24,10 +24,12 @@
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
+    scale: 1.1 1.1;
 }
 
 .button:active {
     background-image: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Button_Images/Pressed_Sprites/Extra_Large/short-blue-pressed-extra-large.png?fileID=2800000&guid=dadfdc6c75932634e8c2206d06746312&type=3#short-blue-pressed-extra-large");
+    scale: 1 1;
 }
 
 .scene_title {
@@ -190,4 +192,42 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.backpack-button {
+    background-image: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Icons/inventory-512.png?fileID=2800000&guid=0bd6fd3c9c173ff438cf0556e5fbf8f0&type=3#inventory-512");
+    width: 150px;
+    height: 150px;
+    -unity-background-scale-mode: scale-to-fit;
+    position: absolute;
+    top: 2%;
+    right: 30%;
+}
+
+.backpack-button:hover {
+    scale: 1.1 1.1;
+}
+
+.header-container {
+    background-color: rgb(56, 44, 91);
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-width: 1.5px;
+    border-right-width: 1.5px;
+    border-bottom-width: 1.5px;
+    border-left-width: 1.5px;
+}
+
+.header-container:hover {
+    background-color: rgb(132, 90, 167);
 }

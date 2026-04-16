@@ -5,16 +5,22 @@ using UnityEngine.UIElements;
 public class GetBackButtonStore : MonoBehaviour
 {
     private Button getBackButton;
-
+    private VisualElement goToCustomizationButton;
     void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
         getBackButton = root.Q<Button>("GetBackButton");
         getBackButton.RegisterCallback<ClickEvent>(GetBack);
+        goToCustomizationButton = root.Q<VisualElement>("BackpackButton");
+        goToCustomizationButton.RegisterCallback<ClickEvent>(GoToCustomizationScene);
     }
-    
     void GetBack(ClickEvent evt)
     {
         SceneManager.LoadScene("Informacion");
+    }
+    private void GoToCustomizationScene(ClickEvent evt)
+    {
+        print("Callback successfully called");
+        SceneManager.LoadScene("Customize");
     }
 }

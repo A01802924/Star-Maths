@@ -10,36 +10,154 @@ namespace Assets.Scripts.Core
         public string name;
         public int price;
         public Texture2D itemIcon;
-        public bool isAlreadyOwned;
-        public Item(int i, string n, int p, Texture2D s, bool o)
+        public Item(int i, string n, int p, Texture2D s)
         {
             index = i; name = n; price = p;
-            itemIcon = s; isAlreadyOwned = o;
+            itemIcon = s;
         }
     }
     public static class ItemSet
     {
-        public const string rootDir = "Assets/Sprites/Stylized 2D Space Shooter/Sprites";
-        public const string shipDir = rootDir + "/Large/Ships/";
-        public const string shootDir = rootDir + "/Large/Missiles/";
-        public const string trailDir = rootDir + "/Projectiles/";
+        private const string rootDir = "Assets/Sprites/Stylized 2D Space Shooter/Sprites";
+        private const string shipDir = rootDir + "/Large/Ships/";
+        private const string shootDir = rootDir + "/Large/Missiles/";
+        private const string trailDir = rootDir + "/Projectiles/";
+        private const string bundleDir = rootDir + "/Large/Pickups/";
         public static List<Item> ShipItems { get; private set; } = new()
         {
-            new(0, "AQUA", 850, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_1_C_Large.png"), false),
-            new(1, "PHOENIX", 1600, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_2_D_Large.png"), false),
-            new(2, "SUPERNOVA", 2200, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_6_E_Large.png"), false)
+            new(0, "WILD SHIP 1", 850, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_1_A_Large.png")),
+            new(1, "NEO SHIP 1", 850, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_1_B_Large.png")),
+            new(2, "AQUA SHIP 1", 850, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_1_C_Large.png")),
+            new(3, "PHOENIX SHIP 1", 850, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_1_D_Large.png")),
+            new(4, "SUPERNOVA SHIP 1", 850, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_1_E_Large.png")),
+            new(5, "WILD SHIP 2", 1200, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_2_A_Large.png")),
+            new(6, "NEO SHIP 2", 1200, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_2_B_Large.png")),
+            new(7, "AQUA SHIP 2", 1200, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_2_C_Large.png")),
+            new(8, "PHOENIX SHIP 2", 1200, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_2_D_Large.png")),
+            new(9, "SUPERNOVA SHIP 2", 1200, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_2_E_Large.png")),
+            new(10, "WILD SHIP 3", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_3_A_Large.png")),
+            new(11, "NEO SHIP 3", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_3_B_Large.png")),
+            new(12, "AQUA SHIP 3", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_3_C_Large.png")),
+            new(13, "PHOENIX SHIP 3", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_3_D_Large.png")),
+            new(14, "SUPERNOVA SHIP 3", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_3_E_Large.png")),
+            new(15, "WILD SHIP 4", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_4_A_Large.png")),
+            new(16, "NEO SHIP 4", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_4_B_Large.png")),
+            new(17, "AQUA SHIP 4", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_4_C_Large.png")),
+            new(18, "PHOENIX SHIP 4", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_4_D_Large.png")),
+            new(19, "SUPERNOVA SHIP 4", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_4_E_Large.png")),
+            new(20, "WILD SHIP 5", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_5_A_Large.png")),
+            new(21, "NEO SHIP 5", 2000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_5_B_Large.png")),
+            new(22, "AQUA SHIP 5", 2000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_5_C_Large.png")),
+            new(23, "PHOENIX SHIP 5", 2000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_5_D_Large.png")),
+            new(24, "SUPERNOVA SHIP 5", 2000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_5_E_Large.png")),
+            new(25, "WILD SHIP 6", 2500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_6_A_Large.png")),
+            new(26, "NEO SHIP 6", 2500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_6_B_Large.png")),
+            new(27, "AQUA SHIP 6", 2500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_6_C_Large.png")),
+            new(28, "PHOENIX SHIP 6", 2500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_6_D_Large.png")),
+            new(29, "SUPERNOVA SHIP 6", 2500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_6_E_Large.png")),
+            new(30, "WILD SHIP 7", 3000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_7_A_Large.png")),
+            new(31, "NEO SHIP 7", 3000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_7_B_Large.png")),
+            new(32, "AQUA SHIP 7", 3000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_7_C_Large.png")),
+            new(33, "PHOENIX SHIP 7", 3000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_7_D_Large.png")),
+            new(34, "SUPERNOVA SHIP 7", 3000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_7_E_Large.png")),
+            new(35, "WILD SHIP 8", 3500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_8_A_Large.png")),
+            new(36, "NEO SHIP 8", 3500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_8_B_Large.png")),
+            new(37, "AQUA SHIP 8", 3500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_8_C_Large.png")),
+            new(38, "PHOENIX SHIP 8", 3500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_8_D_Large.png")),
+            new(39, "SUPERNOVA SHIP 8", 3500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_8_E_Large.png")),
+            new(40, "WILD SHIP 9", 4000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_9_A_Large.png")),
+            new(41, "NEO SHIP 9", 4000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_9_B_Large.png")),
+            new(42, "AQUA SHIP 9", 4000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_9_C_Large.png")),
+            new(43, "PHOENIX SHIP 9", 4000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_9_D_Large.png")),
+            new(44, "SUPERNOVA SHIP 9", 4000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_9_E_Large.png")),
+            new(45, "WILD SHIP 10", 5000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_10_A_Large.png")),
+            new(46, "NEO SHIP 10", 5000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_10_B_Large.png")),
+            new(47, "AQUA SHIP 10", 5000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_10_C_Large.png")),
+            new(48, "PHOENIX SHIP 10", 5000, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_10_D_Large.png")),
+            new(49, "SUPERNOVA SHIP 10", 3500, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_10_E_Large.png"))
         };
         public static List<Item> ProjectileItems { get; private set; } = new()
         {
-            new(0, "HOLLOW ADDER", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_1_D_Large.png"), false),
-            new(1, "CARRION FEAST", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_4_B_Large.png"), false),
-            new(2, "SILENT LOCUST", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_6_C_Large.png"), false)
+            new(0, "WILD MISSILE 1", 1000, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_1_A_Large.png")),
+            new(1, "NEO MISSILE 1", 1000, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_1_B_Large.png")),
+            new(2, "AQUA MISSILE 1", 1000, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_1_C_Large.png")),
+            new(3, "PHOENIX MISSILE 1", 1000, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_1_D_Large.png")),
+            new(4, "SUPERNOVA MISSILE 1", 1000, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_1_E_Large.png")),
+            new(5, "WILD MISSILE 2", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_2_A_Large.png")),
+            new(6, "NEO MISSILE 2", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_2_B_Large.png")),
+            new(7, "AQUA MISSILE 2", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_2_C_Large.png")),
+            new(8, "PHOENIX MISSILE 2", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_2_D_Large.png")),
+            new(9, "SUPERNOVA MISSILE 2", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_2_E_Large.png")),
+            new(10, "WILD MISSILE 3", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_3_A_Large.png")),
+            new(11, "NEO MISSILE 3", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_3_B_Large.png")),
+            new(12, "AQUA MISSILE 3", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_3_C_Large.png")),
+            new(13, "PHOENIX MISSILE 3", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_3_D_Large.png")),
+            new(14, "SUPERNOVA MISSILE 3", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_3_E_Large.png")),
+            new(15, "WILD MISSILE 4", 2000, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_4_A_Large.png")),
+            new(16, "NEO MISSILE 4", 2000, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_4_B_Large.png")),
+            new(17, "AQUA MISSILE 4", 2000, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_4_C_Large.png")),
+            new(18, "PHOENIX MISSILE 4", 2000, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_4_D_Large.png")),
+            new(19, "SUPERNOVA MISSILE 4", 2000, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_4_E_Large.png")),
+            new(20, "WILD MISSILE 5", 2500, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_5_A_Large.png")),
+            new(21, "NEO MISSILE 5", 2500, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_5_B_Large.png")),
+            new(22, "AQUA MISSILE 5", 2500, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_5_C_Large.png")),
+            new(23, "PHOENIX MISSILE 5", 2500, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_5_D_Large.png")),
+            new(24, "SUPERNOVA MISSILE 5", 2500, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_5_E_Large.png")),
+            new(25, "WILD MISSILE 6", 2750, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_6_A_Large.png")),
+            new(26, "NEO MISSILE 6", 2750, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_6_B_Large.png")),
+            new(27, "AQUA MISSILE 6", 2750, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_6_C_Large.png")),
+            new(28, "PHOENIX MISSILE 6", 2750, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_6_D_Large.png")),
+            new(29, "SUPERNOVA MISSILE 6", 2750, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_6_E_Large.png")),
+            new(30, "WILD MISSILE 7", 3000, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_7_A_Large.png")),
+            new(31, "NEO MISSILE 7", 3000, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_7_B_Large.png")),
+            new(32, "AQUA MISSILE 7", 3000, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_7_C_Large.png")),
+            new(33, "PHOENIX MISSILE 7", 3000, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_7_D_Large.png")),
+            new(34, "SUPERNOVA MISSILE 7", 3000, AssetDatabase.LoadAssetAtPath<Texture2D>(shootDir + "Missile_7_E_Large.png")),
         };
         public static List<Item> TrailItems { get; private set; } = new()
         {
-            new(0, "SUPERSONIC", 2000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_1_E.png"), false),
-            new(1, "ELECTRIC", 1600, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_1_A.png"), false),
-            new(2, "HARLEM", 1600, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_1_B.png"), false)
+            new(0, "WILD Trail 1", 1000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_1_A.png")),
+            new(1, "NEO Trail 1", 1000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_1_B.png")),
+            new(2, "AQUA Trail 1", 1000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_1_C.png")),
+            new(3, "PHOENIX Trail 1", 1000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_1_D.png")),
+            new(4, "SUPERNOVA Trail 1", 1000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_1_E.png")),
+            new(5, "WILD Trail 2", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_2_A.png")),
+            new(6, "NEO Trail 2", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_2_B.png")),
+            new(7, "AQUA Trail 2", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_2_C.png")),
+            new(8, "PHOENIX Trail 2", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_2_D.png")),
+            new(9, "SUPERNOVA Trail 2", 1500, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_2_E.png")),
+            new(10, "WILD Trail 3", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_3_A.png")),
+            new(11, "NEO Trail 3", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_3_B.png")),
+            new(12, "AQUA Trail 3", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_3_C.png")),
+            new(13, "PHOENIX Trail 3", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_3_D.png")),
+            new(14, "SUPERNOVA Trail 3", 1750, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_3_E.png")),
+            new(15, "WILD Trail 4", 2000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_4_A.png")),
+            new(16, "NEO Trail 4", 2000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_4_B.png")),
+            new(17, "AQUA Trail 4", 2000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_4_C.png")),
+            new(18, "PHOENIX Trail 4", 2000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_4_D.png")),
+            new(19, "SUPERNOVA Trail 4", 2000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_4_E.png")),
+            new(20, "WILD Trail 5", 2500, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_5_A.png")),
+            new(21, "NEO Trail 5", 2500, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_5_B.png")),
+            new(22, "AQUA Trail 5", 2500, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_5_C.png")),
+            new(23, "PHOENIX Trail 5", 2500, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_5_D.png")),
+            new(24, "SUPERNOVA Trail 5", 2500, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_5_E.png")),
+            new(25, "WILD Trail 6", 2750, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_6_A.png")),
+            new(26, "NEO Trail 6", 2750, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_6_B.png")),
+            new(27, "AQUA Trail 6", 2750, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_6_C.png")),
+            new(28, "PHOENIX Trail 6", 2750, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_6_D.png")),
+            new(29, "SUPERNOVA Trail 6", 2750, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_6_E.png")),
+            new(30, "WILD Trail 7", 3000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_7_A.png")),
+            new(31, "NEO Trail 7", 3000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_7_B.png")),
+            new(32, "AQUA Trail 7", 3000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_7_C.png")),
+            new(33, "PHOENIX Trail 7", 3000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_7_D.png")),
+            new(34, "SUPERNOVA Trail 7", 3000, AssetDatabase.LoadAssetAtPath<Texture2D>(trailDir + "Projectile_7_E.png"))
+        };
+        public static List<Item> BundleItems { get; private set; } = new()
+        {
+            new(0, "AQUA SET", 20000, AssetDatabase.LoadAssetAtPath<Texture2D>(bundleDir + "Pickup_Crate_1_Large.png")),
+            new(1, "PHOENIX SET", 20000, AssetDatabase.LoadAssetAtPath<Texture2D>(bundleDir + "Pickup_Crate_2_Large.png")),
+            new(2, "WILD SET", 20000, AssetDatabase.LoadAssetAtPath<Texture2D>(bundleDir + "Pickup_Crate_3_Large.png")),
+            new(3, "SUPERNOVA SET", 20000, AssetDatabase.LoadAssetAtPath<Texture2D>(bundleDir + "Pickup_Crate_4_Large.png"))
         };
 
         public static Item GetShipItem(int index)

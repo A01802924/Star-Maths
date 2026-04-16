@@ -19,11 +19,11 @@ namespace Assets.Scripts.Core
             ItemSet.GetProjectileItem(2),
             ItemSet.GetTrailItem(0),
             ItemSet.GetTrailItem(2)
-        }; // TODO: Handle List<Item> through DB query. Notice that the base case is a List<Item> containing the very first items of each category (Ship, Projectile, and Trail)
-        public static Item CurrentShipItem { get; set; } = ItemSet.GetShipItem(1);// By default, a new user will always have at least the very first ship item as owned
+        }; // TODO: Handle List<Item> through DB query. Notice that the base case is a List<Item> containing the very first items of each category (Ship, Projectile, and Trail). For testing pruposes, this List<Item> object is used to test accurate blocking and owned item appearance on the scenes
+        public static Item CurrentShipItem { get; set; } = ItemSet.GetShipItem(0);// By default, a new user will always have at least the very first ship item as owned
         public static Item CurrentProjectileItem { get; set; } = ItemSet.GetProjectileItem(0); // By default, a new user will always have at least the very first projectile item as owned
         public static Item CurrentTrailItem { get; set; } = ItemSet.GetTrailItem(0); // By default, a new user will always have at least the very first trail item as owned
-        public static int meteoritoCorrecto { get; set;} = 1;
+        public static int meteoritoCorrecto { get; set; } = 1;
 
         public static void ClearGameData()
         {

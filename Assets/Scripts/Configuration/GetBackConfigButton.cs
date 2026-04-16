@@ -12,7 +12,6 @@ public class GetBackConfigButton : MonoBehaviour
         homeButton = root.Q<Button>("CloseButton");
         homeButton.RegisterCallback<ClickEvent>(GoHome);
     }
-
     void GoHome(ClickEvent evt)
     {
         SceneManager.LoadScene("MenuPrincipalScene");

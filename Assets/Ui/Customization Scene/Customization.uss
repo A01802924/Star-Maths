@@ -48,7 +48,7 @@
     font-size: 40px;
     position: absolute;
     top: 11%;
-    left: 9%;
+    left: 11%;
     padding-top: 12px;
     padding-right: 50px;
     padding-bottom: 12px;
