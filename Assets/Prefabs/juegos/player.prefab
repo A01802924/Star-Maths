@@ -279,8 +279,7 @@ MonoBehaviour:
   vidas: 3
   correctas: 0
   creadorMeteoritos: {fileID: 6814934651122688937, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
-  menuFinal: {fileID: 0}
-  menuPausa: {fileID: 0}
+  lanzaMeteoritos: {fileID: 2258816864109833318, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
 --- !u!1 &4245057454449048126
 GameObject:
   m_ObjectHideFlags: 0

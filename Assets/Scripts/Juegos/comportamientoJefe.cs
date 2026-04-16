@@ -4,31 +4,19 @@ using UnityEngine.SceneManagement;
 public class comportamientoJefe : MonoBehaviour
 {
     private int vida = 10;
-    private Animator anim;
     private SpriteRenderer sr;
 
     void Start()
     {
-        anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
-        Invoke("Victoria", 15f);
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    public void Golpe()
     {
-        if (collision.CompareTag("Bala"))
-        {
-            vida--;
-            Destroy(collision.gameObject);
-        }
+        vida--;
         if (vida <= 0)
         {
-            Victoria();
+            vidaNave.instance.Ganar(10);
         }
-    }
-
-    private void Victoria()
-    {
-        SceneManager.LoadScene("MenuFinal");
     }
 }

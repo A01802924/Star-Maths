@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Core;
 
 public class lanzarMeteoritos : MonoBehaviour
 {
@@ -18,16 +19,7 @@ public class lanzarMeteoritos : MonoBehaviour
         meteoritos.Add(m1);
         meteoritos.Add(m2);
         meteoritos.Add(m3);
-        StartCoroutine(lanzaMeteoritos());
-    }
-
-    IEnumerator lanzaMeteoritos()
-    {
-        while (true)
-        {
-            Lanzar();
-            yield return new WaitForSeconds(1.5f);
-        }
+        InvokeRepeating("Lanzar", 0f, SessionData.velocidadMeteoritos);
     }
 
     void Lanzar()

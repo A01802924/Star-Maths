@@ -83,8 +83,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3327123590059428272}
   - component: {fileID: 4196608429493342873}
-  - component: {fileID: 123440065796016282}
   - component: {fileID: 8146994106016011143}
+  - component: {fileID: 2187631087450696598}
   m_Layer: 0
   m_Name: meteorito
   m_TagString: Meteorito
@@ -166,18 +166,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &123440065796016282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7459110928106234613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c02c2392f75e7cd42bc7228e713dd02a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::detectaColision
 --- !u!70 &8146994106016011143
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -215,3 +203,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 2, y: 2.3}
   m_Direction: 0
+--- !u!114 &2187631087450696598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459110928106234613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60924a3e244b491408d803d8c15e033a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::detectaColisionJefe

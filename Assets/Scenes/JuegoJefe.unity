@@ -479,58 +479,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 7791399078818091422, guid: 2501270bc3713a645843b2ce99433848, type: 3}
+      propertyPath: lanzaMeteoritos
+      value: 
+      objectReference: {fileID: 1620926390}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2501270bc3713a645843b2ce99433848, type: 3}
---- !u!1 &1620926390
+--- !u!1 &1620926390 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2258816864109833318, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
+  m_PrefabInstance: {fileID: 1415925482147501867}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1620926392}
-  - component: {fileID: 1620926391}
-  m_Layer: 0
-  m_Name: lanzaMeteoritos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1620926391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1620926390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c78b646c0930bb642aefe6ffca0a16d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::lanzarMeteoritos
-  m1: {fileID: 6814551942940066743, guid: d3ea3d51e81867e42805b1e4cfb627fa, type: 3}
-  m2: {fileID: 5392886387653658017, guid: f62989379558bdf40b6330679df6479b, type: 3}
-  m3: {fileID: 3635134145518653362, guid: b09ab7125393cee4e89bac7913851c19, type: 3}
---- !u!4 &1620926392
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1620926390}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1661645869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -588,6 +550,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0986bb4ea3a54024eb556ff02c610329, type: 3}
+--- !u!1001 &1415925482147501867
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2258816864109833318, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
+      propertyPath: m_Name
+      value: lanzaMeteoritos
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038351488862242371, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038351488862242371, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038351488862242371, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038351488862242371, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038351488862242371, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038351488862242371, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038351488862242371, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038351488862242371, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038351488862242371, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038351488862242371, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
 --- !u!1001 &1655918521844240027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -654,6 +673,6 @@ SceneRoots:
   - {fileID: 1032714341}
   - {fileID: 1661645869}
   - {fileID: 1655918521844240027}
-  - {fileID: 1620926392}
+  - {fileID: 1415925482147501867}
   - {fileID: 348567446}
   - {fileID: 714990486}

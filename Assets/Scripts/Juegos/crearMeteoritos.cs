@@ -1,5 +1,5 @@
+using Assets.Scripts.Core;
 using UnityEngine;
-using System.Collections;
 
 public class crearMeteoritos : MonoBehaviour
 {
@@ -8,16 +8,7 @@ public class crearMeteoritos : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(creacionMeteoritos());
-    }
-
-    IEnumerator creacionMeteoritos()
-    {
-        while (true)
-        {
-            Crear();
-            yield return new WaitForSeconds(5f);
-        }
+        InvokeRepeating("Crear", 0f, SessionData.velocidadMeteoritos);
     }
 
     void Crear()

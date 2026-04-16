@@ -30,5 +30,7 @@ namespace Assets.Scripts.Core
             SelectedWorldID = 0;
             SelectedLevelID = 0;
         }
+
+        public static float velocidadMeteoritos = 0.67f;
     }
 }

@@ -81,6 +81,7 @@ Assets/Scripts/
   controladorOperaciones.cs
   crearMeteoritos.cs
   detectaColision.cs
+  detectaColisionJefe.cs
   disparaNave.cs
   lanzarMeteoritos.cs
   moverBala.cs
