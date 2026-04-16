@@ -35,15 +35,13 @@ public class detectaColision : MonoBehaviour
         {
             if (valor == SessionData.meteoritoCorrecto)
             {
-                vidaNave.instance.correctas++;
-                print("Respuesa Correcta");
+                MenuPausa.instance.ActualizarCorrectas();
                 if (vidaNave.instance.correctas >= 5)
                 {
                     vidaNave.instance.Ganar();
                 }
             } else
             {
-                print("Respuesta Incorrecta");
                 MenuPausa.instance.ActualizarVidas();
             }
 

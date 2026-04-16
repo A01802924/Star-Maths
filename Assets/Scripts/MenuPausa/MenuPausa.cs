@@ -21,7 +21,7 @@ public class MenuPausa : MonoBehaviour
     private Button mainMenu;
     private Button pausar;
 
-    private Label operacion;
+    private Label correctas;
 
     void Awake()
     {
@@ -48,7 +48,7 @@ public class MenuPausa : MonoBehaviour
         mainMenu = root.Q<Button>("MenuPrincipal");
         pausar = root.Q<Button>("BotonPausa");
 
-        operacion = root.Q<Label>("Operacion");
+        correctas = root.Q<Label>("Contador");
 
         menuPausa.style.display = DisplayStyle.None;
 
@@ -119,5 +119,13 @@ public class MenuPausa : MonoBehaviour
         {
             vida3.style.display = DisplayStyle.None;
         }
+    }
+
+    public void ActualizarCorrectas()
+    {
+        vidaNave.instance.correctas++;
+        string count = vidaNave.instance.correctas.ToString();
+
+        correctas.text = $"{count}/5";
     }
 }
