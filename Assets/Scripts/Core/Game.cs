@@ -5,25 +5,23 @@ namespace Assets.Scripts.Core
 {
     public abstract class Game
     {
-        protected bool isVictory;
-        protected bool isFinished;
+        public bool IsVictory { get; protected set; }
+        public bool IsFinished { get; protected set; }
         public int QuestionCounter { get; protected set; }
         protected Stopwatch cronometer;
         public Level Level { get; protected set; }
         protected Game(Level lvl)
         {
-            isVictory = false;
-            isFinished = false;
+            IsVictory = true;
+            IsFinished = false;
             QuestionCounter = 0;
             Level = lvl;
             cronometer = new Stopwatch();
         }
-
         protected void startCronometer()
         {
             cronometer.Start();
         }
-
         public void stopCronometer()
         {
             cronometer.Stop();
@@ -32,12 +30,10 @@ namespace Assets.Scripts.Core
         {
             return cronometer.Elapsed.TotalSeconds;
         }
-
         public (string, int, int) GenerateQuestion()
         {
             ++QuestionCounter;
             return Level.GetRandomOperation().GenerateOperation();
         }
-
-    }   
+    }
 }

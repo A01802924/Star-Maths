@@ -98,20 +98,22 @@ public class PlayLevelGame : MonoBehaviour
         if (numericAnswer == question.result)
         {
             currentCorrectsLabel.text = (game.QuestionCounter + (game.CurrentLives - game.InitialLives)).ToString();
-        } else
+        }
+        else if (game.TryDecreaseLives())
         {
-            game.DecreaseLives();
             currentLivesLabel.text = game.CurrentLives.ToString();
         }
-        if (game.CurrentLives == 0)
-            FinishGame(false);
-        else if (game.QuestionCounter + (game.CurrentLives - game.InitialLives) == game.Level.CorrectAnswersGoal)
-            FinishGame(true);
         else
+        {
+            FinishGameAsVictory(false);
+        }
+        if (game.QuestionCounter + (game.CurrentLives - game.InitialLives) == game.Level.CorrectAnswersGoal)
+            FinishGameAsVictory(true);
+        else if (game.CurrentLives > 0)
             DisplayNewQuestion();
     }
 
-    public void FinishGame(bool isVictory)
+    public void FinishGameAsVictory(bool isVictory)
     {
         game.stopCronometer();
         VisualElement gameContainer = root.Q<VisualElement>("GameContainer");

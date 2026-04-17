@@ -4,15 +4,15 @@ using UnityEngine;
 namespace Assets.Scripts.Core
 {
     public struct MultipleFrequencies
+    {
+        public double five, three, two, rest;
+        public List<int> multiples;
+        public MultipleFrequencies(double f, double th, double tw, double r)
         {
-            public double five, three, two, rest;
-            public List<int> multiples;
-            public MultipleFrequencies(double f, double th, double tw, double r)
-            {
-                five = f; three = th; two = tw; rest = r;
-                multiples = new List<int>{5, 3, 2, 1};
-            }
+            five = f; three = th; two = tw; rest = r;
+            multiples = new List<int>{5, 3, 2, 1};
         }
+    }
     public class Domain
     {
         MultipleFrequencies mf;

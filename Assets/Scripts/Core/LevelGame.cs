@@ -12,6 +12,19 @@ namespace Assets.Scripts.Core
             CurrentLives = 5;
             startCronometer();
         }
-        public void DecreaseLives() { --CurrentLives; }
+        public bool TryDecreaseLives()
+        {
+            if (CurrentLives > 0)
+            {
+                --CurrentLives;
+                return true;
+            }
+            else
+            {
+                IsFinished = true;
+                IsVictory = false;
+                return false;
+            }
+        }
     }
 }
