@@ -19,7 +19,7 @@ public class PlayLevelGamePrueba : MonoBehaviour
 
 
     //Añandiendo para la prueba
-    [SerializeField] private MostrarMenu menuFinal;
+    private MostrarMenu menuFinal;
 
 
 
@@ -147,7 +147,7 @@ public class PlayLevelGamePrueba : MonoBehaviour
 
         if (isVictory)
         {
-            StartCoroutine(MostrarMenu.instance.MuestraMenu(timeF, vidas, vidasI, numpreguntas, preguntasC, preguntasI));    
+            StartCoroutine(menuFinal.MuestraMenu(timeF, vidas, vidasI, numpreguntas, preguntasC, preguntasI));    
         }
         else
         {

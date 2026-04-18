@@ -225,7 +225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4623318024615063903, guid: f68f58b9b316e4ee1b6b369df0e414b2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8972077368108069496, guid: f68f58b9b316e4ee1b6b369df0e414b2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -302,7 +302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dea1700213564d26a745116cefbe14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayLevelGamePrueba
-  menuFinal: {fileID: 0}
 --- !u!114 &991915097
 MonoBehaviour:
   m_ObjectHideFlags: 0

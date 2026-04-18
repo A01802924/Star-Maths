@@ -8,7 +8,8 @@ public class crearMeteoritos : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("Crear", 0f, SessionData.velocidadMeteoritos);
+        //InvokeRepeating("Crear", 0f, SessionData.velocidadMeteoritos);
+        InvokeRepeating("Crear", 0f, 3f);
     }
 
     void Crear()

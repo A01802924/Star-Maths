@@ -10,6 +10,7 @@ public class MenuPausa : MonoBehaviour
 
     private VisualElement menuPausa;
     public VisualElement HUD;
+    public VisualElement infoHUD;
     private VisualElement vida1;
     private VisualElement vida2;
     private VisualElement vida3;
@@ -41,6 +42,7 @@ public class MenuPausa : MonoBehaviour
         vida2 = root.Q<VisualElement>("Vida2");
         vida3 = root.Q<VisualElement>("Vida3");
         respuestas = root.Q<VisualElement>("Respuestas");
+        infoHUD = root.Q<VisualElement>("InfoHUD");
 
         resume = root.Q<Button>("Reanudar");
         restart = root.Q<Button>("Reiniciar");
@@ -63,6 +65,7 @@ public class MenuPausa : MonoBehaviour
     {
         menuPausa.style.display = DisplayStyle.Flex;
         HUD.style.display = DisplayStyle.None;
+        infoHUD.style.display = DisplayStyle.None;
         pausar.style.display = DisplayStyle.None;
         Time.timeScale = 0f;
     }
@@ -70,6 +73,7 @@ public class MenuPausa : MonoBehaviour
     public void OcultarMenu()
     {
         menuPausa.style.display = DisplayStyle.None;
+        infoHUD.style.display = DisplayStyle.Flex;
         HUD.style.display = DisplayStyle.Flex;
         pausar.style.display = DisplayStyle.Flex;
         Time.timeScale = 1f;
