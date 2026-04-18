@@ -208,7 +208,7 @@ public class MostrarMenu : MonoBehaviour
             yield return null;
         }
         time.text = "Tiempo: " + fin;
-        StartCoroutine(MostrarEstrellas(preguntasC, preguntasT));
+        StartCoroutine(MostrarEstrellas(preguntasT, preguntasC));
     }
 
     private IEnumerator MostrarEstrellas(int preguntasT, int preguntasC)
