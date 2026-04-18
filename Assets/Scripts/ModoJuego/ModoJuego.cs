@@ -2,6 +2,7 @@ using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.Core;
 
 public class ModoJuego : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class ModoJuego : MonoBehaviour
     {
         UIDocument = GetComponent<UIDocument>();
         var root = UIDocument.rootVisualElement;
+
+        root.Add(ConfigurationPreferences.DarkScreenLayer);
 
         btnInfo2 = root.Q<Button>("Info2");
         btnHome = root.Q<Button>("Home");

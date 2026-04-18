@@ -7,7 +7,7 @@ using UnityEngine.TestTools;
 public class SessionDataHandleTest
 {
     [Test]
-    public void SessionData_Clear_Data_Test()
+    public void SessionData_Clear_Game_Data_Test()
     {
         // Arrange: User playing the level 3 from World 4 (divisions)
         SessionData.SelectedWorldID = 4;

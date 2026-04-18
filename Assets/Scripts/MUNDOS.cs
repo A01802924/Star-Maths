@@ -9,15 +9,17 @@ void OnEnable()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
 
+        root.Add(ConfigurationPreferences.DarkScreenLayer);
+
         var earth = root.Q<Button>("EARTH");
         var suma = root.Q<Button>("SUMA");
 
         var neptune = root.Q<Button>("NEPTUNE");
         var resta = root.Q<Button>("RESTA");
-        
+
         var uranus = root.Q<Button>("URANUS");
         var multiplicacion = root.Q<Button>("MULTIPLICACION");
-        
+
         var pluto = root.Q<Button>("PLUTO");
         var division = root.Q<Button>("DIVISION");
 

@@ -25,6 +25,8 @@ public class Customize : MonoBehaviour
     {
         root = GetComponent<UIDocument>().rootVisualElement;
 
+        root.Add(ConfigurationPreferences.DarkScreenLayer);
+
         selectedItemSource = root.Q<VisualElement>("ItemSource");
         selectedItemSource.style.backgroundImage = new StyleBackground(SessionData.CurrentShipItem.itemIcon);
 

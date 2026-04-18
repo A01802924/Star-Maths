@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using Assets.Scripts.Core;
 
 public class MenuPrincipal : MonoBehaviour
 {
@@ -22,7 +23,10 @@ public class MenuPrincipal : MonoBehaviour
     {
         UIDocument = GetComponent<UIDocument>();
         var root = UIDocument.rootVisualElement;
-        
+
+        ConfigurationPreferences.UpdateDarkScreenLayer();
+        root.Add(ConfigurationPreferences.DarkScreenLayer);
+
         //obteniendo referencias a UI Elements
         MenuPrincipall = root.Q<VisualElement>("MenuPrincipal");
         Creditos = root.Q<VisualElement>("Creditos");

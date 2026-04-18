@@ -1,3 +1,4 @@
+using Assets.Scripts.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -8,11 +9,12 @@ public class GetBackStoreButton : MonoBehaviour
     void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
+        root.Add(ConfigurationPreferences.DarkScreenLayer);
         getBackButton = root.Q<Button>("CloseButton");
-        getBackButton.RegisterCallback<ClickEvent>(GetBack);
+        getBackButton.clicked += GetBack;
     }
 
-    void GetBack(ClickEvent evt)
+    private void GetBack()
     {
         SceneManager.LoadScene("Informacion");
     }

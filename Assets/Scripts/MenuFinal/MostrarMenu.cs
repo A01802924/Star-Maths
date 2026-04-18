@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Assets.Scripts.Core;
 using NUnit.Framework.Internal;
 using Unity.Mathematics;
 using UnityEngine;
@@ -25,7 +26,6 @@ public class MostrarMenu : MonoBehaviour
     private UIDocument menuFinal;
     private Button repetirNivel;
     private Button menuPrincipal;
-    
     private Image estrella1;
     private Image estrella2;
     private Image estrella3;
@@ -68,9 +68,11 @@ public class MostrarMenu : MonoBehaviour
 
     void Start()
     {
-        menuFinal = GetComponent<UIDocument>(); 
+        menuFinal = GetComponent<UIDocument>();
         var root = menuFinal.rootVisualElement;
-        
+
+        root.Add(ConfigurationPreferences.DarkScreenLayer);
+
         //Visual Element principal que muestra todo el menu
         menu = root.Q<VisualElement>("MenuFinal");
 
@@ -80,7 +82,7 @@ public class MostrarMenu : MonoBehaviour
         menuPrincipal = root.Q<Button>("Salir");
         menuPrincipal.clicked += MenuPrincipal;
 
-        
+
         //Estrellas desbloqueadas y ND (No desbloqueadas)
         estrella1 = root.Q<Image>("Estrella_1");
         estrella2 = root.Q<Image>("Estrella_2");

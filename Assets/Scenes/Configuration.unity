@@ -130,7 +130,6 @@ GameObject:
   - component: {fileID: 811562049}
   - component: {fileID: 811562048}
   - component: {fileID: 811562050}
-  - component: {fileID: 811562051}
   m_Layer: 5
   m_Name: ConfigurationModal
   m_TagString: Untagged
@@ -188,26 +187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36b91338e9a86fd4cb870e0b6aeebcbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Configurations
-  configOptions:
-  - configName: Pantalla
-    spriteSource: {fileID: -420995529506558269, guid: 1c0fb6e6215c0004c94f207ae716dc37, type: 3}
-  - configName: Audio
-    spriteSource: {fileID: 7483392663176593667, guid: 24200fa7d83aae44dadd32dd76e932bb, type: 3}
-  - configName: Controles
-    spriteSource: {fileID: 1386654199997483933, guid: 990a28e7dc6c2954c8cda129bd997be7, type: 3}
-  tabTemplate: {fileID: 0}
---- !u!114 &811562051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 811562046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca61fe6c08661814a86063cbfe93a14b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GetBackConfigButton
 --- !u!1 &1011094845
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +198,7 @@ GameObject:
   - component: {fileID: 1011094848}
   - component: {fileID: 1011094847}
   - component: {fileID: 1011094846}
+  - component: {fileID: 1011094849}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -300,6 +280,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1011094849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011094845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!1001 &2093151436
 PrefabInstance:
   m_ObjectHideFlags: 0

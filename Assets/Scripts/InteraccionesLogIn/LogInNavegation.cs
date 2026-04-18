@@ -3,6 +3,7 @@ using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.Core;
 
 
 public class MenuManager : MonoBehaviour
@@ -19,6 +20,7 @@ public class MenuManager : MonoBehaviour
         UIDocument = GetComponent<UIDocument>();
         var root = UIDocument.rootVisualElement;
         
+        root.Add(ConfigurationPreferences.DarkScreenLayer);
         //obteniendo referencias a UI Elements
         contenedorInicio = root.Q<VisualElement>("ContenedorInicio");
         contenedorRegistro = root.Q<VisualElement>("ContenedorRegistro");

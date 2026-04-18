@@ -30,6 +30,8 @@ public class ItemConfig : MonoBehaviour
     {
         root = GetComponent<UIDocument>().rootVisualElement;
 
+        root.Add(ConfigurationPreferences.DarkScreenLayer);
+
         scrollableShipContainer = root.Q<ScrollView>("ShipItemGrid");
         scrollableProjectileContainer = root.Q<ScrollView>("ProjectileItemGrid");
         scrollableTrailContainer = root.Q<ScrollView>("TrailItemGrid");

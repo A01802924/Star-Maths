@@ -1,3 +1,4 @@
+using Assets.Scripts.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -7,6 +8,8 @@ public class Info : MonoBehaviour
     void OnEnable()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
+
+        root.Add(ConfigurationPreferences.DarkScreenLayer);
 
         var puntajes= root.Q<Button>("PUNTAJE");
 

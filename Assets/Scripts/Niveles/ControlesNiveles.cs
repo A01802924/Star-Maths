@@ -17,6 +17,8 @@ public class ControlesNiveles : MonoBehaviour
     void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
+
+        root.Add(ConfigurationPreferences.DarkScreenLayer);
         nivel1 = root.Q<Button>("1");
         nivel2 = root.Q<Button>("2");
         nivel3 = root.Q<Button>("3");

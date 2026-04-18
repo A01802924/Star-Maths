@@ -31,12 +31,6 @@
     -unity-text-align: middle-center;
 }
 
-.unity-scroll-view__content-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
 .button-get-back {
     background-image: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Button_Images/Source_Image_Sprites/extra%20large/short-yellow-extra-large.png?fileID=2800000&guid=c8dd6d8869346624c8adc63daa4146b9&type=3#short-yellow-extra-large");
     background-color: rgba(0, 0, 0, 0);
@@ -64,4 +58,50 @@
 .button-get-back:active {
     background-image: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Button_Images/Pressed_Sprites/Extra_Large/short-yellow-pressed-extra-large.png?fileID=2800000&guid=2f29148c1d44fcd40a53f8e069862c74&type=3#short-yellow-pressed-extra-large");
     scale: 1 1;
+}
+
+.unity-scroll-view__content-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.unity-base-slider__dragger {
+    background-image: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Settings_&_Menu_Components/Extra%20Large/vertical-scroll-bar-handle-extra-large.png?fileID=2800000&guid=93df4a5f296156b4cad5dd08da3f296e&type=3#vertical-scroll-bar-handle-extra-large");
+    border-left-color: rgba(0, 0, 0, 0.5);
+    border-right-color: rgba(0, 0, 0, 0.5);
+    border-top-color: rgba(0, 0, 0, 0.5);
+    border-bottom-color: rgba(0, 0, 0, 0.5);
+}
+
+.unity-base-slider__tracker {
+    background-image: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Settings_&_Menu_Components/Medium/vertical-scroll-bar-container-medium.png?fileID=2800000&guid=43fc6327486320847a35db395ec8e606&type=3#vertical-scroll-bar-container-medium");
+    border-left-color: rgba(0, 0, 0, 0.53);
+    border-right-color: rgba(0, 0, 0, 0.53);
+    border-top-color: rgba(0, 0, 0, 0.53);
+    border-bottom-color: rgba(0, 0, 0, 0.53);
+}
+
+.unity-base-slider__dragger-border {
+    background-color: rgb(49, 41, 74);
+}
+
+.unity-scroller__low-button {
+    background-image: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=6936960519852013934&guid=5e8031e43a47b044899a938fe3637244&type=3#arrow-up@2x");
+    background-color: rgba(0, 0, 0, 0);
+    -unity-background-image-tint-color: rgb(254, 238, 184);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+}
+
+.unity-scroller__high-button {
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    background-image: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-1304905567622442630&guid=5e8031e43a47b044899a938fe3637244&type=3#arrow-down@2x");
+    background-color: rgba(0, 0, 0, 0);
+    -unity-background-image-tint-color: rgb(254, 238, 184);
 }

@@ -1,3 +1,4 @@
+using Assets.Scripts.Core;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -35,6 +36,8 @@ public class MenuPausa : MonoBehaviour
     void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
+
+        root.Add(ConfigurationPreferences.DarkScreenLayer);
 
         menuPausa = root.Q<VisualElement>("MenuPausa");
         HUD = root.Q<VisualElement>("PlayerHUD");

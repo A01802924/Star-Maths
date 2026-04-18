@@ -159,7 +159,6 @@ namespace Assets.Scripts.Core
             new(2, "WILD SET", 20000, AssetDatabase.LoadAssetAtPath<Texture2D>(bundleDir + "Pickup_Crate_3_Large.png")),
             new(3, "SUPERNOVA SET", 20000, AssetDatabase.LoadAssetAtPath<Texture2D>(bundleDir + "Pickup_Crate_4_Large.png"))
         };
-
         public static Item GetShipItem(int index)
         {
             foreach (Item item in ShipItems)

@@ -1,9 +1,49 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Assets.Scripts.Core
 {
-
+    public static class ConfigurationPreferences
+    {
+        public static float ScreenBrightness { get; set; } = 100f;
+        public static float MusicVolume { get; set; } = 60f;
+        public static float SFXVolume { get; set; } = 80f;
+        public static KeyCode KeyLeft { get; set; } = KeyCode.A;
+        public static KeyCode KeyRight { get; set; } = KeyCode.D;
+        public static KeyCode KeyUp { get; set; } = KeyCode.W;
+        public static KeyCode KeyDown { get; set; } = KeyCode.S;
+        public static KeyCode KeyShoot { get; set; } = KeyCode.Q;
+        public static KeyCode KeyPause { get; set; } = KeyCode.Escape;
+        public static VisualElement DarkScreenLayer { get; set; } = new()
+        {
+            style = {
+                backgroundColor = Color.black,
+                position = Position.Absolute,
+                opacity = 0.0085f * (100 - ScreenBrightness),
+                width = Length.Percent(100),
+                height = Length.Percent(100)
+            },
+            name = "BrightnessAdjuster",
+            pickingMode = PickingMode.Ignore
+        };
+        public static void UpdateDarkScreenLayer()
+        {
+            DarkScreenLayer.style.opacity = 0.0085f * (100 - ScreenBrightness);
+        }
+        public static void ResetConfigurations()
+        {
+            ScreenBrightness = 100f;
+            MusicVolume = 60f;
+            SFXVolume = 80f;
+            KeyLeft = KeyCode.A;
+            KeyRight = KeyCode.D;
+            KeyUp = KeyCode.W;
+            KeyDown = KeyCode.S;
+            KeyShoot = KeyCode.Q;
+            KeyPause = KeyCode.Escape;
+        }
+    }
     public static class SessionData
     {
         public static int SelectedWorldID { get; set; } = 4; // Set as a test value, when test finished, set back to 0

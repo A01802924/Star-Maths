@@ -38,7 +38,7 @@ public class LevelGameTest
         Assert.That(levelGameTest.CurrentLives, Is.EqualTo(0));
     }
     [Test]
-    public void Level_Game_Handle_Live_Decrease_Limit()
+    public void Level_Game_Game_Over_Trigger_Test()
     {
         // Arrange: Level 3 from World 4 (Divisions)
         Level anyLevel = LevelFactory.BuildLevel(4, 3);
