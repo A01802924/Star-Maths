@@ -19,10 +19,9 @@ public class lanzarMeteoritos : MonoBehaviour
         meteoritos.Add(m1);
         meteoritos.Add(m2);
         meteoritos.Add(m3);
-        InvokeRepeating("Lanzar", 0f, SessionData.velocidadMeteoritos);
     }
 
-    void Lanzar()
+    public void Lanzar()
     {
         num = Random.Range(0, 3);
         Instantiate(meteoritos[num], transform.position, transform.rotation);

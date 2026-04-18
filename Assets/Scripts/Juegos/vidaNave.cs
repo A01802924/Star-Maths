@@ -9,7 +9,6 @@ public class vidaNave : MonoBehaviour
     public static vidaNave instance;
 
     private MostrarMenu menuFinal;
-    // private MenuPausa menuPausa;
 
     void Awake()
     {
