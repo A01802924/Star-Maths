@@ -1,4 +1,3 @@
-using Assets.Scripts.Core;
 using UnityEngine;
 
 public class detectaColisionJefe : MonoBehaviour
