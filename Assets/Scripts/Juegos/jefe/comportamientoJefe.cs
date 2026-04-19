@@ -18,6 +18,6 @@ public class comportamientoJefe : MonoBehaviour
             vidaNave.instance.Ganar(10);
         }
         
-        InvokeRepeating("Lanzar", 0f, SessionData.velocidadMeteoritos);
+        InvokeRepeating("Lanzar", 0f, 1.5f);
     }
 }
