@@ -312,8 +312,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4623318024615063903, guid: f68f58b9b316e4ee1b6b369df0e414b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 506080900}
   m_SourcePrefab: {fileID: 100100000, guid: f68f58b9b316e4ee1b6b369df0e414b2, type: 3}
+--- !u!1 &506080899 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4623318024615063903, guid: f68f58b9b316e4ee1b6b369df0e414b2, type: 3}
+  m_PrefabInstance: {fileID: 506080898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &506080900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506080899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcb142ecf5f0ed4a8b7b8665809d484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PuntajeBD
 --- !u!1 &632224437
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,11 +38,15 @@ public class MostrarMenu : MonoBehaviour
 
     //
     private Label score;
+    [SerializeField]
     private int totalPuntos = 0;
+    public int TotalPuntos => totalPuntos;
 
     //
     private Label time;
+    [SerializeField]
     private float totalTiempo = 0;
+    public float TotalTiempo => totalTiempo;
 
     //Elementos añadidos en la última versión
     private VisualElement contenedorMenu;
@@ -55,8 +59,12 @@ public class MostrarMenu : MonoBehaviour
     private Button cerrarStats;
     private int vidasRes;
     private int vidasI;
+    [SerializeField]
     private int preguntasT = 0;
+    public int PreguntasT => preguntasT;
+    [SerializeField]
     private int preguntasC = 0;
+    public int PreguntasC => preguntasC;
     private int preguntasI = 0;
 
     private VisualElement menuParInf;
@@ -179,6 +187,7 @@ public class MostrarMenu : MonoBehaviour
         menu.style.display = DisplayStyle.Flex;
         menuGameOver.style.display = DisplayStyle.Flex;
         victoria.style.display = DisplayStyle.None;
+        PuntajeBD.instance.Guardar(false); //aqui es para la base
     }
 
 
@@ -244,6 +253,7 @@ public class MostrarMenu : MonoBehaviour
             estrella3.style.display = DisplayStyle.Flex;
             yield return new WaitForSeconds(0.4f);
         }
+        PuntajeBD.instance.Guardar(true); //aqui es para la base 
     }
 
     private void RepetirNivel()

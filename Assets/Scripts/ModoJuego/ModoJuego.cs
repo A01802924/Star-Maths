@@ -34,10 +34,14 @@ public class ModoJuego : MonoBehaviour
     }
     private void OnEsquivaClicked(ClickEvent evt)
     {
+        SessionData.JuegoJefe = false;//aqui es para la base
+        print("juego jefe: " + SessionData.JuegoJefe); 
         SceneManager.LoadScene("Mundos");
     }
     private void OnGranEnemigoClicked(ClickEvent evt)
     {
+        SessionData.JuegoJefe = true;//aqui es para la base
+        print("juego jefe: " + SessionData.JuegoJefe); 
         SceneManager.LoadScene("JuegoJefe");
     }
     private void OnHomeClicked(ClickEvent evt)

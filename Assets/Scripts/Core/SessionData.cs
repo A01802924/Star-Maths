@@ -48,6 +48,9 @@ namespace Assets.Scripts.Core
     {
         public static int SelectedWorldID { get; set; } = 4; // Set as a test value, when test finished, set back to 0
         public static int SelectedLevelID { get; set; } = 3; // Set as a test value, when test finished, set back to 0
+
+        public static bool JuegoJefe { get; set; } = false; // Aqui es para la base
+        public static bool Victoria { get; set; } = false; // Aqui es para la base
         public static int coins { get; set; } = 50000; // Set as a test value, when test finished, set back to 0
         public static List<Item> OwnedItems { get; set; } = new()
         {
@@ -69,6 +72,8 @@ namespace Assets.Scripts.Core
         {
             SelectedWorldID = 0;
             SelectedLevelID = 0;
+            JuegoJefe = false; // Aqui es para la base
+            Victoria = false; // Aqui es para la base
         }
 
         public static float velocidadMeteoritos = 0.67f;
