@@ -55,23 +55,25 @@ TemporaryDependencyNodeTargetIdentifier=netstandard2.1
 Assets/Scripts/BD_connections/
  LoginBD.cs
  RegistroBD.cs
+Assets/Scripts/Customization Scene/
+ Customize.cs
+ GetBackFromCustomization.cs
 Assets/Scripts/
- Configuration/GetBackConfigButton.cs
- Customization Scene/
-  Customize.cs
-  GetBackFromCustomization.cs
  Info/Info.cs
  InteraccionesLogIn/
   LlegarALog.cs
   LogInNavegation.cs
  Juegos/
-  comportamientoJefe.cs
-  controladorOperaciones.cs
-  crearMeteoritos.cs
-  detectaColision.cs
-  detectaColisionJefe.cs
   disparaNave.cs
-  lanzarMeteoritos.cs
+  jefe/
+   comportamientoJefe.cs
+   controladorOperacionesJefe.cs
+   detectaColisionJefe.cs
+   lanzarMeteoritos.cs
+  meteoritos/
+   controladorOperaciones.cs
+   crearMeteoritos.cs
+   detectaColision.cs
   moverBala.cs
   moverMeteoritos.cs
   moverNave.cs
