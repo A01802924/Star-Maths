@@ -513,11 +513,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e609636413efeb40b78affb259e9df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::controladorOperacionesJefe
+  respondido: 0
+  inputRes: 0
+  resultadoCorrecto: 0
 --- !u!1 &1620926390 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2258816864109833318, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
   m_PrefabInstance: {fileID: 1415925482147501867}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1620926391 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6930700688667235697, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
+  m_PrefabInstance: {fileID: 1415925482147501867}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620926390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78b646c0930bb642aefe6ffca0a16d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::lanzarMeteoritos
 --- !u!1001 &1661645869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -640,6 +654,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2686640860107251734, guid: 792accd9e13f7d740ae72c0d015cbc9b, type: 3}
+      propertyPath: controlador
+      value: 
+      objectReference: {fileID: 1599212464}
+    - target: {fileID: 2686640860107251734, guid: 792accd9e13f7d740ae72c0d015cbc9b, type: 3}
+      propertyPath: lanzaMeteoritos
+      value: 
+      objectReference: {fileID: 1620926391}
     - target: {fileID: 3714983394172040586, guid: 792accd9e13f7d740ae72c0d015cbc9b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
