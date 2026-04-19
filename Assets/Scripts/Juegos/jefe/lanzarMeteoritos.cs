@@ -4,19 +4,11 @@ using System.Collections.Generic;
 public class lanzarMeteoritos : MonoBehaviour
 {
     private int num;
-    [SerializeField]
-    private GameObject m1;
-    [SerializeField]
-    private GameObject m2;
-    [SerializeField]
-    private GameObject m3;
-    private List<GameObject> meteoritos = new List<GameObject>();
+    [SerializeField] private List<GameObject> meteoritos = new List<GameObject>();
 
     void Start()
     {
-        meteoritos.Add(m1);
-        meteoritos.Add(m2);
-        meteoritos.Add(m3);
+        
     }
 
     public void Lanzar()

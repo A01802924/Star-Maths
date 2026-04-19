@@ -32,7 +32,7 @@ public class PuntajeBD : MonoBehaviour
         public int nivel;
     }
 
-public void Guardar(bool victoria)
+    public void Guardar(bool victoria)
     {
         print ("Guardando puntaje...");
         SessionData.Victoria = victoria;

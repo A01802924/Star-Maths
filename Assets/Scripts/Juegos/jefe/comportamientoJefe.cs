@@ -4,6 +4,7 @@ using UnityEngine;
 public class comportamientoJefe : MonoBehaviour
 {
     private int vida = 10;
+    private float velocidadMeteoritos = 0.4f;
 
     [SerializeField]
     private lanzarMeteoritos lanzaMeteoritos;
@@ -28,9 +29,9 @@ public class comportamientoJefe : MonoBehaviour
             while (tiempo < 10f)
             {
                 lanzaMeteoritos.Lanzar();
-                yield return new WaitForSeconds(1.5f);
+                yield return new WaitForSeconds(velocidadMeteoritos);
 
-                tiempo += 1.5f;
+                tiempo += velocidadMeteoritos;
             }
 
             controlador.respondido = false;
@@ -38,7 +39,7 @@ public class comportamientoJefe : MonoBehaviour
 
             tiempo = 0f;
 
-            while (tiempo < 7.5f && !controlador.respondido)
+            while (tiempo < 5f && !controlador.respondido)
             {
                 yield return null;
                 tiempo += Time.deltaTime;
@@ -50,11 +51,10 @@ public class comportamientoJefe : MonoBehaviour
             {
                 if (controlador.inputRes == controlador.resultadoCorrecto)
                 {
-                    vidaNave.instance.correctas++;
+                    MenuPausa.instance.ActualizarCorrectas(10);
                 }
                 else
                 {
-                    vidaNave.instance.vidas--;
                     MenuPausa.instance.ActualizarVidas();
                 }
             }

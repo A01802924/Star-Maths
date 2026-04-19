@@ -126,13 +126,22 @@ public class MenuPausa : MonoBehaviour
         {
             vida3.style.display = DisplayStyle.None;
         }
+
+        print("perdiste una vida");
     }
 
-    public void ActualizarCorrectas()
+    public void ActualizarCorrectas(int x)
     {
         vidaNave.instance.correctas++;
         string count = vidaNave.instance.correctas.ToString();
 
-        correctas.text = $"{count}/5";
+        correctas.text = $"{count}/{x}";
+
+        if (vidaNave.instance.correctas >= x)
+        {
+            vidaNave.instance.Ganar(x);
+        }
+
+        print("Ganaste un punto");
     }
 }
