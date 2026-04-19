@@ -73,7 +73,6 @@ public class MostrarMenu : MonoBehaviour
     private Button reiniciarGO;
     private Button menuPrincipalGO;
 
-
     void Start()
     {
         menuFinal = GetComponent<UIDocument>();
@@ -259,11 +258,23 @@ public class MostrarMenu : MonoBehaviour
     private void RepetirNivel()
     {
         //SceneManager.LoadScene(nombreEscena);
+        // TODO: handle different AudioClip source per game type
+        AudioManager.Instance.SetTrackStartTime(0f);
+        if (SessionData.JuegoJefe)
+        {
+            AudioManager.Instance.PlayNewTrack(AudioClipSet.BossGameBackgroundMusic);
+        }
+        else
+        {
+            AudioManager.Instance.PlayNewTrack(AudioClipSet.LevelGameBackgroundMusic);
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void MenuPrincipal()
     {
+        AudioManager.Instance.SetTrackStartTime(0f);
+        AudioManager.Instance.PlayNewTrack(AudioClipSet.MainBackgroundMusic);
         SceneManager.LoadScene("MenuPrincipalScene");
     }
 

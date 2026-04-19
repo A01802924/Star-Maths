@@ -10,12 +10,14 @@ public class GetBackStoreButton : MonoBehaviour
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
         root.Add(ConfigurationPreferences.DarkScreenLayer);
+        AudioManager.Instance.Resume();
         getBackButton = root.Q<Button>("CloseButton");
         getBackButton.clicked += GetBack;
     }
 
     private void GetBack()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
         SceneManager.LoadScene("Informacion");
     }
 }

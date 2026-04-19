@@ -26,6 +26,7 @@ public class MenuPrincipal : MonoBehaviour
 
         ConfigurationPreferences.UpdateDarkScreenLayer();
         root.Add(ConfigurationPreferences.DarkScreenLayer);
+        AudioManager.Instance.Resume();
 
         //obteniendo referencias a UI Elements
         MenuPrincipall = root.Q<VisualElement>("MenuPrincipal");
@@ -44,33 +45,37 @@ public class MenuPrincipal : MonoBehaviour
         btnCreditos.RegisterCallback<ClickEvent>(OnCreditosClicked);
         btnRegresarMenu.RegisterCallback<ClickEvent>(OnRegresarMenuClicked);
         btnConfig.RegisterCallback<ClickEvent>(OnConfigClicked);
-  
     }
     private void OnConfigClicked(ClickEvent evt)
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
         SceneManager.LoadScene("Configuration");
     }
     private void OnRegresarMenuClicked(ClickEvent evt)
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
         Creditos.style.display = DisplayStyle.None;
         MenuPrincipall.style.display = DisplayStyle.Flex;
     }
     private void OnCreditosClicked(ClickEvent evt)
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
         MenuPrincipall.style.display = DisplayStyle.None;
         Creditos.style.display = DisplayStyle.Flex;
-        
     }
     private void OnInfoClicked(ClickEvent evt)
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
         SceneManager.LoadScene("Informacion");
     }
     private void OnModosClicked(ClickEvent evt)
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
         SceneManager.LoadScene("ModosJuegoScene");
     }
     private void OnSalirClicked(ClickEvent evt)
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
         Debug.Log("Saliendo del juego..."); // Para que verifiques en consola que sí detecta el clic
         
         #if UNITY_EDITOR
@@ -78,5 +83,5 @@ public class MenuPrincipal : MonoBehaviour
         #else
             Application.Quit();
         #endif    
-}
+    }
 }

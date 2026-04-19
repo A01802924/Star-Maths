@@ -54,7 +54,7 @@
                 </ui:ScrollView>
                 <ui:VisualElement name="ConfigButtons" style="flex-grow: 1; flex-direction: row; flex-wrap: nowrap; justify-content: space-evenly; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; align-items: center; background-size: 100% 20%;">
                     <ui:Button text="Reestablecer Todo" name="RestoreDefault" class="default-button"/>
-                    <ui:Button text="Guardar Cambios" name="SaveChangesButton" parse-escape-sequences="true" class="save-button"/>
+                    <ui:Button text="Guardar Cambios" name="SaveChangesButton" parse-escape-sequences="true" enabled="false" class="save-button"/>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

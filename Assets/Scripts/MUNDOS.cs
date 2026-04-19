@@ -10,6 +10,7 @@ void OnEnable()
         var root = GetComponent<UIDocument>().rootVisualElement;
 
         root.Add(ConfigurationPreferences.DarkScreenLayer);
+        AudioManager.Instance.Resume();
 
         var earth = root.Q<Button>("EARTH");
         var suma = root.Q<Button>("SUMA");
@@ -26,7 +27,7 @@ void OnEnable()
         var moon = root.Q<Button>("MOON");
         var union = root.Q<Button>("UNION");
 
-        var info= root.Q<Button>("info");
+        var info = root.Q<Button>("info");
 
         var home = root.Q<Button>("home");
 
@@ -46,11 +47,11 @@ void OnEnable()
         });
 
         earth.RegisterCallback<ClickEvent>(evt => {
-            AbrirNiveles(evt);
             SessionData.SelectedWorldID = 1;
             print("Selected world: Addition");
+            AbrirNiveles(evt);
         });
-        
+
 
         neptune.RegisterCallback<MouseEnterEvent>(evt =>
         {
@@ -61,11 +62,11 @@ void OnEnable()
         {
             resta.RemoveFromClassList("OBSCURO");
         });
-        
+
         neptune.RegisterCallback<ClickEvent>(evt => {
-            AbrirNiveles(evt);
             SessionData.SelectedWorldID = 2;
             print("Selected world: Subtraction");
+            AbrirNiveles(evt);
         });
 
         uranus.RegisterCallback<MouseEnterEvent>(evt =>
@@ -77,11 +78,11 @@ void OnEnable()
         {
             multiplicacion.RemoveFromClassList("OBSCURO");
         });
-        
+
         uranus.RegisterCallback<ClickEvent>(evt => {
-            AbrirNiveles(evt);
             SessionData.SelectedWorldID = 3;
             print("Selected world: Multiplication");
+            AbrirNiveles(evt);
         });
 
         pluto.RegisterCallback<MouseEnterEvent>(evt =>
@@ -95,9 +96,9 @@ void OnEnable()
         });
 
         pluto.RegisterCallback<ClickEvent>(evt => {
-            AbrirNiveles(evt);
             SessionData.SelectedWorldID = 4;
             print("Selected world: Division");
+            AbrirNiveles(evt);
         });
 
         moon.RegisterCallback<MouseEnterEvent>(evt =>
@@ -111,13 +112,14 @@ void OnEnable()
         });
 
         moon.RegisterCallback<ClickEvent>(evt => {
-            AbrirNiveles(evt);
             SessionData.SelectedWorldID = 5;
             print("Selected world: Mixed");
+            AbrirNiveles(evt);
         });
 
         void AbrirNiveles(ClickEvent evt)
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
             SceneManager.LoadScene("Niveles");
         }
 
@@ -125,6 +127,7 @@ void OnEnable()
 
         void AbrirInfo(ClickEvent evt)
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
             SceneManager.LoadScene("Informacion");
         }
 
@@ -132,21 +135,22 @@ void OnEnable()
 
         void AbrirHome(ClickEvent evt)
         {
-        SceneManager.LoadScene("MenuPrincipalScene");
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
+            SceneManager.LoadScene("MenuPrincipalScene");
         }
 
         regresar.RegisterCallback<ClickEvent>(AbrirRegresar);
         void AbrirRegresar(ClickEvent evt)
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
             SceneManager.LoadScene("ModosJuegoScene");
         }
 
         confi.RegisterCallback<ClickEvent>(AbrirConfi);
         void AbrirConfi(ClickEvent evt)
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
             SceneManager.LoadScene("Configuration");
         }
     }
-    
-        
 }

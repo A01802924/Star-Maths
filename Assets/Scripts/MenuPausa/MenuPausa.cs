@@ -84,29 +84,49 @@ public class MenuPausa : MonoBehaviour
 
     private void Continuar()
     {
+        // TODO: If game is resumed, resume game background music source but from the latest played second of the file before pause mode
+        if (SessionData.JuegoJefe)
+        {
+            AudioManager.Instance.PlayNewTrack(AudioClipSet.BossGameBackgroundMusic);
+        }
+        else
+        {
+            AudioManager.Instance.PlayNewTrack(AudioClipSet.LevelGameBackgroundMusic);
+        }
         OcultarMenu();
     }
 
     private void ReiniciarNivel()
     {
         Time.timeScale = 1f;
+        if (SessionData.JuegoJefe)
+        {
+            AudioManager.Instance.PlayNewTrack(AudioClipSet.BossGameBackgroundMusic);
+        }
+        else
+        {
+            AudioManager.Instance.PlayNewTrack(AudioClipSet.LevelGameBackgroundMusic);
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void MenuOpciones()
     {
         Time.timeScale = 1f;
+        AudioManager.Instance.PlayNewTrack(AudioClipSet.MainBackgroundMusic);
         SceneManager.LoadScene("Configuration");
     }
 
     private void VolverMenuPrincipal()
     {
         Time.timeScale = 1f;
+        AudioManager.Instance.PlayNewTrack(AudioClipSet.MainBackgroundMusic);
         SceneManager.LoadScene("MenuPrincipalScene");
     }
 
     private void Pausar()
     {
+        AudioManager.Instance.PlayNewTrack(AudioClipSet.PauseBackgroundMusic);
         MostrarMenu();
     }
 

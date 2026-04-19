@@ -18,6 +18,7 @@ public class ModoJuego : MonoBehaviour
         var root = UIDocument.rootVisualElement;
 
         root.Add(ConfigurationPreferences.DarkScreenLayer);
+        AudioManager.Instance.Resume();
 
         btnInfo2 = root.Q<Button>("Info2");
         btnHome = root.Q<Button>("Home");
@@ -35,22 +36,27 @@ public class ModoJuego : MonoBehaviour
     private void OnEsquivaClicked(ClickEvent evt)
     {
         SessionData.JuegoJefe = false;//aqui es para la base
-        print("juego jefe: " + SessionData.JuegoJefe); 
+        print("juego jefe: " + SessionData.JuegoJefe);
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
         SceneManager.LoadScene("Mundos");
     }
     private void OnGranEnemigoClicked(ClickEvent evt)
     {
         SessionData.JuegoJefe = true;//aqui es para la base
-        print("juego jefe: " + SessionData.JuegoJefe); 
+        print("juego jefe: " + SessionData.JuegoJefe);
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
+        AudioManager.Instance.PlayNewTrack(AudioClipSet.BossGameBackgroundMusic);
         SceneManager.LoadScene("JuegoJefe");
     }
     private void OnHomeClicked(ClickEvent evt)
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
         SceneManager.LoadScene("MenuPrincipalScene");
     }
 
     private void OnInfoClicked(ClickEvent evt)
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
         SceneManager.LoadScene("Informacion");
     }
 }

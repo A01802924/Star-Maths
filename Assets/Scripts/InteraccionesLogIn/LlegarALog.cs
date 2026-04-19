@@ -10,6 +10,7 @@ public class ControladorUI : MonoBehaviour
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 
         root.Add(ConfigurationPreferences.DarkScreenLayer);
+        AudioManager.Instance.Resume();
 
         Button botonCambio = root.Q<Button>("Inicio");
 
@@ -21,6 +22,7 @@ public class ControladorUI : MonoBehaviour
 
     private void OnBotonClicked()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
         SceneManager.LoadScene("LoginScene");
     }
 }

@@ -10,6 +10,7 @@ public class Info : MonoBehaviour
         var root = GetComponent<UIDocument>().rootVisualElement;
 
         root.Add(ConfigurationPreferences.DarkScreenLayer);
+        AudioManager.Instance.Resume();
 
         var puntajes= root.Q<Button>("PUNTAJE");
 
@@ -24,24 +25,28 @@ public class Info : MonoBehaviour
         puntajes.RegisterCallback<ClickEvent>(AbrirPuntajes);
         void AbrirPuntajes(ClickEvent evt)
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
             SceneManager.LoadScene("Puntuacion");
         }
 
         tienda.RegisterCallback<ClickEvent>(AbrirTienda);
         void AbrirTienda(ClickEvent evt)
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
             SceneManager.LoadScene("Store");
         }
 
         tutoral.RegisterCallback<ClickEvent>(AbrirTutorial);
         void AbrirTutorial(ClickEvent evt)
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
             SceneManager.LoadScene("Tutorial");
         }
 
         home.RegisterCallback<ClickEvent>(AbrirHome);
         void AbrirHome(ClickEvent evt)
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
             SceneManager.LoadScene("MenuPrincipalScene");
         }
     }

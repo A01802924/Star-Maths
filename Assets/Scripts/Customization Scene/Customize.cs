@@ -26,6 +26,7 @@ public class Customize : MonoBehaviour
         root = GetComponent<UIDocument>().rootVisualElement;
 
         root.Add(ConfigurationPreferences.DarkScreenLayer);
+        AudioManager.Instance.Resume();
 
         selectedItemSource = root.Q<VisualElement>("ItemSource");
         selectedItemSource.style.backgroundImage = new StyleBackground(SessionData.CurrentShipItem.itemIcon);
@@ -53,10 +54,12 @@ public class Customize : MonoBehaviour
     }
     private void GetBack(ClickEvent evt)
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
         SceneManager.LoadScene("Store");
     }
     private void DisplayShipScrollableContainer()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewTab);
         if (ColorUtility.TryParseHtmlString("#382C5B", out Color currentWindowHeaderColor))
         {
             shipHeaderWindowContainer.style.backgroundColor = currentWindowHeaderColor;
@@ -72,6 +75,7 @@ public class Customize : MonoBehaviour
     }
     private void DisplayProjectileScrollableContainer()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewTab);
         if (ColorUtility.TryParseHtmlString("#382C5B", out Color currentWindowHeaderColor))
         {
             projectileHeaderWindowContainer.style.backgroundColor = currentWindowHeaderColor;
@@ -87,6 +91,7 @@ public class Customize : MonoBehaviour
     }
     private void DisplayTrailScrollableContainer()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewTab);
         if (ColorUtility.TryParseHtmlString("#382C5B", out Color currentWindowHeaderColor))
         {
             trailHeaderWindowContainer.style.backgroundColor = currentWindowHeaderColor;
@@ -219,6 +224,7 @@ public class Customize : MonoBehaviour
         clase estática SessionData mediante sus atributos SessionData.CurrentShipItem,
         SessionData.CurrentProjectileItem y SessionData.CurrentTrailItem
         */
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickSelectItem);
         selectedItemSource.style.backgroundImage = new StyleBackground(item.itemIcon);
         switch (type)
         {

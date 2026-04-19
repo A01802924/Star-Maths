@@ -1,3 +1,4 @@
+using Assets.Scripts.Core;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -26,6 +27,7 @@ public class vidaNave : MonoBehaviour
     public void Perder()
     {
         Destroy(gameObject);
+        AudioManager.Instance.PlayNewTrack(AudioClipSet.DefeatBackgroundMusic);
         MenuPausa.instance.respuestas.style.display = DisplayStyle.None;
         MenuPausa.instance.HUD.style.display = DisplayStyle.None;
         MenuPausa.instance.infoHUD.style.display = DisplayStyle.None;
@@ -35,6 +37,8 @@ public class vidaNave : MonoBehaviour
     public void Ganar(int x)
     {
         Destroy(gameObject);
+        AudioManager.Instance.SetTrackStartTime(26f);
+        AudioManager.Instance.PlayNewTrack(AudioClipSet.VictoryBackgrounMusic);
         MenuPausa.instance.respuestas.style.display = DisplayStyle.None;
         MenuPausa.instance.HUD.style.display = DisplayStyle.None;
         MenuPausa.instance.infoHUD.style.display = DisplayStyle.None;

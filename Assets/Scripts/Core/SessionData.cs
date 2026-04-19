@@ -31,18 +31,6 @@ namespace Assets.Scripts.Core
         {
             DarkScreenLayer.style.opacity = 0.0085f * (100 - ScreenBrightness);
         }
-        public static void ResetConfigurations()
-        {
-            ScreenBrightness = 100f;
-            MusicVolume = 60f;
-            SFXVolume = 80f;
-            KeyLeft = KeyCode.A;
-            KeyRight = KeyCode.D;
-            KeyUp = KeyCode.W;
-            KeyDown = KeyCode.S;
-            KeyShoot = KeyCode.Q;
-            KeyPause = KeyCode.Escape;
-        }
     }
     public static class SessionData
     {

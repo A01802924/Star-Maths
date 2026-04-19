@@ -18,7 +18,7 @@ public class controladorOperaciones : MonoBehaviour
         {
             instance = this;
         }
-        
+
         game = new LevelGame(LevelFactory.BuildLevel(SessionData.SelectedWorldID, SessionData.SelectedLevelID));
 
         var root = GetComponent<UIDocument>().rootVisualElement;

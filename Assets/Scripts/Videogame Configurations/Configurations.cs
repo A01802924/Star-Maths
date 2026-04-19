@@ -30,6 +30,7 @@ public class Configurations : MonoBehaviour
         root = GetComponent<UIDocument>().rootVisualElement;
 
         root.Add(ConfigurationPreferences.DarkScreenLayer);
+        AudioManager.Instance.Resume();
 
         tempBrightnessValue = ConfigurationPreferences.ScreenBrightness;
         tempMusicValue = ConfigurationPreferences.MusicVolume;
@@ -63,13 +64,14 @@ public class Configurations : MonoBehaviour
         homeButton.RegisterCallback<ClickEvent>(evt => TryGoingHome());
         saveChangesButton.clicked += SaveNewConfigurationPreferences;
         resetConfigurationButton.clicked += ResetConfigurations;
-        confirmExitConfigurationButton.clicked += GoHomeWithNoChanges;
+        confirmExitConfigurationButton.clicked += GoHome;
         discardExitConfigurationButton.clicked += HidePopUpDialog;
     }
     private void TryGoingHome()
     {
         if (existUnsavedChanges)
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.PopUpDialog);
             confirmExitContainer.style.display = DisplayStyle.Flex;
         }
         else
@@ -79,23 +81,29 @@ public class Configurations : MonoBehaviour
     }
     private void GoHome()
     {
-        SceneManager.LoadScene("MenuPrincipalScene");
-    }
-    private void GoHomeWithNoChanges()
-    {
-        ConfigurationPreferences.ResetConfigurations();
+        AudioClipSet.MusicVolume(ConfigurationPreferences.MusicVolume);
+        AudioClipSet.SFXVolume(ConfigurationPreferences.SFXVolume);
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
         SceneManager.LoadScene("MenuPrincipalScene");
     }
     private void ResetConfigurations()
     {
-        ConfigurationPreferences.ResetConfigurations();
-        ConfigurationPreferences.UpdateDarkScreenLayer();
-        brightnessSlider.value = ConfigurationPreferences.ScreenBrightness;
-        brightnessPercentageLabel.text = ConfigurationPreferences.ScreenBrightness.ToString() + "%";
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickResetChanges);
+        ConfigurationPreferences.DarkScreenLayer.style.opacity = 0f;
+        AudioClipSet.MusicVolume(60f);
+        AudioClipSet.SFXVolume(80f);
+        brightnessSlider.value = 100f;
+        musicSlider.value = 60f;
+        SFXSlider.value = 80f;
+        brightnessPercentageLabel.text = "100%";
+        musicPercentageLabel.text = "60%";
+        SFXPercentageLabel.text = "80%";
+        saveChangesButton.SetEnabled(true);
         existUnsavedChanges = true;
     }
     private void HidePopUpDialog()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickDiscard);
         confirmExitContainer.style.display = DisplayStyle.None;
     }
     private void SetNewBrightness(ChangeEvent<float> evt)
@@ -104,6 +112,7 @@ public class Configurations : MonoBehaviour
         ConfigurationPreferences.DarkScreenLayer.style.opacity = 0.0085f * (100 - tempBrightnessValue);
         brightnessSlider.value = tempBrightnessValue;
         brightnessPercentageLabel.text = tempBrightnessValue.ToString() + "%";
+        saveChangesButton.SetEnabled(true);
         existUnsavedChanges = true;
     }
     private void SetNewMusicVolume(ChangeEvent<float> evt)
@@ -111,6 +120,8 @@ public class Configurations : MonoBehaviour
         tempMusicValue = Mathf.RoundToInt(evt.newValue);
         musicSlider.value = tempMusicValue;
         musicPercentageLabel.text = tempMusicValue.ToString() + "%";
+        AudioClipSet.MusicVolume(tempMusicValue);
+        saveChangesButton.SetEnabled(true);
         existUnsavedChanges = true;
     }
     private void SetNewSFXVolume(ChangeEvent<float> evt)
@@ -118,14 +129,17 @@ public class Configurations : MonoBehaviour
         tempSFXValue = Mathf.RoundToInt(evt.newValue);
         SFXSlider.value = tempSFXValue;
         SFXPercentageLabel.text = tempSFXValue.ToString() + "%";
+        AudioClipSet.SFXVolume(tempSFXValue);
+        saveChangesButton.SetEnabled(true);
         existUnsavedChanges = true;
     }
     private void SaveNewConfigurationPreferences()
     {
-        print("New configs saved!");
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickSaveChanges);
         ConfigurationPreferences.ScreenBrightness = tempBrightnessValue;
         ConfigurationPreferences.MusicVolume = tempMusicValue;
         ConfigurationPreferences.SFXVolume = tempSFXValue;
+        saveChangesButton.SetEnabled(false);
         existUnsavedChanges = false;
     }
 }

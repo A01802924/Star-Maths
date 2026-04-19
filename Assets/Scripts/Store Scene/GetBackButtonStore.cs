@@ -1,3 +1,4 @@
+using Assets.Scripts.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -16,11 +17,12 @@ public class GetBackButtonStore : MonoBehaviour
     }
     void GetBack(ClickEvent evt)
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
         SceneManager.LoadScene("Informacion");
     }
     private void GoToCustomizationScene(ClickEvent evt)
     {
-        print("Callback successfully called");
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
         SceneManager.LoadScene("Customize");
     }
 }

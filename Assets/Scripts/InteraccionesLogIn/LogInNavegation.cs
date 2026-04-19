@@ -21,6 +21,7 @@ public class MenuManager : MonoBehaviour
         var root = UIDocument.rootVisualElement;
         
         root.Add(ConfigurationPreferences.DarkScreenLayer);
+        AudioManager.Instance.Resume();
         //obteniendo referencias a UI Elements
         contenedorInicio = root.Q<VisualElement>("ContenedorInicio");
         contenedorRegistro = root.Q<VisualElement>("ContenedorRegistro");

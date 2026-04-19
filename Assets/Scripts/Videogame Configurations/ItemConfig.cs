@@ -31,6 +31,7 @@ public class ItemConfig : MonoBehaviour
         root = GetComponent<UIDocument>().rootVisualElement;
 
         root.Add(ConfigurationPreferences.DarkScreenLayer);
+        AudioManager.Instance.Resume();
 
         scrollableShipContainer = root.Q<ScrollView>("ShipItemGrid");
         scrollableProjectileContainer = root.Q<ScrollView>("ProjectileItemGrid");
@@ -46,10 +47,10 @@ public class ItemConfig : MonoBehaviour
         projectileWindowHeader = root.Q<VisualElement>("ProjectileHeaderContainer");
         trailWindowHeader = root.Q<VisualElement>("TrailHeaderContainer");
         bundleWindowHeader = root.Q<VisualElement>("BundleHeaderContainer");
-        shipWindowHeader.RegisterCallback<ClickEvent>((evt) => SelectShipWindow());
-        projectileWindowHeader.RegisterCallback<ClickEvent>((evt) => SelectProjectileWindow());
-        trailWindowHeader.RegisterCallback<ClickEvent>((evt) => SelectTrailWindow());
-        bundleWindowHeader.RegisterCallback<ClickEvent>((evt) => SelectBundleWindow());
+        shipWindowHeader.RegisterCallback<ClickEvent>((evt) => { AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewTab); SelectShipWindow(); });
+        projectileWindowHeader.RegisterCallback<ClickEvent>((evt) => { AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewTab); SelectProjectileWindow(); });
+        trailWindowHeader.RegisterCallback<ClickEvent>((evt) => { AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewTab); SelectTrailWindow(); });
+        bundleWindowHeader.RegisterCallback<ClickEvent>((evt) => { AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewTab); SelectBundleWindow(); });
 
         confirmPurchaseButton = root.Q<Button>("ConfirmBuyButton");
         cancelPurchaseButton = root.Q<Button>("CancelBuyButton");
@@ -195,6 +196,7 @@ public class ItemConfig : MonoBehaviour
     {
         if (SessionData.OwnedItems.IndexOf(item) == -1)
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.PopUpDialog);
             if (item.price <= SessionData.coins)
             {
                 CleanUpDialogCallbacks();
@@ -204,8 +206,8 @@ public class ItemConfig : MonoBehaviour
                 root.Q<VisualElement>("ItemBuySource").style.backgroundImage = new StyleBackground(item.itemIcon);
 
                 _confirmCallback = (evt) => PurchaseItem(item, uiElement, type);
-                _cancelCallback = (evt) => CloseConfirmPurchaseDialog(evt);
-                _crossCallback = (evt) => CloseConfirmPurchaseDialog(evt);
+                _cancelCallback = (evt) => CloseConfirmPurchaseDialog();
+                _crossCallback = (evt) => CloseConfirmPurchaseDialog();
 
                 confirmPurchaseButton.RegisterCallback(_confirmCallback);
                 cancelPurchaseButton.RegisterCallback(_cancelCallback);
@@ -250,6 +252,7 @@ public class ItemConfig : MonoBehaviour
           clase estática SessionData mediante sus atributos SessionData.coins y
           SessionData.OwnedItems
         */
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickAccept);
         print("Initial coin status: " + SessionData.coins);
         print("Item price: " + item.price);
         SessionData.coins -= item.price;
@@ -367,13 +370,15 @@ public class ItemConfig : MonoBehaviour
     O, mejor aún, crear una clase DataBase para agrupar
     todas las funciones relacionadas con la base de datos
     */
-    private void CloseConfirmPurchaseDialog(ClickEvent evt)
+    private void CloseConfirmPurchaseDialog()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickDiscard);
         CleanUpDialogCallbacks();
         confirmPurchaseDialog.style.display = DisplayStyle.None;
     }
     private void CloseUnaffordableDialog(ClickEvent evt)
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickDiscard);
         unaffordablePurchaseDialog.style.display = DisplayStyle.None;
     }
 }
