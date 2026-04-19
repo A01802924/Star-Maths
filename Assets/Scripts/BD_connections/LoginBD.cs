@@ -11,6 +11,8 @@ public class LoginBD : MonoBehaviour
     private TextField tfUsuario;
     private TextField tfPassword;
 
+    public static LoginBD instance;
+
 
     public static int sesionCompleta;
     public struct MandarDatos
@@ -23,7 +25,7 @@ public class LoginBD : MonoBehaviour
     {
         public bool exito;
         public string aviso;
-        public int sesionId;
+        public int id_jugador;
     }
 
 
@@ -65,7 +67,8 @@ public class LoginBD : MonoBehaviour
 
             if (r.exito)
             {
-                sesionCompleta = r.sesionId;
+                id_juador_instance.instance.id_jugador = r.id_jugador;
+                print("Login exitoso, id_jugador: " + r.id_jugador);
                 SceneManager.LoadScene("MenuPrincipalScene");
             }
             else

@@ -35,7 +35,7 @@ public class RegistroBD : MonoBehaviour
     {
         public bool exito;
         public string aviso;
-        public int sesionId;
+         public int id_jugador;
     }
 
      void OnEnable()
@@ -86,6 +86,8 @@ public class RegistroBD : MonoBehaviour
 
             if (r.exito)
             {
+                id_juador_instance.instance.id_jugador = r.id_jugador;
+                print("Login exitoso, id_jugador: " + r.id_jugador);
                 SceneManager.LoadScene("MenuPrincipalScene");
             }
             else
@@ -95,7 +97,7 @@ public class RegistroBD : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Error en la solicitud: " + request.error);
+            Debug.LogError("Error en la solicitud: " + request.downloadHandler.text);
         }
 
 
