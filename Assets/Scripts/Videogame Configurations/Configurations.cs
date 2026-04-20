@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class Configurations : MonoBehaviour
 {
+    // public Configurations instance;
     private Slider brightnessSlider;
     private Slider musicSlider;
     private Slider SFXSlider;
@@ -25,6 +26,10 @@ public class Configurations : MonoBehaviour
     private float tempMusicValue;
     private float tempSFXValue;
     private bool existUnsavedChanges = false;
+
+    private VisualElement modalContainer;
+    private Button regresar;
+
     void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -50,6 +55,9 @@ public class Configurations : MonoBehaviour
         discardExitConfigurationButton = root.Q<Button>("DiscardButton");
         homeButton = root.Q<Button>("CloseButton");
 
+        modalContainer = root.Q<VisualElement>("ModalContainer");
+        regresar = root.Q<Button>("Cerrar");
+
         brightnessSlider.value = tempBrightnessValue;
         brightnessPercentageLabel.text = tempBrightnessValue.ToString() + "%";
         musicSlider.value = tempMusicValue;
@@ -66,6 +74,8 @@ public class Configurations : MonoBehaviour
         resetConfigurationButton.clicked += ResetConfigurations;
         confirmExitConfigurationButton.clicked += GoHome;
         discardExitConfigurationButton.clicked += HidePopUpDialog;
+
+        regresar.clicked += CerrarMenu;
     }
     private void TryGoingHome()
     {
@@ -141,5 +151,22 @@ public class Configurations : MonoBehaviour
         ConfigurationPreferences.SFXVolume = tempSFXValue;
         saveChangesButton.SetEnabled(false);
         existUnsavedChanges = false;
+    }
+
+    public void CerrarMenu()
+    {
+        modalContainer.style.display = DisplayStyle.None;
+        MenuPausa.instance.MostrarMenu();
+    }
+
+    public void MostrarMenu()
+    {
+        modalContainer.style.display = DisplayStyle.Flex;
+    }
+
+    public void MostrarMenuInPrincipal()
+    {
+        modalContainer.style.display = DisplayStyle.Flex;
+        regresar.style.display = DisplayStyle.None;
     }
 }

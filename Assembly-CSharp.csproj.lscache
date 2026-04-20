@@ -100,9 +100,7 @@ Assets/Scripts/
   PlayLevelGame/PlayLevelGame.cs
   SelectLevel/SelectLevel.cs
  Ranking/GetBackRankingButton.cs
- Store Scene/
-  GetBackButton.cs
-  GetBackButtonStore.cs
+ Store Scene/GetBackButtonStore.cs
  Tutorial Modal/
   DisplayVideo.cs
   GetBackStoreButton.cs

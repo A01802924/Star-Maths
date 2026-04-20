@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 public class MenuPausa : MonoBehaviour
 {
     public static MenuPausa instance;
+    private Configurations config;
 
     private VisualElement menuPausa;
     public VisualElement HUD;
@@ -30,6 +31,11 @@ public class MenuPausa : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+        }
+
+        if(config == null)
+        {
+            config = FindAnyObjectByType<Configurations>();
         }
     }
 
@@ -112,9 +118,12 @@ public class MenuPausa : MonoBehaviour
 
     private void MenuOpciones()
     {
-        Time.timeScale = 1f;
         AudioManager.Instance.PlayNewTrack(AudioClipSet.MainBackgroundMusic);
-        SceneManager.LoadScene("Configuration");
+        config.MostrarMenu();
+        OcultarMenu();
+        HUD.style.display = DisplayStyle.None;
+        infoHUD.style.display = DisplayStyle.None;
+        Time.timeScale = 0f;
     }
 
     private void VolverMenuPrincipal()

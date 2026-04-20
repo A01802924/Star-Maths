@@ -18,6 +18,16 @@ public class MenuPrincipal : MonoBehaviour
     private Button btnRegresarMenu;
     private Button btnConfig;
 
+    private Configurations config;
+
+
+    void Awake()
+    {
+        if(config == null)
+        {
+            config = FindAnyObjectByType<Configurations>();
+        }
+    }
 
     void OnEnable()
     {
@@ -49,7 +59,8 @@ public class MenuPrincipal : MonoBehaviour
     private void OnConfigClicked(ClickEvent evt)
     {
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
-        SceneManager.LoadScene("Configuration");
+        //SceneManager.LoadScene("Configuration");
+        config.MostrarMenuInPrincipal();
     }
     private void OnRegresarMenuClicked(ClickEvent evt)
     {

@@ -53,6 +53,7 @@ TemporaryDependencyNodeTargetIdentifier=netstandard2.1
 
 [sourceFiles]
 Assets/Scripts/Core/
+ AudioManager.cs
  DiscreteRandom.cs
  Domain.cs
  Game.cs
