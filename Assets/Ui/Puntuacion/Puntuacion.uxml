@@ -60,5 +60,6 @@
             </ui:VisualElement>
         </ui:ScrollView>
         <ui:Button text="Regresar" name="GetBackButton" class="get-back-button" style="position: absolute; top: 83px; left: 64px;"/>
+        <ui:Button text="Abrir en &#10;Web" name="WebButton" class="get-back-button" style="position: absolute; top: 63px; left: auto; right: 64px; width: 200px;"/>
     </ui:VisualElement>
 </ui:UXML>

@@ -53,7 +53,9 @@ TemporaryDependencyNodeTargetIdentifier=netstandard2.1
 
 [sourceFiles]
 Assets/Scripts/BD_connections/
+ id_juador_instance.cs
  LoginBD.cs
+ PuntajeBD.cs
  RegistroBD.cs
 Assets/Scripts/Customization Scene/
  Customize.cs

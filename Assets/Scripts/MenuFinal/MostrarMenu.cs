@@ -147,10 +147,10 @@ public class MostrarMenu : MonoBehaviour
         contenedorMenu.style.display = DisplayStyle.None;
         contenedorResumen.style.display = DisplayStyle.Flex;
 
-        vidas.text = "VIDAS RESTANTES: " + vidasRestantes.ToString();
-        preguntas.text = "TOTAL DE PREGUNTAS: " + totalPreguntas.ToString();
-        preguntasCorrecto.text = "RESPUESTAS CORRECTAS: " + resCorrectas.ToString();
-        preguntasIncorrecto.text = "RESPUESTAS INCORRECTAS: " + resIncorrectas.ToString();
+        vidas.text = "VIDAS RESTANTES:     " + vidasRestantes.ToString();
+        preguntas.text = "TOTAL DE PREGUNTAS:     " + totalPreguntas.ToString();
+        preguntasCorrecto.text = "RESPUESTAS CORRECTAS:     " + resCorrectas.ToString();
+        preguntasIncorrecto.text = "RESPUESTAS INCORRECTAS:     " + resIncorrectas.ToString();
 
     }
 
@@ -199,10 +199,10 @@ public class MostrarMenu : MonoBehaviour
             tiempo += Time.deltaTime;
             float progreso = tiempo / duracion;
             int valorActual = Mathf.RoundToInt(Mathf.Lerp(inicio, fin, progreso));
-            score.text = "Puntuación: " + valorActual;
+            score.text = "PUNTUACIÓN:      " + valorActual;
             yield return null;
         }
-        score.text = "Puntuación: " + fin;
+        score.text = "PUNTUACIÓN:     " + fin;
         StartCoroutine(AnimarTime(0, totalTiempo, 2f));
     }
 
@@ -214,10 +214,10 @@ public class MostrarMenu : MonoBehaviour
             tiempo += Time.deltaTime;
             float progreso = tiempo / duracion;
             int valorActual = Mathf.RoundToInt(Mathf.Lerp(inicio, fin, progreso));
-            time.text = "Tiempo: " + valorActual;
+            time.text = "TIEMPO:      " + valorActual;
             yield return null;
         }
-        time.text = "Tiempo: " + fin;
+        time.text = "TIEMPO:      " + fin;
         StartCoroutine(MostrarEstrellas(preguntasT, preguntasC));
     }
 
@@ -283,8 +283,8 @@ public class MostrarMenu : MonoBehaviour
         int vidasPerdidas = vi - vr;
         float ratio = (float)npc / np;
 
-        int puntosBase = Mathf.RoundToInt(ratio * 10000);
-        int penalizacion = vidasPerdidas * 500;
+        int puntosBase = Mathf.RoundToInt(ratio * 100000);
+        int penalizacion = vidasPerdidas * 5000;
         int bonoTiempo = Mathf.Max(0, (int)(10000 / t));
 
         return puntosBase - penalizacion + bonoTiempo;
