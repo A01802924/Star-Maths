@@ -3,17 +3,18 @@ using UnityEngine;
 
 public class comportamientoJefe : MonoBehaviour
 {
-    private int vida = 10;
     private float velocidadMeteoritos = 0.4f;
+    [SerializeField] private GameObject barraVida;
+    private Vector3 escalaVida;
 
-    [SerializeField]
-    private lanzarMeteoritos lanzaMeteoritos;
+    [SerializeField] private lanzarMeteoritos lanzaMeteoritos;
 
-    [SerializeField]
-    private controladorOperacionesJefe controlador;
+    [SerializeField] private controladorOperacionesJefe controlador;
 
     void Start()
     {
+        escalaVida = barraVida.transform.localScale;
+        
         StartCoroutine(RutinaRounds());
     }
 
@@ -51,6 +52,8 @@ public class comportamientoJefe : MonoBehaviour
             {
                 if (controlador.inputRes == controlador.resultadoCorrecto)
                 {
+                    escalaVida.x -= 1f;
+                    barraVida.transform.localScale = escalaVida;
                     MenuPausa.instance.ActualizarCorrectas(10);
                 }
                 else
@@ -64,21 +67,10 @@ public class comportamientoJefe : MonoBehaviour
                 MenuPausa.instance.ActualizarVidas();
             }
 
-            if (vidaNave.instance.vidas <= 0 || vida <= 0)
+            if (vidaNave.instance.vidas <= 0)
             {
                 yield break;
             }
-        }
-    }
-
-    public void Golpe()
-    {
-        vida--;
-
-        if (vida <= 0)
-        {
-            StopAllCoroutines();
-            vidaNave.instance.Ganar(10);
         }
     }
 }

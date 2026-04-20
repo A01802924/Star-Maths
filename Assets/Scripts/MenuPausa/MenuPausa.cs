@@ -26,6 +26,8 @@ public class MenuPausa : MonoBehaviour
 
     private Label correctas;
 
+    private LevelGame game;
+
     void Awake()
     {
         if (instance == null)
@@ -41,6 +43,8 @@ public class MenuPausa : MonoBehaviour
 
     void Start()
     {
+        game = new LevelGame(LevelFactory.BuildLevel(SessionData.SelectedWorldID, SessionData.SelectedLevelID));
+
         var root = GetComponent<UIDocument>().rootVisualElement;
 
         root.Add(ConfigurationPreferences.DarkScreenLayer);
@@ -100,6 +104,8 @@ public class MenuPausa : MonoBehaviour
             AudioManager.Instance.PlayNewTrack(AudioClipSet.LevelGameBackgroundMusic);
         }
         OcultarMenu();
+
+        game.startCronometer();
     }
 
     private void ReiniciarNivel()
@@ -137,6 +143,8 @@ public class MenuPausa : MonoBehaviour
     {
         AudioManager.Instance.PlayNewTrack(AudioClipSet.PauseBackgroundMusic);
         MostrarMenu();
+
+        game.stopCronometer();
     }
 
     public void ActualizarVidas()
@@ -155,8 +163,6 @@ public class MenuPausa : MonoBehaviour
         {
             vida3.style.display = DisplayStyle.None;
         }
-
-        print("perdiste una vida");
     }
 
     public void ActualizarCorrectas(int x)
@@ -170,7 +176,5 @@ public class MenuPausa : MonoBehaviour
         {
             vidaNave.instance.Ganar(x);
         }
-
-        print("Ganaste un punto");
     }
 }

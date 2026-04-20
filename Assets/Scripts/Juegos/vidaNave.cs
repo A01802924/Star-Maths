@@ -6,6 +6,7 @@ public class vidaNave : MonoBehaviour
 {
     public int vidas = 3;
     public int correctas = 0;
+    private LevelGame game;
 
     public static vidaNave instance;
 
@@ -22,6 +23,11 @@ public class vidaNave : MonoBehaviour
         {
             menuFinal = FindAnyObjectByType<MostrarMenu>();
         }
+    }
+
+    void Start()
+    {
+        game = new LevelGame(LevelFactory.BuildLevel(SessionData.SelectedWorldID, SessionData.SelectedLevelID));
     }
 
     public void Perder()
@@ -43,6 +49,6 @@ public class vidaNave : MonoBehaviour
         MenuPausa.instance.HUD.style.display = DisplayStyle.None;
         MenuPausa.instance.infoHUD.style.display = DisplayStyle.None;
 
-        StartCoroutine(MostrarMenu.instance.MuestraMenu(30.5f, vidas, 3, x + (3 - vidas), x, 3 - vidas));
+        StartCoroutine(MostrarMenu.instance.MuestraMenu((float)game.getPlayTimeSeconds(), vidas, 3, x + (3 - vidas), x, 3 - vidas));
     }
 }

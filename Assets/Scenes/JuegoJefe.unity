@@ -739,13 +739,17 @@ PrefabInstance:
       propertyPath: lanzaMeteoritos
       value: 
       objectReference: {fileID: 1620926391}
+    - target: {fileID: 3632697389224705500, guid: 792accd9e13f7d740ae72c0d015cbc9b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3714983394172040586, guid: 792accd9e13f7d740ae72c0d015cbc9b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3714983394172040586, guid: 792accd9e13f7d740ae72c0d015cbc9b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3714983394172040586, guid: 792accd9e13f7d740ae72c0d015cbc9b, type: 3}
       propertyPath: m_LocalPosition.z

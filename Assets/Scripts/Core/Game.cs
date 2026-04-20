@@ -18,7 +18,7 @@ namespace Assets.Scripts.Core
             Level = lvl;
             cronometer = new Stopwatch();
         }
-        protected void startCronometer()
+        public void startCronometer()
         {
             cronometer.Start();
         }
