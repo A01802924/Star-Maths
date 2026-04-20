@@ -40,6 +40,8 @@ namespace Assets.Scripts.Core
                             };
                             correctAnswersGoal = 15;
                             break;
+                        default:
+                            break;
                     }
                     break;
                 case 2:
@@ -55,26 +57,25 @@ namespace Assets.Scripts.Core
                         case 2:
                             operations = new List<Operation>
                             {
-                                new("addition", 15, 20, 20, 20, 40, 10, 99),
-                                new("subtraction", 85, 50, 0, 50, 0, 10, 50)
+                                new("subtraction", 100, 50, 0, 50, 0, 10, 50)
                             };
                             correctAnswersGoal = 7;
                             break;
                         case 3:
                             operations = new List<Operation>
                             {
-                                new("addition", 25, 0, 0, 0, 100, 10, 99),
-                                new("subtraction", 75, 10, 10, 10, 70, 10, 99)
+                                new("subtraction", 100, 10, 10, 10, 70, 10, 99)
                             };
                             correctAnswersGoal = 10;
                             break;
                         case 4:
                             operations = new List<Operation>
                             {
-                                new("addition", 30, 40, 10, 40, 10, 10, 200),
-                                new("subtraction", 70, 0, 0, 0, 100, 10, 99)
+                                new("subtraction", 100, 0, 0, 0, 100, 10, 99)
                             };
                             correctAnswersGoal = 15;
+                            break;
+                        default:
                             break;
                     }
                     break;
@@ -91,29 +92,25 @@ namespace Assets.Scripts.Core
                         case 2:
                             operations = new List<Operation>
                             {
-                                new("addition", 5, 0, 0, 0, 100, 10, 99),
-                                new("subtraction", 10, 40, 10, 40, 10, 10, 99),
-                                new("multiplication", 85, 0, 0, 0, 100, 1, 10)
+                                new("multiplication", 100, 0, 0, 0, 100, 1, 10)
                             };
                             correctAnswersGoal = 7;
                             break;
                         case 3:
                             operations = new List<Operation>
                             {
-                                new("addition", 12.5f, 0, 0, 0, 100, 50, 149),
-                                new("subtraction", 12.5f, 0, 0, 0, 100, 10, 99),
-                                new("multiplication", 75, 0, 0, 0, 100, 1, 12)
+                                new("multiplication", 100, 0, 0, 0, 100, 1, 12)
                             };
                             correctAnswersGoal = 10;
                             break;
                         case 4:
                             operations = new List<Operation>
                             {
-                                new("addition", 20, 0, 0, 0, 100, 50, 199),
-                                new("subtraction", 20, 0, 0, 0, 100, 50, 149),
-                                new("multiplication", 60, 0, 0, 0, 100, 1, 15)
+                                new("multiplication", 100, 0, 0, 0, 100, 1, 15)
                             };
                             correctAnswersGoal = 15;
+                            break;
+                        default:
                             break;
                     }
                     break;
@@ -130,30 +127,72 @@ namespace Assets.Scripts.Core
                         case 2:
                             operations = new List<Operation>
                             {
-                                new("multiplication", 15, 0, 0, 0, 100, 1, 10),
-                                new("division", 85, 10, 10, 10, 70, 10, 50)
+                                new("division", 100, 10, 10, 10, 70, 10, 50)
                             };
                             correctAnswersGoal = 7;
                             break;
                         case 3:
                             operations = new List<Operation>
                             {
-                                new("addition", 10, 0, 0, 0, 100, 50, 299),
-                                new("subtraction", 10, 0, 0, 0, 100, 50, 199),
-                                new("multiplication", 10, 0, 0, 0, 100, 1, 12),
-                                new("division", 70, 0, 0, 0, 100, 10, 99)
+                                new("division", 100, 0, 0, 0, 100, 10, 99)
                             };
                             correctAnswersGoal = 10;
                             break;
                         case 4:
                             operations = new List<Operation>
                             {
-                                new("addition", 20, 0, 0, 0, 100, 100, 299),
-                                new("subtraction", 20, 0, 0, 0, 100, 100, 299),
-                                new("multiplication", 25, 0, 0, 0, 100, 1, 15),
-                                new("division", 35, 0, 0, 0, 100, 10, 499)
+                                new("division", 100, 0, 0, 0, 100, 10, 499)
                             };
                             correctAnswersGoal = 15;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case 5:
+                    switch(lvlID)
+                    {
+                        case 1:
+                            operations = new()
+                            {
+                                new("addition", 25, 0, 0, 0, 100, 10, 50),
+                                new("subtraction", 25, 0, 0, 0, 100, 1, 50),
+                                new("multiplication", 25, 0, 0, 0, 100, 1, 10),
+                                new("division", 25, 0, 0, 0, 100, 1, 50)
+                            };
+                            correctAnswersGoal = 5;
+                            break;
+                        case 2:
+                            operations = new()
+                            {
+                                new("addition", 25, 0, 0, 0, 100, 50, 99),
+                                new("subtraction", 25, 0, 0, 0, 100, 20, 75),
+                                new("multiplication", 25, 0, 0, 0, 100, 3, 12),
+                                new("division", 25, 0, 0, 0, 100, 50, 150)
+                            };
+                            correctAnswersGoal = 7;
+                            break;
+                        case 3:
+                            operations = new()
+                            {
+                                new("addition", 25, 0, 0, 0, 100, 100, 500),
+                                new("subtraction", 25, 0, 0, 0, 100, 100, 350),
+                                new("multiplication", 25, 0, 0, 0, 100, 6, 14),
+                                new("division", 25, 0, 0, 0, 100, 75, 250)
+                            };
+                            correctAnswersGoal = 10;
+                            break;
+                        case 4:
+                            operations = new()
+                            {
+                                new("addition", 25, 0, 0, 0, 100, 200, 750),
+                                new("subtraction", 25, 0, 0, 0, 100, 150, 500),
+                                new("multiplication", 25, 0, 0, 0, 100, 4, 16),
+                                new("division", 25, 0, 0, 0, 100, 150, 500)
+                            };
+                            correctAnswersGoal = 15;
+                            break;
+                        default:
                             break;
                     }
                     break;
