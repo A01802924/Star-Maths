@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4113285894706104287}
   - component: {fileID: 4333302072392968020}
   - component: {fileID: 7791399078818091422}
+  - component: {fileID: 2300870638565620168}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -278,6 +279,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::vidaNave
   vidas: 3
   correctas: 0
+--- !u!95 &2300870638565620168
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949196625796052508}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0614f3497f2c3174d87b3372f01fd45f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4245057454449048126
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,8 +25,8 @@ public class moverBala : MonoBehaviour
     {
         if(collision.CompareTag("Meteorito"))
         {
-            Destroy(gameObject);
             Instantiate(efectoChoque, transform.position, transform.rotation);
+            Destroy(gameObject);
         }
     }
 }

@@ -20,11 +20,13 @@ public class moverNave : MonoBehaviour
     private disparaNave disparador;
 
     private Rigidbody2D rb;
+    private Animator anim;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         disparador = GetComponentInChildren<disparaNave>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -98,6 +100,7 @@ public class moverNave : MonoBehaviour
 
     private void Disparo(InputAction.CallbackContext context)
     {
+        anim.Play("disparo", 0, 0f);
         disparador.Disparar();
     }
 }
