@@ -4,6 +4,7 @@ public class moverBala : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float velocidad = 15f;
+    [SerializeField] private GameObject efectoChoque;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class moverBala : MonoBehaviour
         if(collision.CompareTag("Meteorito"))
         {
             Destroy(gameObject);
+            Instantiate(efectoChoque, transform.position, transform.rotation);
         }
     }
 }

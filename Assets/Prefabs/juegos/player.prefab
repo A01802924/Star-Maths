@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 949196625796052508}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -7, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -278,8 +278,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::vidaNave
   vidas: 3
   correctas: 0
-  creadorMeteoritos: {fileID: 6814934651122688937, guid: aa17c985332cf1f40a6d66682cd2f3b5, type: 3}
-  lanzaMeteoritos: {fileID: 2258816864109833318, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
 --- !u!1 &4245057454449048126
 GameObject:
   m_ObjectHideFlags: 0
