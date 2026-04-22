@@ -5,7 +5,8 @@ using UnityEngine.UIElements;
 
 public class MUNDOS : MonoBehaviour
 {
-void OnEnable()
+    private VisualElement dialogContainer;
+    void OnEnable()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
 
@@ -34,6 +35,8 @@ void OnEnable()
         var regresar = root.Q<Button>("regresar");
 
         var confi = root.Q<Button>("Configuracion");
+
+        dialogContainer = root.Q<VisualElement>("DialogContainer");
 
 
         earth.RegisterCallback<MouseEnterEvent>(evt =>
@@ -150,7 +153,7 @@ void OnEnable()
         void AbrirConfi(ClickEvent evt)
         {
             AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
-            SceneManager.LoadScene("Configuration");
+            dialogContainer.style.display = DisplayStyle.Flex;
         }
     }
 }

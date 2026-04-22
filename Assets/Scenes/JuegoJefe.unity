@@ -183,6 +183,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8083996947051373467, guid: 47c8d68615a264cbe9d6bae918576468, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1599212464}
+    - targetCorrespondingSourceObject: {fileID: 8083996947051373467, guid: 47c8d68615a264cbe9d6bae918576468, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1599212465}
   m_SourcePrefab: {fileID: 100100000, guid: 47c8d68615a264cbe9d6bae918576468, type: 3}
 --- !u!1 &425908980 stripped
 GameObject:
@@ -455,6 +458,74 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 425908984}
   m_SourcePrefab: {fileID: 100100000, guid: f68f58b9b316e4ee1b6b369df0e414b2, type: 3}
+--- !u!1 &826337083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 826337086}
+  - component: {fileID: 826337085}
+  - component: {fileID: 826337084}
+  m_Layer: 5
+  m_Name: DarkScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &826337084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826337083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699254144ef489741aca34664281699a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DarkScreenBuilder
+--- !u!114 &826337085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826337083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: be8d8008fb14b3f4b9f2dadb8e71520f, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 0}
+  m_SortingOrder: 1
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &826337086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826337083}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1032714341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -516,63 +587,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2501270bc3713a645843b2ce99433848, type: 3}
---- !u!1001 &1168973754
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4222655448324290479, guid: 1673d41332a0e405fba9f9e2cd8c6e4a, type: 3}
-      propertyPath: m_Name
-      value: ConfigurationModal
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446847433882324485, guid: 1673d41332a0e405fba9f9e2cd8c6e4a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.24218
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446847433882324485, guid: 1673d41332a0e405fba9f9e2cd8c6e4a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.41753
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446847433882324485, guid: 1673d41332a0e405fba9f9e2cd8c6e4a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446847433882324485, guid: 1673d41332a0e405fba9f9e2cd8c6e4a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446847433882324485, guid: 1673d41332a0e405fba9f9e2cd8c6e4a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446847433882324485, guid: 1673d41332a0e405fba9f9e2cd8c6e4a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446847433882324485, guid: 1673d41332a0e405fba9f9e2cd8c6e4a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446847433882324485, guid: 1673d41332a0e405fba9f9e2cd8c6e4a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446847433882324485, guid: 1673d41332a0e405fba9f9e2cd8c6e4a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4446847433882324485, guid: 1673d41332a0e405fba9f9e2cd8c6e4a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1673d41332a0e405fba9f9e2cd8c6e4a, type: 3}
 --- !u!1 &1599212459 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8083996947051373467, guid: 47c8d68615a264cbe9d6bae918576468, type: 3}
@@ -593,6 +607,18 @@ MonoBehaviour:
   respondido: 0
   inputRes: 0
   resultadoCorrecto: 0
+--- !u!114 &1599212465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599212459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b91338e9a86fd4cb870e0b6aeebcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Configurations
 --- !u!1 &1620926390 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2258816864109833318, guid: 22889dde241449743b3d809f5558ebf8, type: 3}
@@ -861,5 +887,5 @@ SceneRoots:
   - {fileID: 1415925482147501867}
   - {fileID: 348567446}
   - {fileID: 714990486}
-  - {fileID: 1168973754}
   - {fileID: 5635282384530306574}
+  - {fileID: 826337086}

@@ -81,8 +81,6 @@ public class MostrarMenu : MonoBehaviour
         menuFinal = GetComponent<UIDocument>();
         var root = menuFinal.rootVisualElement;
 
-        root.Add(ConfigurationPreferences.DarkScreenLayer);
-
         //Visual Element principal que muestra todo el menu
         menu = root.Q<VisualElement>("MenuFinal");
 

@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 
 public class Configurations : MonoBehaviour
 {
-    // public Configurations instance;
     private Slider brightnessSlider;
     private Slider musicSlider;
     private Slider SFXSlider;
@@ -16,26 +15,20 @@ public class Configurations : MonoBehaviour
     private Label SFXPercentageLabel;
     private Button saveChangesButton;
     private Button resetConfigurationButton;
-    private VisualElement confirmExitContainer;
-    private Button confirmExitConfigurationButton;
-    private Button discardExitConfigurationButton;
-    private VisualElement exitConfigurationCrossButton;
-    private Button homeButton;
     private VisualElement root;
     private float tempBrightnessValue;
     private float tempMusicValue;
     private float tempSFXValue;
     private bool existUnsavedChanges = false;
-
-    private VisualElement modalContainer;
-    private Button regresar;
-
+    private VisualElement confirmExitPopUpContainer;
+    private VisualElement dialogContainer;
+    private Button confirmExitConfigurationWithNoChangesButton;
+    private Button discardExitConfigurationButton;
+    private Button exitConfigurationCrossButton;
+    private Button closePopUpCrossButton;
     void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
-
-        root.Add(ConfigurationPreferences.DarkScreenLayer);
-        AudioManager.Instance.Resume();
 
         tempBrightnessValue = ConfigurationPreferences.ScreenBrightness;
         tempMusicValue = ConfigurationPreferences.MusicVolume;
@@ -49,14 +42,14 @@ public class Configurations : MonoBehaviour
         SFXPercentageLabel = root.Q<Label>("SFXSliderIndexLabel");
         saveChangesButton = root.Q<Button>("SaveChangesButton");
         resetConfigurationButton = root.Q<Button>("RestoreDefault");
-        confirmExitContainer = root.Q<VisualElement>("ConfirmExitPopUpContainer");
-        exitConfigurationCrossButton = root.Q<VisualElement>("PopUpCrossButtonContainer");
-        confirmExitConfigurationButton = root.Q<Button>("ConfirmButton");
-        discardExitConfigurationButton = root.Q<Button>("DiscardButton");
-        homeButton = root.Q<Button>("CloseButton");
 
-        modalContainer = root.Q<VisualElement>("ModalContainer");
-        regresar = root.Q<Button>("Cerrar");
+        dialogContainer = root.Q<VisualElement>("DialogContainer");
+
+        confirmExitPopUpContainer = root.Q<VisualElement>("ConfirmExitPopUpContainer");
+        closePopUpCrossButton = root.Q<Button>("ClosePopUpButton");
+        exitConfigurationCrossButton = root.Q<Button>("CloseDialogButton");
+        confirmExitConfigurationWithNoChangesButton = root.Q<Button>("ConfirmButton");
+        discardExitConfigurationButton = root.Q<Button>("DiscardButton");
 
         brightnessSlider.value = tempBrightnessValue;
         brightnessPercentageLabel.text = tempBrightnessValue.ToString() + "%";
@@ -65,36 +58,48 @@ public class Configurations : MonoBehaviour
         SFXSlider.value = tempSFXValue;
         SFXPercentageLabel.text = tempSFXValue.ToString() + "%";
 
+        exitConfigurationCrossButton.clicked += TryGoingHome;
+
         brightnessSlider.RegisterValueChangedCallback(evt => SetNewBrightness(evt));
         musicSlider.RegisterValueChangedCallback(evt => SetNewMusicVolume(evt));
         SFXSlider.RegisterValueChangedCallback(evt => SetNewSFXVolume(evt));
-        exitConfigurationCrossButton.RegisterCallback<ClickEvent>(evt => HidePopUpDialog());
-        homeButton.RegisterCallback<ClickEvent>(evt => TryGoingHome());
         saveChangesButton.clicked += SaveNewConfigurationPreferences;
         resetConfigurationButton.clicked += ResetConfigurations;
-        confirmExitConfigurationButton.clicked += GoHome;
-        discardExitConfigurationButton.clicked += HidePopUpDialog;
 
-        regresar.clicked += CerrarMenu;
+        confirmExitConfigurationWithNoChangesButton.clicked += HidePopUpDialogWithNoChanges;
+        discardExitConfigurationButton.clicked += HidePopUpDialog;
+        closePopUpCrossButton.clicked += HidePopUpDialog;
     }
     private void TryGoingHome()
     {
         if (existUnsavedChanges)
         {
             AudioManager.Instance.PlayUISFX(AudioClipSet.PopUpDialog);
-            confirmExitContainer.style.display = DisplayStyle.Flex;
+            confirmExitPopUpContainer.style.display = DisplayStyle.Flex;
         }
         else
         {
-            GoHome();
+            HidePopUpDialogWithNoChanges();
         }
     }
-    private void GoHome()
+    private void HidePopUpDialogWithNoChanges()
     {
+        ConfigurationPreferences.UpdateDarkScreenLayer();
         AudioClipSet.MusicVolume(ConfigurationPreferences.MusicVolume);
         AudioClipSet.SFXVolume(ConfigurationPreferences.SFXVolume);
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
-        SceneManager.LoadScene("MenuPrincipalScene");
+        confirmExitPopUpContainer.style.display = DisplayStyle.None;
+        dialogContainer.style.display = DisplayStyle.None;
+        existUnsavedChanges = false;
+        saveChangesButton.SetEnabled(false);
+        brightnessSlider.value = ConfigurationPreferences.ScreenBrightness;
+        musicSlider.value = ConfigurationPreferences.MusicVolume;
+        SFXSlider.value = ConfigurationPreferences.SFXVolume;
+    }
+    private void HidePopUpDialog()
+    {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickDiscard);
+        confirmExitPopUpContainer.style.display = DisplayStyle.None;
     }
     private void ResetConfigurations()
     {
@@ -110,11 +115,6 @@ public class Configurations : MonoBehaviour
         SFXPercentageLabel.text = "80%";
         saveChangesButton.SetEnabled(true);
         existUnsavedChanges = true;
-    }
-    private void HidePopUpDialog()
-    {
-        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickDiscard);
-        confirmExitContainer.style.display = DisplayStyle.None;
     }
     private void SetNewBrightness(ChangeEvent<float> evt)
     {
@@ -151,23 +151,5 @@ public class Configurations : MonoBehaviour
         ConfigurationPreferences.SFXVolume = tempSFXValue;
         saveChangesButton.SetEnabled(false);
         existUnsavedChanges = false;
-    }
-
-    public void CerrarMenu()
-    {
-        modalContainer.style.display = DisplayStyle.None;
-        MenuPausa.instance.MostrarMenu();
-    }
-
-    public void MostrarMenu()
-    {
-        modalContainer.style.display = DisplayStyle.Flex;
-        GetComponent<UIDocument>().sortingOrder = 1;
-    }
-
-    public void MostrarMenuInPrincipal()
-    {
-        modalContainer.style.display = DisplayStyle.Flex;
-        regresar.style.display = DisplayStyle.None;
     }
 }
