@@ -6,9 +6,14 @@ public class detectaColision : MonoBehaviour
     private moverMeteoritos meteoros;
     private bool golpeo = false;
     private int valor;
+    private Animator anim;
+    private int rand;
 
     void Start()
     {
+        rand = Random.Range(1, 3);
+        anim = GetComponent<Animator>();
+
         meteoros = GetComponentInParent<moverMeteoritos>();
         if (transform.position.y >= 0f)
         {
@@ -16,6 +21,11 @@ public class detectaColision : MonoBehaviour
         } else
         {
             valor = 2;
+        }
+
+        if (rand == 2)
+        {
+            anim.SetTrigger("2");
         }
     }
 

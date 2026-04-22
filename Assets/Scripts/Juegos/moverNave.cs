@@ -80,6 +80,8 @@ public class moverNave : MonoBehaviour
 
         rb.linearVelocity = Vector2.zero;
         rb.linearVelocity = direccion.normalized * impulso;
+
+        anim.Play("dash");
     }
 
     void relojImpulso()

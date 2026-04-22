@@ -65,7 +65,5 @@ namespace Assets.Scripts.Core
             JuegoJefe = false; // Aqui es para la base
             Victoria = false; // Aqui es para la base
         }
-
-        public static float velocidadMeteoritos = 0.67f;
     }
 }
