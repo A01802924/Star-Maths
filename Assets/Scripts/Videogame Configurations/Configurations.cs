@@ -162,6 +162,7 @@ public class Configurations : MonoBehaviour
     public void MostrarMenu()
     {
         modalContainer.style.display = DisplayStyle.Flex;
+        GetComponent<UIDocument>().sortingOrder = 1;
     }
 
     public void MostrarMenuInPrincipal()
