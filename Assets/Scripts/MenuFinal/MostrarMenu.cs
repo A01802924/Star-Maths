@@ -9,11 +9,11 @@ using UnityEngine.UIElements;
 
 public class MostrarMenu : MonoBehaviour
 {
-    public static MostrarMenu instance {get; private set;}
+    public static MostrarMenu instance { get; private set; }
 
     private void Awake()
     {
-        if(instance != null && instance != this)
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
         }
@@ -67,11 +67,14 @@ public class MostrarMenu : MonoBehaviour
     public int PreguntasC => preguntasC;
     private int preguntasI = 0;
 
+    private bool llamadoBD = false;
+
     private VisualElement menuParInf;
     private VisualElement menuGameOver;
     private Label victoria;
     private Button reiniciarGO;
     private Button menuPrincipalGO;
+
 
     void Start()
     {
@@ -101,21 +104,21 @@ public class MostrarMenu : MonoBehaviour
         //Label de Puntuacion y Tiempo
         score = root.Q<Label>("Score");
         time = root.Q<Label>("Time");
-    
+
         //Ocultamos menu al inicio
         menu.style.display = DisplayStyle.None;
 
         naveController = FindAnyObjectByType<moverNave>();
 
         //Muestra el menu tras 5 segundos
-       // StartCoroutine(MuestraMenu(totalPuntos, totalTiempo, vidasRes, preguntasT, preguntasC, preguntasI));     
+        // StartCoroutine(MuestraMenu(totalPuntos, totalTiempo, vidasRes, preguntasT, preguntasC, preguntasI));     
 
 
         //Elementos añadidos en la última versión
         contenedorMenu = root.Q<VisualElement>("ContenedorMenu");
         resumen = root.Q<Button>("Resumen");
         resumen.RegisterCallback<ClickEvent>(evt => MostrarResumen(vidasRes, preguntasT, preguntasC, preguntasI, totalTiempo));
-        
+
         contenedorResumen = root.Q<VisualElement>("ContenedorResumen");
         vidas = root.Q<Label>("Vidas");
         preguntas = root.Q<Label>("Preguntas");
@@ -133,7 +136,7 @@ public class MostrarMenu : MonoBehaviour
         menuPrincipalGO.clicked += MenuPrincipal;
 
         menuGameOver.style.display = DisplayStyle.None;
-        
+
     }
 
     private void CerrarStats()
@@ -170,7 +173,7 @@ public class MostrarMenu : MonoBehaviour
         menuParInf.style.display = DisplayStyle.Flex;
         contenedorMenu.style.display = DisplayStyle.Flex;
 
-        if(naveController != null)
+        if (naveController != null)
         {
             naveController.enabled = false;
         }
@@ -186,7 +189,11 @@ public class MostrarMenu : MonoBehaviour
         menu.style.display = DisplayStyle.Flex;
         menuGameOver.style.display = DisplayStyle.Flex;
         victoria.style.display = DisplayStyle.None;
-        PuntajeBD.instance.Guardar(false); //aqui es para la base
+         if (!llamadoBD)
+        {
+            llamadoBD = true;
+            PuntajeBD.instance.Guardar(false, vidasRes);
+        }//aqui es para la base
     }
 
 
@@ -251,8 +258,14 @@ public class MostrarMenu : MonoBehaviour
             estrella3.style.display = DisplayStyle.Flex;
             yield return new WaitForSeconds(0.4f);
         }
-        PuntajeBD.instance.Guardar(true); //aqui es para la base 
+        if (!llamadoBD)
+        {
+            llamadoBD = true;
+            PuntajeBD.instance.Guardar(true, vidasRes);
+        }//aqui es para la base 
     }
+
+
 
     private void RepetirNivel()
     {

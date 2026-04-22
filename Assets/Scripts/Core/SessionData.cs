@@ -56,6 +56,8 @@ namespace Assets.Scripts.Core
         public static Item CurrentTrailItem { get; set; } = ItemSet.GetTrailItem(0); // By default, a new user will always have at least the very first trail item as owned
         public static int meteoritoCorrecto { get; set; } = 1;
 
+        
+
         public static void ClearGameData()
         {
             SelectedWorldID = 0;

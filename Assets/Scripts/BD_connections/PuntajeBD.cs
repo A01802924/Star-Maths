@@ -7,6 +7,7 @@ public class PuntajeBD : MonoBehaviour
 {
     private MostrarMenu menu;
     public static PuntajeBD instance;
+
     private void Awake()
     {
         if (instance == null)
@@ -32,31 +33,21 @@ public class PuntajeBD : MonoBehaviour
         public int nivel;
     }
 
-    public void Guardar(bool victoria)
+    public void Guardar(bool victoria, int estrellas)
     {
+              
         print ("Guardando puntaje...");
         SessionData.Victoria = victoria;
-        StartCoroutine(EnviarDatos());
+        StartCoroutine(EnviarDatos(estrellas));
     }
 
-    private IEnumerator EnviarDatos()
+    private IEnumerator EnviarDatos(int estrellas)
     {
         int puntaje = menu.TotalPuntos;
         float tiempo = menu.TotalTiempo;
 
         int preguntasT = menu.PreguntasT;
         int preguntasC = menu.PreguntasC;
-
-
-        int estrellas = 0;
-        if (preguntasT > 0)
-        {
-            float porcentaje = (float)preguntasC / preguntasT;
-
-            if (porcentaje >= 0.8f) estrellas = 3;
-            else if (porcentaje >= 0.5f) estrellas = 2;
-            else if (porcentaje >= 0.1f) estrellas = 1;
-        }
 
         float precision = (preguntasT == 0) ? 0 : ((float)preguntasC / preguntasT) * 100f;
 
