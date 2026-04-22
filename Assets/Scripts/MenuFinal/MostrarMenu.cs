@@ -218,12 +218,11 @@ public class MostrarMenu : MonoBehaviour
             yield return null;
         }
         time.text = "TIEMPO:      " + fin;
-        StartCoroutine(MostrarEstrellas(preguntasT, preguntasC));
+        StartCoroutine(MostrarEstrellas(vidasRes));
     }
 
-    private IEnumerator MostrarEstrellas(int preguntasT, int preguntasC)
+    private IEnumerator MostrarEstrellas(int vidasRes)
     {
-        float porcentaje = (float)preguntasC / preguntasT;
         //Muestra todas las etrellas nos desbloqueadas
         estrella1ND.style.display = DisplayStyle.Flex;
         estrella2ND.style.display = DisplayStyle.Flex;
@@ -234,19 +233,19 @@ public class MostrarMenu : MonoBehaviour
         estrella2.style.display = DisplayStyle.None;
         estrella3.style.display = DisplayStyle.None;
 
-        if (porcentaje >= 0.1)
+        if (vidasRes >= 1)
         {
             estrella1.style.display = DisplayStyle.Flex;
             estrella1ND.style.display = DisplayStyle.None;
             yield return new WaitForSeconds(0.4f);
         }
-        if (porcentaje >= 0.5f)
+        if (vidasRes >= 2)
         {
             estrella2ND.style.display = DisplayStyle.None;
             estrella2.style.display = DisplayStyle.Flex;
             yield return new WaitForSeconds(0.4f);
         }
-        if (porcentaje >= 0.8f)
+        if (vidasRes >= 3)
         {
             estrella3ND.style.display = DisplayStyle.None;
             estrella3.style.display = DisplayStyle.Flex;
