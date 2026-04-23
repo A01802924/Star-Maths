@@ -1,0 +1,28 @@
+:root {
+}
+
+.position-number-text {
+    font-size: 60px;
+    -unity-text-align: middle-center;
+    -unity-font-definition: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap-ExtraBold.ttf?fileID=12800000&guid=274dc19cec2e12942b644b43a2983224&type=3#Asap-ExtraBold");
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    color: rgb(38, 28, 71);
+}
+
+.username-text {
+    font-size: 60px;
+    -unity-text-align: middle-left;
+    color: rgb(255, 255, 255);
+}
+
+.score-number-text {
+    font-size: 60px;
+    -unity-text-align: middle-right;
+    color: rgb(255, 255, 255);
+    -unity-font-style: normal;
+}
+
+

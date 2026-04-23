@@ -1,9 +1,42 @@
 using System.Collections.Generic;
+using Mono.Cecil;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Assets.Scripts.Core
 {
+    public static class RankingUIs
+    {
+        private static VisualTreeAsset RowTemplate => Resources.Load<VisualTreeAsset>("UI/RankingRowTemplate");
+        private static Texture2D FirstPlaceContainer => Resources.Load<Texture2D>("Sprites/Ranking/ranking-1st-extra-large 1");
+        private static Texture2D SecondPlaceContainer => Resources.Load<Texture2D>("Sprites/Ranking/ranking-2nd-extra-large 1");
+        private static Texture2D ThirdPlaceContainer => Resources.Load<Texture2D>("Sprites/Ranking/ranking-3rd-extra-large 1");
+        private static Texture2D OtherPlaceContainer => Resources.Load<Texture2D>("Sprites/Ranking/ranking-4+-extra-large 1");
+        public static VisualElement BuildRankingRow(int position, string username, int score)
+        {
+            VisualElement newRow = RowTemplate.Instantiate();
+            newRow.Q<Label>("PositionNumber").text = position.ToString();
+            newRow.Q<Label>("UsernameText").text = username;
+            newRow.Q<Label>("ScoreNumber").text = score.ToString("N0");
+            switch (position)
+            {
+                case 1:
+                    newRow.Q<VisualElement>("PositionContainer").style.backgroundImage = new StyleBackground(FirstPlaceContainer);
+                    break;
+                case 2:
+                    newRow.Q<VisualElement>("PositionContainer").style.backgroundImage = new StyleBackground(SecondPlaceContainer);
+                    break;
+                case 3:
+                    newRow.Q<VisualElement>("PositionContainer").style.backgroundImage = new StyleBackground(ThirdPlaceContainer);
+                    break;
+                default:
+                    newRow.Q<VisualElement>("PositionContainer").style.backgroundImage = new StyleBackground(OtherPlaceContainer);
+                    break;
+            }
+            return newRow;
+        }
+    }
     public class Item
     {
         public int index;
@@ -22,7 +55,6 @@ namespace Assets.Scripts.Core
         private const string shipDir = rootDir + "/Large/Ships/";
         private const string shootDir = rootDir + "/Large/Missiles/";
         private const string trailDir = rootDir + "/Projectiles/";
-        private const string bundleDir = rootDir + "/Large/Pickups/";
         public static List<Item> ShipItems { get; private set; } = new()
         {
             new(1, "WILD SHIP 1", 850, AssetDatabase.LoadAssetAtPath<Texture2D>(shipDir + "Ship_1_A_Large.png")),

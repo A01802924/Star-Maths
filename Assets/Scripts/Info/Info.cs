@@ -7,20 +7,18 @@ public class Info : MonoBehaviour
 {
     void OnEnable()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 
         root.Add(ConfigurationPreferences.DarkScreenLayer);
         AudioManager.Instance.Resume();
 
-        var puntajes= root.Q<Button>("PUNTAJE");
+        Button puntajes = root.Q<Button>("RankingButton");
 
-        var tienda = root.Q<Button>("TIENDA");
+        Button tienda = root.Q<Button>("StoreButton");
 
-        var tutoral = root.Q<Button>("TUTORIAL");
+        Button tutoral = root.Q<Button>("TutorialButton");
 
-
-
-        var home = root.Q<Button>("home");
+        Button home = root.Q<Button>("home");
 
         puntajes.RegisterCallback<ClickEvent>(AbrirPuntajes);
         void AbrirPuntajes(ClickEvent evt)
