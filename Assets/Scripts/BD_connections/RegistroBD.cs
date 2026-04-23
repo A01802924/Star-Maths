@@ -115,7 +115,8 @@ public class RegistroBD : MonoBehaviour
             tfApellido.value != "" &&
             birthDateSelected.text != "" &&
             genreOptionsGroup.value != -1 &&
-            dfGrado.index != -1
+            dfGrado.index != -1 &&
+            tfPassword.value.Length > 7
         )
         {
             string generoUI = genreOptionsGroup.choices.ElementAt(genreOptionsGroup.value);
@@ -142,8 +143,8 @@ public class RegistroBD : MonoBehaviour
             };
 
             Debug.Log("Genero enviado: " + data.genero);
-Debug.Log("Grado enviado: " + data.grado_escolar);
-Debug.Log("Fecha enviada: " + data.fecha_nacimiento);
+            Debug.Log("Grado enviado: " + data.grado_escolar);
+            Debug.Log("Fecha enviada: " + data.fecha_nacimiento);
 
             string json = JsonUtility.ToJson(data);
 
@@ -177,6 +178,11 @@ Debug.Log("Fecha enviada: " + data.fecha_nacimiento);
                 errorDialogContainer.style.display = DisplayStyle.Flex;
                 Debug.LogError("Error en la solicitud: " + request.downloadHandler.text);
             }
+        }
+        else if (tfPassword.value.Length < 8 && tfPassword.value != "")
+        {
+            signUpExceptionLabel.text = "La contraseña debe tener al menos 8 caracteres";
+            signUpExceptionLabel.style.display = DisplayStyle.Flex;
         }
         else
         {
