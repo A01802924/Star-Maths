@@ -26,7 +26,7 @@ public class Configurations : MonoBehaviour
     private Button discardExitConfigurationButton;
     private Button exitConfigurationCrossButton;
     private Button closePopUpCrossButton;
-    //public ConfiguracionBD configBD;
+    
     void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -60,6 +60,7 @@ public class Configurations : MonoBehaviour
         SFXPercentageLabel.text = tempSFXValue.ToString() + "%";
 
         exitConfigurationCrossButton.clicked += TryGoingHome;
+         GetComponent<ConfiguracionBD>().CargarConfiguracion();
 
         brightnessSlider.RegisterValueChangedCallback(evt => SetNewBrightness(evt));
         musicSlider.RegisterValueChangedCallback(evt => SetNewMusicVolume(evt));
