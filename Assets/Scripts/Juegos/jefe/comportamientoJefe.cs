@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class comportamientoJefe : MonoBehaviour
 {
-    private float velocidadMeteoritos = 0.4f;
+    private float velocidadMeteoritos = 0.8f;
     [SerializeField] private GameObject barraVida;
     private Vector3 escalaVida;
 
@@ -40,7 +40,7 @@ public class comportamientoJefe : MonoBehaviour
 
             tiempo = 0f;
 
-            while (tiempo < 5f && !controlador.respondido)
+            while (tiempo < 10f && !controlador.respondido)
             {
                 yield return null;
                 tiempo += Time.deltaTime;

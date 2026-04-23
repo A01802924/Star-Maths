@@ -22,5 +22,6 @@ public class moverMeteoritos : MonoBehaviour
     public void destruirMeteoritos()
     {
         Destroy(gameObject);
+        vidaNave.instance.meteoritosPerdidos++;
     }
 }
