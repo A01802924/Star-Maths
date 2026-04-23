@@ -16,12 +16,12 @@ public class moverMeteoritos : MonoBehaviour
         if (transform.position.x <= -14)
         {
             destruirMeteoritos();
+            vidaNave.instance.meteoritosPerdidos++;
         }
     }
 
     public void destruirMeteoritos()
     {
         Destroy(gameObject);
-        vidaNave.instance.meteoritosPerdidos++;
     }
 }

@@ -2,4 +2,7 @@
   <Project Path="CoreLogic.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Tests.csproj" />
+  <Project Path="OMG.UI.DatePickerUITK.csproj" />
+  <Project Path="OMG.UI.DatePickerUITK.DateRangePickerSample.csproj" />
+  <Project Path="OMG.UI.DatePickerUITK.DatePickerSample.csproj" />
 </Solution>

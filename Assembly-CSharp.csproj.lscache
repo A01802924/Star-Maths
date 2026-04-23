@@ -51,14 +51,16 @@ TemporaryDependencyNodeTargetIdentifier=netstandard2.1
 
 [sourceFiles]
 Assets/Scripts/BD_connections/
+ ConfiguracionBD.cs
  id_juador_instance.cs
  LoginBD.cs
  PuntajeBD.cs
  RegistroBD.cs
-Assets/Scripts/Customization Scene/
- Customize.cs
- GetBackFromCustomization.cs
 Assets/Scripts/
+ Configuration/DarkScreenBuilder.cs
+ Customization Scene/
+  Customize.cs
+  GetBackFromCustomization.cs
  Info/Info.cs
  InteraccionesLogIn/
   LlegarALog.cs
@@ -98,7 +100,9 @@ Assets/Scripts/
  QuestionGeneratorTest/
   PlayLevelGame/PlayLevelGame.cs
   SelectLevel/SelectLevel.cs
- Ranking/GetBackRankingButton.cs
+ Ranking/
+  GetBackRankingButton.cs
+  RankingItems.cs
  Store Scene/GetBackButtonStore.cs
  Tutorial Modal/
   DisplayVideo.cs
@@ -451,7 +455,11 @@ Library/ScriptAssemblies/
  UnityEditor.UI.Analytics.dll
  UnityEditor.UI.dll
  UnityEngine.UI.dll
-Temp/bin/Debug/CoreLogic.dll
+Temp/bin/Debug/
+ CoreLogic.dll
+ OMG.UI.DatePickerUITK.DatePickerSample.dll
+ OMG.UI.DatePickerUITK.DateRangePickerSample.dll
+ OMG.UI.DatePickerUITK.dll
 
 [analyzerReferences]
 ../../../../Program Files/Unity/Hub/Editor/6000.3.8f1/Editor/Data/Tools/BuildPipeline/Unity.SourceGenerators/
