@@ -9,7 +9,6 @@ public class ItemConfig : MonoBehaviour
     private ScrollView scrollableShipContainer;
     private ScrollView scrollableProjectileContainer;
     private ScrollView scrollableTrailContainer;
-    private ScrollView scrollableBundleContainer;
     private VisualElement confirmPurchaseDialog;
     private VisualElement unaffordablePurchaseDialog;
     private Label numStarsLabel;
@@ -20,7 +19,6 @@ public class ItemConfig : MonoBehaviour
     private VisualElement shipWindowHeader;
     private VisualElement projectileWindowHeader;
     private VisualElement trailWindowHeader;
-    private VisualElement bundleWindowHeader;
     private Button closeUnaffordableButton;
     private EventCallback<ClickEvent> _confirmCallback;
     private EventCallback<ClickEvent> _cancelCallback;
@@ -36,7 +34,6 @@ public class ItemConfig : MonoBehaviour
         scrollableShipContainer = root.Q<ScrollView>("ShipItemGrid");
         scrollableProjectileContainer = root.Q<ScrollView>("ProjectileItemGrid");
         scrollableTrailContainer = root.Q<ScrollView>("TrailItemGrid");
-        scrollableBundleContainer = root.Q<ScrollView>("BundleItemGrid");
 
         confirmPurchaseDialog = root.Q<VisualElement>("PopUpBuyDialogContainer");
         unaffordablePurchaseDialog = root.Q<VisualElement>("PopUpUnaffordableDialogContainer");
@@ -46,11 +43,9 @@ public class ItemConfig : MonoBehaviour
         shipWindowHeader = root.Q<VisualElement>("ShipHeaderContainer");
         projectileWindowHeader = root.Q<VisualElement>("ProjectileHeaderContainer");
         trailWindowHeader = root.Q<VisualElement>("TrailHeaderContainer");
-        bundleWindowHeader = root.Q<VisualElement>("BundleHeaderContainer");
         shipWindowHeader.RegisterCallback<ClickEvent>((evt) => { AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewTab); SelectShipWindow(); });
         projectileWindowHeader.RegisterCallback<ClickEvent>((evt) => { AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewTab); SelectProjectileWindow(); });
         trailWindowHeader.RegisterCallback<ClickEvent>((evt) => { AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewTab); SelectTrailWindow(); });
-        bundleWindowHeader.RegisterCallback<ClickEvent>((evt) => { AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewTab); SelectBundleWindow(); });
 
         confirmPurchaseButton = root.Q<Button>("ConfirmBuyButton");
         cancelPurchaseButton = root.Q<Button>("CancelBuyButton");
@@ -78,10 +73,6 @@ public class ItemConfig : MonoBehaviour
         {
             AddItemToGrid(item, "Estela", scrollableTrailContainer);
         }
-        foreach (Item item in ItemSet.BundleItems)
-        {
-            AddItemToGrid(item, "Bundle Set", scrollableBundleContainer);
-        }
     }
     private void SelectShipWindow()
     {
@@ -91,14 +82,12 @@ public class ItemConfig : MonoBehaviour
         }
         if (ColorUtility.TryParseHtmlString("#382C5B", out Color otherWindowHeadersColor))
         {
-            bundleWindowHeader.style.backgroundColor = otherWindowHeadersColor;
             projectileWindowHeader.style.backgroundColor = otherWindowHeadersColor;
             trailWindowHeader.style.backgroundColor = otherWindowHeadersColor;
         }
         scrollableShipContainer.style.display = DisplayStyle.Flex;
         scrollableProjectileContainer.style.display = DisplayStyle.None;
         scrollableTrailContainer.style.display = DisplayStyle.None;
-        scrollableBundleContainer.style.display = DisplayStyle.None;
     }
     private void SelectProjectileWindow()
     {
@@ -108,14 +97,12 @@ public class ItemConfig : MonoBehaviour
         }
         if (ColorUtility.TryParseHtmlString("#382C5B", out Color otherWindowHeadersColor))
         {
-            bundleWindowHeader.style.backgroundColor = otherWindowHeadersColor;
             shipWindowHeader.style.backgroundColor = otherWindowHeadersColor;
             trailWindowHeader.style.backgroundColor = otherWindowHeadersColor;
         }
         scrollableProjectileContainer.style.display = DisplayStyle.Flex;
         scrollableShipContainer.style.display = DisplayStyle.None;
         scrollableTrailContainer.style.display = DisplayStyle.None;
-        scrollableBundleContainer.style.display = DisplayStyle.None;
     }
     private void SelectTrailWindow()
     {
@@ -125,31 +112,12 @@ public class ItemConfig : MonoBehaviour
         }
         if (ColorUtility.TryParseHtmlString("#382C5B", out Color otherWindowHeadersColor))
         {
-            bundleWindowHeader.style.backgroundColor = otherWindowHeadersColor;
             shipWindowHeader.style.backgroundColor = otherWindowHeadersColor;
             projectileWindowHeader.style.backgroundColor = otherWindowHeadersColor;
         }
         scrollableTrailContainer.style.display = DisplayStyle.Flex;
         scrollableShipContainer.style.display = DisplayStyle.None;
         scrollableProjectileContainer.style.display = DisplayStyle.None;
-        scrollableBundleContainer.style.display = DisplayStyle.None;
-    }
-    private void SelectBundleWindow()
-    {
-        if (ColorUtility.TryParseHtmlString("#261C47", out Color currentWindowHeaderColor))
-        {
-            bundleWindowHeader.style.backgroundColor = currentWindowHeaderColor;
-        }
-        if (ColorUtility.TryParseHtmlString("#382C5B", out Color otherWindowHeadersColor))
-        {
-            trailWindowHeader.style.backgroundColor = otherWindowHeadersColor;
-            shipWindowHeader.style.backgroundColor = otherWindowHeadersColor;
-            projectileWindowHeader.style.backgroundColor = otherWindowHeadersColor;
-        }
-        scrollableBundleContainer.style.display = DisplayStyle.Flex;
-        scrollableShipContainer.style.display = DisplayStyle.None;
-        scrollableProjectileContainer.style.display = DisplayStyle.None;
-        scrollableTrailContainer.style.display = DisplayStyle.None;
     }
     private void OnDisable()
     {
