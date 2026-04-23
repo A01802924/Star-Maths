@@ -57,6 +57,7 @@ public class MostrarMenu : MonoBehaviour
     private Label preguntasCorrecto;
     private Label preguntasIncorrecto;
     private Button cerrarStats;
+    private Label cantidadMonedas;
     private int vidasRes;
     private int vidasI;
     [SerializeField]
@@ -66,7 +67,7 @@ public class MostrarMenu : MonoBehaviour
     private int preguntasC = 0;
     public int PreguntasC => preguntasC;
     private int preguntasI = 0;
-
+    private int monedas = 0;
     private bool llamadoBD = false;
 
     private VisualElement menuParInf;
@@ -122,6 +123,7 @@ public class MostrarMenu : MonoBehaviour
         preguntas = root.Q<Label>("Preguntas");
         preguntasCorrecto = root.Q<Label>("Correcto");
         preguntasIncorrecto = root.Q<Label>("Incorrecto");
+        cantidadMonedas = root.Q<Label>("Monedas");
         cerrarStats = root.Q<Button>("CerrarStats");
         cerrarStats.clicked += CerrarStats;
 
@@ -152,6 +154,7 @@ public class MostrarMenu : MonoBehaviour
         preguntas.text = "TOTAL DE PREGUNTAS:     " + totalPreguntas.ToString();
         preguntasCorrecto.text = "RESPUESTAS CORRECTAS:     " + resCorrectas.ToString();
         preguntasIncorrecto.text = "RESPUESTAS INCORRECTAS:     " + resIncorrectas.ToString();
+        cantidadMonedas.text = "MONEDAS:     " + monedas.ToString();
 
     }
 
@@ -240,18 +243,21 @@ public class MostrarMenu : MonoBehaviour
 
         if (vidasRes >= 1)
         {
+            monedas = 100;
             estrella1.style.display = DisplayStyle.Flex;
             estrella1ND.style.display = DisplayStyle.None;
             yield return new WaitForSeconds(0.4f);
         }
         if (vidasRes >= 2)
         {
+            monedas = 200;
             estrella2ND.style.display = DisplayStyle.None;
             estrella2.style.display = DisplayStyle.Flex;
             yield return new WaitForSeconds(0.4f);
         }
         if (vidasRes >= 3)
         {
+            monedas = 300;
             estrella3ND.style.display = DisplayStyle.None;
             estrella3.style.display = DisplayStyle.Flex;
             yield return new WaitForSeconds(0.4f);
@@ -299,4 +305,5 @@ public class MostrarMenu : MonoBehaviour
 
         return puntosBase - penalizacion + bonoTiempo;
     }
+
 }
