@@ -1,26 +1,33 @@
+using System;
 using System.Collections;
+using System.Linq;
+using OMG.UI.DatePickerUITK;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
-
-
 public class RegistroBD : MonoBehaviour
 {
-
-    //obtenemos variables para el UI
     private TextField tfUsuario;
     private TextField tfPassword;
     private TextField tfcorreoElectronico;
     private TextField tfNombre;
     private TextField tfApellido;
     private TextField tfFechaNacimiento;
-    private RadioButton rbgMasculino;
-    private RadioButton rbgFemenino;
     private DropdownField dfGrado;
     private Button btnRegistrar;
-
-     public struct MandarDatos
+    private RadioButtonGroup genreOptionsGroup;
+    private VisualElement errorDialogContainer;
+    private Label errorDialogTitleLabel;
+    private Label errorDialogBodyLabel;
+    private Label signUpExceptionLabel;
+    private Button closeDialogContainerButton;
+    private Button acceptDialogContainerButton;
+    private DatePicker datePicker;
+    private VisualElement datePickerContainer;
+    private Button calendarButton;
+    private Label birthDateSelected;
+    public struct MandarDatos
     {
         public string nombre_usuario;
         public string corre_electronico;
@@ -35,73 +42,146 @@ public class RegistroBD : MonoBehaviour
     {
         public bool exito;
         public string aviso;
-         public int id_jugador;
+        public int id_jugador;
     }
 
-     void OnEnable()
-     {
-         var root = GetComponent<UIDocument>().rootVisualElement;
+    void OnEnable()
+    {
+        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 
-         tfUsuario = root.Q<TextField>("Usuario2");
-         tfPassword = root.Q<TextField>("Contrasenia2");
-         tfcorreoElectronico = root.Q<TextField>("CorreoElectronico");
-         tfNombre = root.Q<TextField>("NombreJugador");
-         tfApellido = root.Q<TextField>("ApellidoJugador");
-         tfFechaNacimiento = root.Q<TextField>("FechaNacimiento");
-         rbgMasculino = root.Q<RadioButton>("Nino");
-         rbgFemenino = root.Q<RadioButton>("Nina");
-         dfGrado = root.Q<DropdownField>("Grado");
-         btnRegistrar = root.Q<Button>("Ingresar2");
+        tfUsuario = root.Q<TextField>("Usuario2");
+        tfPassword = root.Q<TextField>("Contrasenia2");
+        tfcorreoElectronico = root.Q<TextField>("CorreoElectronico");
+        tfNombre = root.Q<TextField>("NombreJugador");
+        tfApellido = root.Q<TextField>("ApellidoJugador");
+        tfFechaNacimiento = root.Q<TextField>("FechaNacimiento");
+        dfGrado = root.Q<DropdownField>("Grado");
+        btnRegistrar = root.Q<Button>("Ingresar2");
+        genreOptionsGroup = root.Q<RadioButtonGroup>("Genero");
+        signUpExceptionLabel = root.Q<Label>("SignUpExceptionLabel");
 
-         btnRegistrar.clicked += () =>
-         {
-             StartCoroutine(Registrar());
-         };
-     }
+        errorDialogContainer = root.Q<VisualElement>("ErrorDialogContainer");
+        errorDialogTitleLabel = root.Q<Label>("ErrorTitleLabel");
+        errorDialogBodyLabel = root.Q<Label>("ErrorDescriptionLabel");
+        closeDialogContainerButton = root.Q<Button>("CloseErrorDialog");
+        acceptDialogContainerButton = root.Q<Button>("AcceptErrorDialog");
+        signUpExceptionLabel = root.Q<Label>("SignUpExceptionLabel");
 
-     private IEnumerator Registrar()
-     {
-        //Mandar datos config para el registro
-        MandarDatos data = new MandarDatos
+        datePickerContainer = root.Q<VisualElement>("DatePickerContainer");
+        datePicker = root.Q<DatePicker>("DatePicker");
+        calendarButton = root.Q<Button>("CalendarButton");
+        birthDateSelected = root.Q<Label>("BirthDateValue");
+
+        datePickerContainer.RegisterCallback<ClickEvent>(TryHidingDatePicker);
+        datePicker.RegisterValueChangedCallback(SelectNewBirthDate);
+
+        calendarButton.clicked += ShowDatePicker;
+        closeDialogContainerButton.clicked += CloseErrorDialog;
+        acceptDialogContainerButton.clicked += CloseErrorDialog;
+
+        btnRegistrar.clicked += () =>
         {
-            nombre_usuario = tfUsuario.value,
-            corre_electronico = tfcorreoElectronico.value,
-            contrasenia = tfPassword.value,
-            genero = rbgMasculino.value ? "masculino" : "femenino",
-            nombre = tfNombre.value,
-            apellidos = tfApellido.value,
-            fecha_nacimiento = tfFechaNacimiento.value,
-            grado_escolar = int.Parse(dfGrado.value)
+            StartCoroutine(Registrar());
         };
-        string json = JsonUtility.ToJson(data);
-
-        UnityWebRequest request = UnityWebRequest.Post("https://ejqqvbkeso7awheffaw6brvsdi0prujw.lambda-url.us-east-1.on.aws/registro", json, "application/json"); 
-        
-        yield return request.SendWebRequest();
-        if (request.result == UnityWebRequest.Result.Success)
+    }
+    private void SelectNewBirthDate(ChangeEvent<DateTime?> evt)
+    {
+        birthDateSelected.text = evt.newValue?.ToString("yyyy-MM-dd");
+        birthDateSelected.style.display = DisplayStyle.Flex;
+        datePickerContainer.style.display = DisplayStyle.None;
+    }
+    private void TryHidingDatePicker(ClickEvent evt)
+    {
+        if (evt.target == evt.currentTarget)
         {
-            print("Respuesta: " + request.downloadHandler.text);
+            datePickerContainer.style.display = DisplayStyle.None;
+        }
+    }
+    private void ShowDatePicker()
+    {
+        datePickerContainer.style.display = DisplayStyle.Flex;
+    }
+    private void CloseErrorDialog()
+    {
+        errorDialogContainer.style.display = DisplayStyle.None;
+    }
+    private IEnumerator Registrar()
+    {
+        if (
+            tfUsuario.value != "" &&
+            tfcorreoElectronico.value != "" &&
+            tfPassword.value != "" &&
+            tfNombre.value != "" &&
+            tfApellido.value != "" &&
+            birthDateSelected.text != "" &&
+            genreOptionsGroup.value != -1 &&
+            dfGrado.index != -1
+        )
+        {
+            string generoUI = genreOptionsGroup.choices.ElementAt(genreOptionsGroup.value);
 
-            RegresarDatos r = JsonUtility.FromJson<RegresarDatos>(request.downloadHandler.text);
+            string generoBD;
 
-            if (r.exito)
+                if (generoUI == "Niña")
+                    generoBD = "femenino";
+                else if (generoUI == "Niño")
+                    generoBD = "masculino";
+                else
+                    generoBD = "otro";
+            signUpExceptionLabel.style.display = DisplayStyle.None;
+            MandarDatos data = new()
             {
-                id_juador_instance.instance.id_jugador = r.id_jugador;
-                print("Login exitoso, id_jugador: " + r.id_jugador);
-                SceneManager.LoadScene("MenuPrincipalScene");
+                nombre_usuario = tfUsuario.value,
+                corre_electronico = tfcorreoElectronico.value,
+                contrasenia = tfPassword.value,
+                genero = generoBD,
+                nombre = tfNombre.value,
+                apellidos = tfApellido.value,
+                fecha_nacimiento = birthDateSelected.text,
+                grado_escolar = int.Parse(dfGrado.value)
+            };
+
+            Debug.Log("Genero enviado: " + data.genero);
+Debug.Log("Grado enviado: " + data.grado_escolar);
+Debug.Log("Fecha enviada: " + data.fecha_nacimiento);
+
+            string json = JsonUtility.ToJson(data);
+
+            UnityWebRequest request = UnityWebRequest.Post("https://ejqqvbkeso7awheffaw6brvsdi0prujw.lambda-url.us-east-1.on.aws/registro", json, "application/json"); 
+
+            yield return request.SendWebRequest();
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                print("Respuesta: " + request.downloadHandler.text);
+
+                RegresarDatos r = JsonUtility.FromJson<RegresarDatos>(request.downloadHandler.text);
+
+                if (r.exito)
+                {
+                    id_juador_instance.instance.id_jugador = r.id_jugador;
+                    print("Login exitoso, id_jugador: " + r.id_jugador);
+                    SceneManager.LoadScene("MenuPrincipalScene");
+                }
+                else
+                {
+                    errorDialogTitleLabel.text = "Error en el registro";
+                    errorDialogBodyLabel.text = r.aviso;
+                    errorDialogContainer.style.display = DisplayStyle.Flex;
+                    Debug.LogError("Error en el registro: " + r.aviso);
+                }
             }
             else
             {
-                Debug.LogError("Error en el registro: " + r.aviso);
+                errorDialogTitleLabel.text = "Error de conexión";
+                errorDialogBodyLabel.text = request.downloadHandler.text;
+                errorDialogContainer.style.display = DisplayStyle.Flex;
+                Debug.LogError("Error en la solicitud: " + request.downloadHandler.text);
             }
         }
         else
         {
-            Debug.LogError("Error en la solicitud: " + request.downloadHandler.text);
+            signUpExceptionLabel.text = "Campos faltantes";
+            signUpExceptionLabel.style.display = DisplayStyle.Flex;
         }
-
-
-     }
-
-
+    }
 }

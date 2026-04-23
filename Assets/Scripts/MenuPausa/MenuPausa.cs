@@ -8,8 +8,7 @@ using UnityEngine.UIElements;
 public class MenuPausa : MonoBehaviour
 {
     public static MenuPausa instance;
-    private Configurations config;
-
+    private VisualElement dialogContainer;
     private VisualElement menuPausa;
     public VisualElement HUD;
     public VisualElement infoHUD;
@@ -17,15 +16,12 @@ public class MenuPausa : MonoBehaviour
     private VisualElement vida2;
     private VisualElement vida3;
     public VisualElement respuestas;
-
     private Button resume;
     private Button restart;
     private Button options;
     private Button mainMenu;
     private Button pausar;
-
     private Label correctas;
-
     private LevelGame game;
 
     void Awake()
@@ -34,11 +30,6 @@ public class MenuPausa : MonoBehaviour
         {
             instance = this;
         }
-
-        if(config == null)
-        {
-            config = FindAnyObjectByType<Configurations>();
-        }
     }
 
     void Start()
@@ -46,8 +37,6 @@ public class MenuPausa : MonoBehaviour
         game = new LevelGame(LevelFactory.BuildLevel(SessionData.SelectedWorldID, SessionData.SelectedLevelID));
 
         var root = GetComponent<UIDocument>().rootVisualElement;
-
-        root.Add(ConfigurationPreferences.DarkScreenLayer);
 
         menuPausa = root.Q<VisualElement>("MenuPausa");
         HUD = root.Q<VisualElement>("PlayerHUD");
@@ -64,6 +53,7 @@ public class MenuPausa : MonoBehaviour
         pausar = root.Q<Button>("BotonPausa");
 
         correctas = root.Q<Label>("Contador");
+        dialogContainer = root.Q<VisualElement>("DialogContainer");
 
         menuPausa.style.display = DisplayStyle.None;
 
@@ -124,9 +114,10 @@ public class MenuPausa : MonoBehaviour
 
     private void MenuOpciones()
     {
-        AudioManager.Instance.PlayNewTrack(AudioClipSet.MainBackgroundMusic);
-        config.MostrarMenu();
-        OcultarMenu();
+        // AudioManager.Instance.PlayNewTrack(AudioClipSet.MainBackgroundMusic);
+        // config.MostrarMenu();
+        // OcultarMenu();
+        dialogContainer.style.display = DisplayStyle.Flex;
         HUD.style.display = DisplayStyle.None;
         infoHUD.style.display = DisplayStyle.None;
         Time.timeScale = 0f;

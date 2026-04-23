@@ -1,32 +1,52 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Ui/LogScene/UI_log.uss?fileID=7433441132597879392&amp;guid=f6e2d8cf5ac05bb4b81f9cd65acc4094&amp;type=3#UI_log"/>
+    <Style src="project://database/Assets/Resources/Unity-UIToolkit-DatePicker-main/Unity-UIToolkit-DatePicker-main/Assets/One%20Mechanic%20Games/Date%20Picker%20(UI%20Toolkit)/PackageResources/Styles/DatePicker.uss?fileID=7433441132597879392&amp;guid=338a0a5de87c3489698075dbecf050fa&amp;type=3#DatePicker"/>
     <ui:VisualElement name="ContenedorInicio" class="contenedor" style="display: flex;">
-        <ui:VisualElement name="fondo" style="flex-grow: 1; position: absolute; width: 1373px; height: 1200px; top: -55px; left: 244px; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Grid_Components/Large/level-highlight-large%201.png?fileID=2800000&amp;guid=3bba298781e12fd4c9f8361b92fe91ea&amp;type=3#level-highlight-large 1&quot;);"/>
+        <ui:VisualElement name="fondo" style="flex-grow: 1; position: absolute; width: 1373px; height: 1200px; top: -55px; left: 244px; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Grid_Components/Extra%20Large/level-highlight-extra-large%201.png?fileID=2800000&amp;guid=c71f8697cb761f8479d76f0a739a6e8e&amp;type=3#level-highlight-extra-large 1&quot;);"/>
         <ui:VisualElement name="InicioSesion" class="miniContenedor" style="height: 892px; width: 1124px; top: 67px; left: 379px; border-left-color: rgb(55, 55, 55); border-right-color: rgb(55, 55, 55); border-top-color: rgb(55, 55, 55); border-bottom-color: rgb(55, 55, 55); display: flex;">
             <ui:Label text="INICIAR SESION" name="IniciarSesion" style="font-size: 100px; -unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/Righteous-Regular.ttf?fileID=12800000&amp;guid=3365d868468c1f143aa3fbb4d8a4e397&amp;type=3#Righteous-Regular&quot;); color: rgb(252, 255, 213); position: relative; bottom: 50px;"/>
             <ui:TextField label="" placeholder-text="Usuario" name="Usuario" focusable="true" class="inputsLabel inputsLabelInicio unity-text-field__label"/>
             <ui:TextField label="" placeholder-text="Contraseña" name="Contrasenia" password="true" readonly="false" class="inputsLabel inputsLabelInicio unity-text-field__label"/>
+            <ui:Label text="${ExceptionError}" name="SignInExceptionLabel" class="exception-text" style="display: none;"/>
             <ui:Label text="¿No tienes cuenta? &lt;color=#34B132&gt;&lt;u&gt;Regístrate&lt;/u&gt;&lt;/color&gt;" name="Registro" class="incio-registro" style="top: 70px; -unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap_SemiExpanded-ExtraBoldItalic.ttf?fileID=12800000&amp;guid=c32ee0853b2c29c4ea6e3359e1c81f7a&amp;type=3#Asap_SemiExpanded-ExtraBoldItalic&quot;);"/>
             <ui:Button text="Ingresar" name="Ingresar" class="botones" style="color: rgb(0, 0, 0); top: 80px; background-color: rgba(188, 188, 188, 0);"/>
         </ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="ContenedorRegistro" class="contenedor" style="display: none;">
-        <ui:VisualElement name="fondo" style="flex-grow: 1; position: absolute; width: 1373px; height: 1200px; top: -55px; left: 244px; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Grid_Components/Large/level-highlight-large%201.png?fileID=2800000&amp;guid=3bba298781e12fd4c9f8361b92fe91ea&amp;type=3#level-highlight-large 1&quot;);"/>
-        <ui:VisualElement name="Registro" class="miniContenedor" style="height: 892px; width: 1124px; top: 96px; left: 373px; border-left-color: rgb(55, 55, 55); border-right-color: rgb(55, 55, 55); border-top-color: rgb(55, 55, 55); border-bottom-color: rgb(55, 55, 55); display: flex; font-size: 20px; color: rgb(252, 255, 213); -unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap_SemiExpanded-ExtraBoldItalic.ttf?fileID=12800000&amp;guid=c32ee0853b2c29c4ea6e3359e1c81f7a&amp;type=3#Asap_SemiExpanded-ExtraBoldItalic&quot;);">
-            <ui:Label text="REGISTRO" name="Registro" style="font-size: 100px; -unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/Righteous-Regular.ttf?fileID=12800000&amp;guid=3365d868468c1f143aa3fbb4d8a4e397&amp;type=3#Righteous-Regular&quot;); color: rgb(252, 255, 213);"/>
+        <ui:VisualElement name="fondo" style="flex-grow: 1; position: absolute; width: 1373px; height: 1200px; top: -55px; left: 244px; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Grid_Components/Large/level-highlight-large%201.png?fileID=2800000&amp;guid=3bba298781e12fd4c9f8361b92fe91ea&amp;type=3#level-highlight-large 1&quot;); padding-top: 150px; padding-right: 180px; padding-bottom: 150px; padding-left: 180px; align-items: center;">
+            <ui:Label text="REGISTRO" name="Registro" style="font-size: 100px; -unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/Righteous-Regular.ttf?fileID=12800000&amp;guid=3365d868468c1f143aa3fbb4d8a4e397&amp;type=3#Righteous-Regular&quot;); color: rgb(252, 255, 213); padding-top: 0;"/>
             <ui:TextField label="" placeholder-text="Usuario" name="Usuario2" class="inputsLabel inputsLabelRegistro"/>
-            <ui:TextField label="" placeholder-text="Correo Electronico" name="CorreoElectronico" class="inputsLabelRegistro"/>
+            <ui:TextField label="" placeholder-text="Correo Electrónico" name="CorreoElectronico" class="inputsLabelRegistro"/>
             <ui:TextField label="" placeholder-text="Contraseña" name="Contrasenia2" password="true" readonly="false" class="inputsLabel inputsLabelRegistro"/>
-            <ui:RadioButtonGroup label="" name="Genero" style="flex-direction: row; justify-content: space-around;">
-                <ui:RadioButton label="Niña" name="Nina" style="font-size: 25px; -unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap_SemiExpanded-ExtraBoldItalic.ttf?fileID=12800000&amp;guid=c32ee0853b2c29c4ea6e3359e1c81f7a&amp;type=3#Asap_SemiExpanded-ExtraBoldItalic&quot;); color: rgb(252, 255, 213);"/>
-                <ui:RadioButton label="Niño" name="Nino" style="font-size: 25px;"/>
+            <ui:RadioButtonGroup label="" name="Genero" style="width: 400px;">
+                <ui:RadioButton name="Nina" text="Niña" class="radio-button"/>
+                <ui:RadioButton name="Nino" text="Niño" class="radio-button" style="font-size: 25px;"/>
+                <ui:RadioButton name="Otro" text="Otro" class="radio-button" style="font-size: 25px;"/>
             </ui:RadioButtonGroup>
             <ui:TextField label="" placeholder-text="Nombre" name="NombreJugador" class="inputsLabel inputsLabelRegistro"/>
             <ui:TextField label="" placeholder-text="Apellidos" name="ApellidoJugador" class="inputsLabel inputsLabelRegistro"/>
-            <ui:TextField label="" placeholder-text="Fecha de nacimiento (año-mes-dia)" name="FechaNacimiento" class="inputsLabelRegistro"/>
+            <ui:VisualElement name="BirthDateContainer" style="flex-grow: 1; width: 400px; height: 60px; flex-direction: row; align-items: center;">
+                <ui:Button text="" name="CalendarButton" class="calendar-button"/>
+                <ui:VisualElement name="BirthDateLabelsContainer" style="flex-grow: 1;">
+                    <ui:Label text="Fecha de Nacimiento" name="BirthDateTitleLabel" class="label-title-text"/>
+                    <ui:Label text="yyyy-MM-dd" name="BirthDateValue" class="label-value-text" style="display: none;"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
             <ui:DropdownField label="Grado Escolar" name="Grado" choices="1,2,3,4,5,6" style="-unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap_SemiExpanded-ExtraBoldItalic.ttf?fileID=12800000&amp;guid=c32ee0853b2c29c4ea6e3359e1c81f7a&amp;type=3#Asap_SemiExpanded-ExtraBoldItalic&quot;); color: rgb(252, 255, 213); font-size: 25px;"/>
-            <ui:Label text="¿Ya tienes cuenta? &lt;color=#34B132&gt;&lt;u&gt;Inicia sesion&lt;/u&gt;&lt;/color&gt;" name="InicioSesion" class="incio-registro" style="top: 25px; position: relative; left: 0; font-size: 25px;"/>
-            <ui:Button text="Ingresar" name="Ingresar2" class="botones" style="color: rgb(0, 0, 0); top: 25px; background-color: rgba(188, 188, 188, 0); width: 400px; height: 100px;"/>
+            <ui:Label text="${Exception]" name="SignUpExceptionLabel" class="exception-text" style="display: none;"/>
+            <ui:Label text="¿Ya tienes cuenta? &lt;color=#34B132&gt;&lt;u&gt;Inicia sesión&lt;/u&gt;&lt;/color&gt;" name="InicioSesion" class="incio-registro" style="top: 25px; position: relative; left: 0; font-size: 25px;"/>
+            <ui:Button text="Registrar" name="Ingresar2" class="botones" style="color: rgb(0, 0, 0); top: 25px; background-color: rgba(188, 188, 188, 0); width: 400px; height: 100px; margin-bottom: 40px;"/>
         </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="ErrorDialogContainer" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); display: none;">
+        <ui:VisualElement name="ErrorDialogPopUpContainer" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Containers/Extra%20Large/solid-setting-container-extra-large.png?fileID=2800000&amp;guid=d562810046f9d1147aaa6f9047e17643&amp;type=3#solid-setting-container-extra-large&quot;); margin-top: 150px; margin-right: 150px; margin-bottom: 150px; margin-left: 150px; padding-top: 100px; padding-bottom: 100px; padding-right: 150px; padding-left: 150px; justify-content: space-around;">
+            <ui:Label text="${ErrorName}" name="ErrorTitleLabel" class="title-pop-up"/>
+            <ui:Label text="${ErrorDescription}" name="ErrorDescriptionLabel" class="body-pop-up"/>
+            <ui:Button text="Aceptar" name="AcceptErrorDialog" class="accept-pop-up"/>
+        </ui:VisualElement>
+        <ui:Button text="" name="CloseErrorDialog" class="close-pop-up"/>
+    </ui:VisualElement>
+    <ui:VisualElement name="DatePickerContainer" style="flex-grow: 1; width: 100%; height: 100%; position: absolute; justify-content: center; display: none;">
+        <OMG.UI.DatePickerUITK.DatePicker name="DatePicker" max-year="2026" min-year="1990" style="align-self: center; top: 26%; left: 1%; display: flex;"/>
     </ui:VisualElement>
 </ui:UXML>

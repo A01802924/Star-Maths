@@ -64,7 +64,7 @@ public class PuntajeBD : MonoBehaviour
             id_mundo = SessionData.SelectedWorldID,
             nivel = SessionData.SelectedLevelID
         };
-         if (SessionData.JuegoJefe)
+        if (SessionData.JuegoJefe)
         {
             data.id_mundo = 6;
             data.nivel = 5;

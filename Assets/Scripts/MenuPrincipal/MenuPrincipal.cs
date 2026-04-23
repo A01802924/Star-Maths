@@ -5,30 +5,19 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 using Assets.Scripts.Core;
 
+
 public class MenuPrincipal : MonoBehaviour
 {
     private UIDocument UIDocument;
     private VisualElement MenuPrincipall;
     private VisualElement Creditos;
-
+    private VisualElement dialogContainer;
     private Button btnInfo;
     private Button btnJugar;
     private Button btnSalir;
     private Button btnCreditos;
     private Button btnRegresarMenu;
     private Button btnConfig;
-
-    private Configurations config;
-
-
-    void Awake()
-    {
-        if(config == null)
-        {
-            config = FindAnyObjectByType<Configurations>();
-        }
-    }
-
     void OnEnable()
     {
         UIDocument = GetComponent<UIDocument>();
@@ -38,7 +27,6 @@ public class MenuPrincipal : MonoBehaviour
         root.Add(ConfigurationPreferences.DarkScreenLayer);
         AudioManager.Instance.Resume();
 
-        //obteniendo referencias a UI Elements
         MenuPrincipall = root.Q<VisualElement>("MenuPrincipal");
         Creditos = root.Q<VisualElement>("Creditos");
 
@@ -49,18 +37,21 @@ public class MenuPrincipal : MonoBehaviour
         btnRegresarMenu = root.Q<Button>("RegresarBoton");
         btnConfig = root.Q<Button>("Config");
 
+        dialogContainer = root.Q<VisualElement>("DialogContainer");
+
         btnInfo.RegisterCallback<ClickEvent>(OnInfoClicked);
         btnJugar.RegisterCallback<ClickEvent>(OnModosClicked);
         btnSalir.RegisterCallback<ClickEvent>(OnSalirClicked);
         btnCreditos.RegisterCallback<ClickEvent>(OnCreditosClicked);
         btnRegresarMenu.RegisterCallback<ClickEvent>(OnRegresarMenuClicked);
-        btnConfig.RegisterCallback<ClickEvent>(OnConfigClicked);
+        btnConfig.clicked += OnConfigClicked;
+
+        GetComponent<ConfiguracionBD>().CargarConfiguracion();
     }
-    private void OnConfigClicked(ClickEvent evt)
+    private void OnConfigClicked()
     {
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
-        //SceneManager.LoadScene("Configuration");
-        config.MostrarMenuInPrincipal();
+        dialogContainer.style.display = DisplayStyle.Flex;
     }
     private void OnRegresarMenuClicked(ClickEvent evt)
     {
