@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 using Assets.Scripts.Core;
 
+
 public class MenuPrincipal : MonoBehaviour
 {
     private UIDocument UIDocument;
@@ -44,6 +45,8 @@ public class MenuPrincipal : MonoBehaviour
         btnCreditos.RegisterCallback<ClickEvent>(OnCreditosClicked);
         btnRegresarMenu.RegisterCallback<ClickEvent>(OnRegresarMenuClicked);
         btnConfig.clicked += OnConfigClicked;
+
+        GetComponent<ConfiguracionBD>().CargarConfiguracion();
     }
     private void OnConfigClicked()
     {

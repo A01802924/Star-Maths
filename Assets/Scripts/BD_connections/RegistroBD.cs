@@ -118,19 +118,33 @@ public class RegistroBD : MonoBehaviour
             dfGrado.index != -1
         )
         {
-            print(genreOptionsGroup.choices.ElementAt(genreOptionsGroup.value));
+            string generoUI = genreOptionsGroup.choices.ElementAt(genreOptionsGroup.value);
+
+            string generoBD;
+
+                if (generoUI == "Niña")
+                    generoBD = "femenino";
+                else if (generoUI == "Niño")
+                    generoBD = "masculino";
+                else
+                    generoBD = "otro";
             signUpExceptionLabel.style.display = DisplayStyle.None;
             MandarDatos data = new()
             {
                 nombre_usuario = tfUsuario.value,
                 corre_electronico = tfcorreoElectronico.value,
                 contrasenia = tfPassword.value,
-                genero = genreOptionsGroup.choices.ElementAt(genreOptionsGroup.value),
+                genero = generoBD,
                 nombre = tfNombre.value,
                 apellidos = tfApellido.value,
                 fecha_nacimiento = birthDateSelected.text,
                 grado_escolar = int.Parse(dfGrado.value)
             };
+
+            Debug.Log("Genero enviado: " + data.genero);
+Debug.Log("Grado enviado: " + data.grado_escolar);
+Debug.Log("Fecha enviada: " + data.fecha_nacimiento);
+
             string json = JsonUtility.ToJson(data);
 
             UnityWebRequest request = UnityWebRequest.Post("https://ejqqvbkeso7awheffaw6brvsdi0prujw.lambda-url.us-east-1.on.aws/registro", json, "application/json"); 

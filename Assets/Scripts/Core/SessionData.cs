@@ -39,7 +39,15 @@ namespace Assets.Scripts.Core
 
         public static bool JuegoJefe { get; set; } = false; // Aqui es para la base
         public static bool Victoria { get; set; } = false; // Aqui es para la base
+
+        public static int SFXVolumen { get; set; } = 80; // Set as a test value, when test finished, set back to 0
+
+        public static int MusicVolumen { get; set; } = 80; // Set as a test value, when test finished, set back to 0
+
+        public static int ScreenBrightness { get; set; } = 100; // Set as a test value, when test finished, set back to 0
+
         public static int coins { get; set; } = 50000; // Set as a test value, when test finished, set back to 0
+
         public static List<Item> OwnedItems { get; set; } = new()
         {
             ItemSet.ShipItems[0],

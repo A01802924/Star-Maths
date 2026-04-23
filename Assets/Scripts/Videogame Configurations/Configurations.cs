@@ -26,6 +26,7 @@ public class Configurations : MonoBehaviour
     private Button discardExitConfigurationButton;
     private Button exitConfigurationCrossButton;
     private Button closePopUpCrossButton;
+    //public ConfiguracionBD configBD;
     void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -146,9 +147,14 @@ public class Configurations : MonoBehaviour
     private void SaveNewConfigurationPreferences()
     {
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickSaveChanges);
-        ConfigurationPreferences.ScreenBrightness = tempBrightnessValue;
+        /*ConfigurationPreferences.ScreenBrightness = tempBrightnessValue;
         ConfigurationPreferences.MusicVolume = tempMusicValue;
-        ConfigurationPreferences.SFXVolume = tempSFXValue;
+        ConfigurationPreferences.SFXVolume = tempSFXValue;*/
+        SessionData.ScreenBrightness = Mathf.RoundToInt(tempBrightnessValue);
+        SessionData.MusicVolumen = Mathf.RoundToInt(tempMusicValue);
+        SessionData.SFXVolumen = Mathf.RoundToInt(tempSFXValue);
+        GetComponent<ConfiguracionBD>().GuardarConfiguracion();
+
         saveChangesButton.SetEnabled(false);
         existUnsavedChanges = false;
     }

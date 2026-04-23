@@ -119,6 +119,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &375115065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 375115067}
+  - component: {fileID: 375115066}
+  m_Layer: 0
+  m_Name: configBD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &375115066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375115065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa31fc0ded805554bb7f4ebc3dfcca2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConfiguracionBD
+--- !u!4 &375115067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375115065}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &433648110
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +359,7 @@ GameObject:
   - component: {fileID: 814314622}
   - component: {fileID: 814314623}
   - component: {fileID: 814314624}
+  - component: {fileID: 814314625}
   m_Layer: 5
   m_Name: UIMenu
   m_TagString: Untagged
@@ -397,6 +442,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36b91338e9a86fd4cb870e0b6aeebcbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Configurations
+--- !u!114 &814314625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814314619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa31fc0ded805554bb7f4ebc3dfcca2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConfiguracionBD
 --- !u!1001 &1473191756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -462,3 +519,4 @@ SceneRoots:
   - {fileID: 1473191756}
   - {fileID: 814314621}
   - {fileID: 433648112}
+  - {fileID: 375115067}
