@@ -27,24 +27,7 @@ public class RegistroBD : MonoBehaviour
     private VisualElement datePickerContainer;
     private Button calendarButton;
     private Label birthDateSelected;
-    public struct MandarDatos
-    {
-        public string nombre_usuario;
-        public string corre_electronico;
-        public string contrasenia;
-        public string genero;
-        public string nombre;
-        public string apellidos;
-        public string fecha_nacimiento;
-        public int grado_escolar;
-    }
-    public struct RegresarDatos
-    {
-        public bool exito;
-        public string aviso;
-        public int id_jugador;
-    }
-
+    Z
     void OnEnable()
     {
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;

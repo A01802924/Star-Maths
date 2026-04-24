@@ -46,7 +46,6 @@ public class MenuPrincipal : MonoBehaviour
         btnRegresarMenu.RegisterCallback<ClickEvent>(OnRegresarMenuClicked);
         btnConfig.clicked += OnConfigClicked;
 
-        GetComponent<ConfiguracionBD>().CargarConfiguracion();
     }
     private void OnConfigClicked()
     {

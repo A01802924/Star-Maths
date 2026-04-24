@@ -60,7 +60,6 @@ public class Configurations : MonoBehaviour
         SFXPercentageLabel.text = tempSFXValue.ToString() + "%";
 
         exitConfigurationCrossButton.clicked += TryGoingHome;
-         GetComponent<ConfiguracionBD>().CargarConfiguracion();
 
         brightnessSlider.RegisterValueChangedCallback(evt => SetNewBrightness(evt));
         musicSlider.RegisterValueChangedCallback(evt => SetNewMusicVolume(evt));

@@ -70,6 +70,9 @@ namespace Assets.Scripts.Core
             SelectedLevelID = 0;
             JuegoJefe = false; // Aqui es para la base
             Victoria = false; // Aqui es para la base
+            SFXVolumen = 80;
+            MusicVolumen = 80;
+            ScreenBrightness = 100;
         }
     }
 }

@@ -16,19 +16,12 @@ public class ConfiguracionBD : MonoBehaviour
         public int id_jugador;
     }
 
-    public struct MandarMensaje
-    {
-        public int vol_efectos;
-        public int vol_musica;
-        public int brillo;
-    }
-
     [System.Serializable]
     public class RegresarDatos
     {
         public bool exito;
         public string aviso;
-        public MandarMensaje configuracion;
+        public MandarDatos configuracion;
     }
     public void CargarConfiguracion()
 {
