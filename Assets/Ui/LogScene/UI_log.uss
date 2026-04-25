@@ -179,7 +179,7 @@
 }
 
 .label-title-text {
-    font-size: 25px;
+    font-size: 50px;
     color: rgb(252, 255, 213);
     -unity-font-definition: url("project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap_SemiExpanded-ExtraBoldItalic.ttf?fileID=12800000&guid=c32ee0853b2c29c4ea6e3359e1c81f7a&type=3#Asap_SemiExpanded-ExtraBoldItalic");
 }

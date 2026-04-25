@@ -6,6 +6,7 @@ public class vidaNave : MonoBehaviour
 {
     public int vidas = 3;
     public int correctas = 0;
+    public int meteoritosPerdidos = 0;
     private LevelGame game;
 
     public static vidaNave instance;
@@ -28,6 +29,15 @@ public class vidaNave : MonoBehaviour
     void Start()
     {
         game = new LevelGame(LevelFactory.BuildLevel(SessionData.SelectedWorldID, SessionData.SelectedLevelID));
+    }
+
+    void FixedUpdate()
+    {
+        if (meteoritosPerdidos >= 5)
+        {
+            meteoritosPerdidos = 0;
+            MenuPausa.instance.ActualizarVidas();
+        }
     }
 
     public void Perder()

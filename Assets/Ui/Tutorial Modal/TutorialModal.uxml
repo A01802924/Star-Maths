@@ -7,12 +7,11 @@
                 <ui:VisualElement name="DynamicContent" style="flex-grow: 1; flex-direction: row;">
                     <ui:VisualElement name="VideoContainer" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Ui/Tutorial%20Modal/TutorialVideoTemplate.renderTexture?fileID=8400000&amp;guid=48949ae97d023bd4abb5ca3cc74bb896&amp;type=2#TutorialVideoTemplate&quot;); width: 80%; margin-right: 0; -unity-background-scale-mode: stretch-to-fill; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px;"/>
                     <ui:VisualElement name="Options" style="flex-grow: 1; width: 20%; justify-content: space-around; margin-left: 40px;">
-                        <ui:Button text="Tutorial A" name="Option1Template" class="option_button"/>
-                        <ui:Button text="Tutorial B" name="Option2Template" class="option_button"/>
-                        <ui:Button text="Tutorial C" name="Option3Template" class="option_button"/>
-                        <ui:Button text="Tutorial D" name="Option4Template" class="option_button"/>
-                        <ui:Button text="Tutorial E" name="Option5Template" class="option_button"/>
-                        <ui:Button text="Tutorial F" name="Option6Template" class="option_button"/>
+                        <ui:Button text="Jugar Nivel" name="LevelGameButton" enable-rich-text="false" class="option_button"/>
+                        <ui:Button text="Jefe Final" name="FinalBossButton" class="option_button"/>
+                        <ui:Button text="Tienda" name="StoreButton" class="option_button"/>
+                        <ui:Button text="Personalizar" name="CustomizationButton" class="option_button"/>
+                        <ui:Button text="Configuración" name="SettingsButton" class="option_button"/>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

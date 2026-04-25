@@ -6,11 +6,6 @@ public class lanzarMeteoritos : MonoBehaviour
     private int num;
     [SerializeField] private List<GameObject> meteoritos = new List<GameObject>();
 
-    void Start()
-    {
-        
-    }
-
     public void Lanzar()
     {
         num = Random.Range(0, 3);
