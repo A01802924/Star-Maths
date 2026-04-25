@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 1942313004}
   - component: {fileID: 1942313005}
   - component: {fileID: 1942313006}
+  - component: {fileID: 1942313007}
   m_Layer: 5
   m_Name: UI_log
   m_TagString: Untagged
@@ -567,6 +568,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5c2c2939063554884dfd1877d88d4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RegistroBD
+--- !u!114 &1942313007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942313001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa31fc0ded805554bb7f4ebc3dfcca2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConfiguracionBD
 --- !u!1 &2021436119
 GameObject:
   m_ObjectHideFlags: 0

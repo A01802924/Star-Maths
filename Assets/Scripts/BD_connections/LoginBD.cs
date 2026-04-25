@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.Core;
 public class LoginBD : MonoBehaviour
 {
     private Button btnLogin;
@@ -77,6 +78,8 @@ public class LoginBD : MonoBehaviour
                 if (r.exito)
                 {
                     id_juador_instance.instance.id_jugador = r.id_jugador;
+                    SessionData.ClearGameData();
+                    yield return StartCoroutine(GetComponent<ConfiguracionBD>().ObtenerConfiguracion());//get para obtener la configuración del jugador después de iniciar sesión exitosamente, se espera a que se complete antes de continuar a cargar la escena del menú principal
                     print("Login exitoso, id_jugador: " + r.id_jugador);
                     SceneManager.LoadScene("MenuPrincipalScene");
                 }

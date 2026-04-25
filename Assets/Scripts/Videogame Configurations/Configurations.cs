@@ -31,9 +31,9 @@ public class Configurations : MonoBehaviour
     {
         root = GetComponent<UIDocument>().rootVisualElement;
 
-        tempBrightnessValue = ConfigurationPreferences.ScreenBrightness;
-        tempMusicValue = ConfigurationPreferences.MusicVolume;
-        tempSFXValue = ConfigurationPreferences.SFXVolume;
+        tempBrightnessValue = SessionData.ScreenBrightness;
+        tempMusicValue = SessionData.MusicVolumen;
+        tempSFXValue = SessionData.SFXVolumen;
 
         brightnessSlider = root.Q<Slider>("BrightnessSlider");
         musicSlider = root.Q<Slider>("MusicSlider");
@@ -52,14 +52,18 @@ public class Configurations : MonoBehaviour
         confirmExitConfigurationWithNoChangesButton = root.Q<Button>("ConfirmButton");
         discardExitConfigurationButton = root.Q<Button>("DiscardButton");
 
-        brightnessSlider.value = tempBrightnessValue;
+        brightnessSlider.SetValueWithoutNotify(tempBrightnessValue);
+        musicSlider.SetValueWithoutNotify(tempMusicValue);
+        SFXSlider.SetValueWithoutNotify(tempSFXValue);
+        //brightnessSlider.value = tempBrightnessValue;
         brightnessPercentageLabel.text = tempBrightnessValue.ToString() + "%";
-        musicSlider.value = tempMusicValue;
+       // musicSlider.value = tempMusicValue;
         musicPercentageLabel.text = tempMusicValue.ToString() + "%";
-        SFXSlider.value = tempSFXValue;
+        //SFXSlider.value = tempSFXValue;
         SFXPercentageLabel.text = tempSFXValue.ToString() + "%";
 
         exitConfigurationCrossButton.clicked += TryGoingHome;
+
 
         brightnessSlider.RegisterValueChangedCallback(evt => SetNewBrightness(evt));
         musicSlider.RegisterValueChangedCallback(evt => SetNewMusicVolume(evt));
@@ -85,17 +89,17 @@ public class Configurations : MonoBehaviour
     }
     private void HidePopUpDialogWithNoChanges()
     {
-        ConfigurationPreferences.UpdateDarkScreenLayer();
-        AudioClipSet.MusicVolume(ConfigurationPreferences.MusicVolume);
-        AudioClipSet.SFXVolume(ConfigurationPreferences.SFXVolume);
+        ConfigurationPreferences.DarkScreenLayer.style.opacity = 0.0085f * (100 - SessionData.ScreenBrightness);
+        AudioClipSet.MusicVolume(SessionData.MusicVolumen);
+        AudioClipSet.SFXVolume(SessionData.SFXVolumen);
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
         confirmExitPopUpContainer.style.display = DisplayStyle.None;
         dialogContainer.style.display = DisplayStyle.None;
         existUnsavedChanges = false;
         saveChangesButton.SetEnabled(false);
-        brightnessSlider.value = ConfigurationPreferences.ScreenBrightness;
-        musicSlider.value = ConfigurationPreferences.MusicVolume;
-        SFXSlider.value = ConfigurationPreferences.SFXVolume;
+        brightnessSlider.value = SessionData.ScreenBrightness;
+        musicSlider.value = SessionData.MusicVolumen;
+        SFXSlider.value = SessionData.SFXVolumen;
     }
     private void HidePopUpDialog()
     {
@@ -105,14 +109,14 @@ public class Configurations : MonoBehaviour
     private void ResetConfigurations()
     {
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickResetChanges);
-        ConfigurationPreferences.DarkScreenLayer.style.opacity = 0f;
-        AudioClipSet.MusicVolume(60f);
+        ConfigurationPreferences.DarkScreenLayer.style.opacity = 0.0085f * (100 - SessionData.ScreenBrightness);
+        AudioClipSet.MusicVolume(80f);
         AudioClipSet.SFXVolume(80f);
-        brightnessSlider.value = 100f;
-        musicSlider.value = 60f;
-        SFXSlider.value = 80f;
+        SessionData.ScreenBrightness = 100;
+        SessionData.MusicVolumen = 80;
+        SessionData.SFXVolumen = 80;
         brightnessPercentageLabel.text = "100%";
-        musicPercentageLabel.text = "60%";
+        musicPercentageLabel.text = "80%";
         SFXPercentageLabel.text = "80%";
         saveChangesButton.SetEnabled(true);
         existUnsavedChanges = true;
@@ -153,9 +157,24 @@ public class Configurations : MonoBehaviour
         SessionData.ScreenBrightness = Mathf.RoundToInt(tempBrightnessValue);
         SessionData.MusicVolumen = Mathf.RoundToInt(tempMusicValue);
         SessionData.SFXVolumen = Mathf.RoundToInt(tempSFXValue);
-        GetComponent<ConfiguracionBD>().GuardarConfiguracion();
+        GetComponent<ConfiguracionBD>().GuardarConfiguracion(); //post
 
         saveChangesButton.SetEnabled(false);
         existUnsavedChanges = false;
+
+    }
+    public void CargarConfiguracion() //aplica la configuración obtenida de la base de datos a las preferencias del juego, se llama desde el ConfiguracionBD después de obtener la configuración del jugador
+    {
+        brightnessSlider.value = SessionData.ScreenBrightness;
+        musicSlider.value = SessionData.MusicVolumen;
+        SFXSlider.value = SessionData.SFXVolumen;
+
+        brightnessPercentageLabel.text = SessionData.ScreenBrightness.ToString() + "%";
+        musicPercentageLabel.text = SessionData.MusicVolumen.ToString() + "%";
+        SFXPercentageLabel.text = SessionData.SFXVolumen.ToString() + "%";
+        ConfigurationPreferences.DarkScreenLayer.style.opacity = 0.0085f * (100 - SessionData.ScreenBrightness);
+        AudioClipSet.MusicVolume(SessionData.MusicVolumen);
+        AudioClipSet.SFXVolume(SessionData.SFXVolumen);
+
     }
 }

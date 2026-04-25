@@ -29,8 +29,11 @@ namespace Assets.Scripts.Core
         };
         public static void UpdateDarkScreenLayer()
         {
-            DarkScreenLayer.style.opacity = 0.0085f * (100 - ScreenBrightness);
+            DarkScreenLayer.style.opacity = 0.0085f * (100 - SessionData.ScreenBrightness);
+       
         }
+        
+
     }
     public static class SessionData
     {

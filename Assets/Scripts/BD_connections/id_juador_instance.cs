@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class id_juador_instance : MonoBehaviour
 {
     public int id_jugador;
