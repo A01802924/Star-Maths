@@ -108,13 +108,19 @@ public class Configurations : MonoBehaviour
     }
     private void ResetConfigurations()
     {
+        tempBrightnessValue = 100;
+        tempMusicValue = 80;
+        tempSFXValue = 80;
+        SessionData.ScreenBrightness = 100;
+        SessionData.MusicVolumen = 80;
+        SessionData.SFXVolumen = 80;
+        brightnessSlider.SetValueWithoutNotify(tempBrightnessValue);
+        musicSlider.SetValueWithoutNotify(tempMusicValue);
+        SFXSlider.SetValueWithoutNotify(tempSFXValue);
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickResetChanges);
         ConfigurationPreferences.DarkScreenLayer.style.opacity = 0.0085f * (100 - SessionData.ScreenBrightness);
         AudioClipSet.MusicVolume(80f);
         AudioClipSet.SFXVolume(80f);
-        SessionData.ScreenBrightness = 100;
-        SessionData.MusicVolumen = 80;
-        SessionData.SFXVolumen = 80;
         brightnessPercentageLabel.text = "100%";
         musicPercentageLabel.text = "80%";
         SFXPercentageLabel.text = "80%";

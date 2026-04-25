@@ -1685,6 +1685,7 @@ GameObject:
   - component: {fileID: 2130181824}
   - component: {fileID: 2130181826}
   - component: {fileID: 2130181827}
+  - component: {fileID: 2130181828}
   m_Layer: 5
   m_Name: mundos
   m_TagString: Untagged
@@ -1754,6 +1755,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36b91338e9a86fd4cb870e0b6aeebcbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Configurations
+--- !u!114 &2130181828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130181823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa31fc0ded805554bb7f4ebc3dfcca2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConfiguracionBD
 --- !u!1001 &2813981394758912925
 PrefabInstance:
   m_ObjectHideFlags: 0
