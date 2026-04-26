@@ -56,7 +56,17 @@ public class ItemConfig : MonoBehaviour
         unaffordableCrossButton.RegisterCallback<ClickEvent>(CloseUnaffordableDialog);
         closeUnaffordableButton.RegisterCallback<ClickEvent>(CloseUnaffordableDialog);
 
-        BuildStore();
+        StartCoroutine(GetComponent<TiendaBD>().ObtenerTienda(() =>
+        {
+            scrollableProjectileContainer.Clear();
+            scrollableShipContainer.Clear();
+            scrollableTrailContainer.Clear();
+
+            BuildStore();
+            SelectShipWindow();
+
+            numStarsLabel.text = SessionData.coins.ToString();
+        }));
         SelectShipWindow();
     }
     private void BuildStore()
@@ -220,6 +230,7 @@ public class ItemConfig : MonoBehaviour
           clase estática SessionData mediante sus atributos SessionData.coins y
           SessionData.OwnedItems
         */
+          
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickAccept);
         print("Initial coin status: " + SessionData.coins);
         print("Item price: " + item.price);
@@ -256,11 +267,11 @@ public class ItemConfig : MonoBehaviour
                         SessionData.OwnedItems.Add(ItemSet.TrailItems[i]);
                         MarkItemAsOwned(GetVisualElementItem(ItemSet.ProjectileItems[i]));
                         MarkItemAsOwned(GetVisualElementItem(ItemSet.TrailItems[i]));
-                         Debug.Log("Comprando item con ID: " + ItemSet.ProjectileItems[i].index);
+                        Debug.Log("Comprando item con ID: " + ItemSet.ProjectileItems[i].index);
                         GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.ProjectileItems[i].index);
                         GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.TrailItems[i].index);
                         Debug.Log("ID jugador: " + id_juador_instance.instance.id_jugador);
-Debug.Log("Item index: " + item.index);
+                        Debug.Log("Item index: " + item.index);
                         // SendPurhcaseToDB(ItemSet.ProjectileItems[i]);
                         // SendPurhcaseToDB(ItemSet.TrailItems[i]);
                     }
@@ -270,10 +281,10 @@ Debug.Log("Item index: " + item.index);
                     {
                         SessionData.OwnedItems.Add(ItemSet.ShipItems[i]);
                         MarkItemAsOwned(GetVisualElementItem(ItemSet.ShipItems[i]));
-                         Debug.Log("Comprando item con ID: " + ItemSet.ShipItems[i].index);
+                        Debug.Log("Comprando item con ID: " + ItemSet.ShipItems[i].index);
                         GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.ShipItems[i].index);
                         Debug.Log("ID jugador: " + id_juador_instance.instance.id_jugador);
-Debug.Log("Item index: " + item.index);
+                        Debug.Log("Item index: " + item.index);
                         // SendPurhcaseToDB(ItemSet.ShipItems[i]);
                     }
                     for (int i = 3; i <= 33; i += 5)
@@ -282,11 +293,11 @@ Debug.Log("Item index: " + item.index);
                         SessionData.OwnedItems.Add(ItemSet.TrailItems[i]);
                         MarkItemAsOwned(GetVisualElementItem(ItemSet.ProjectileItems[i]));
                         MarkItemAsOwned(GetVisualElementItem(ItemSet.TrailItems[i]));
-                         Debug.Log("Comprando item con ID: " + ItemSet.ProjectileItems[i].index);
+                        Debug.Log("Comprando item con ID: " + ItemSet.ProjectileItems[i].index);
                         GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.ProjectileItems[i].index);
                         GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.TrailItems[i].index);
                         Debug.Log("ID jugador: " + id_juador_instance.instance.id_jugador);
-Debug.Log("Item index: " + item.index);
+                        Debug.Log("Item index: " + item.index);
                         // SendPurhcaseToDB(ItemSet.ProjectileItems[i]);
                         // SendPurhcaseToDB(ItemSet.TrailItems[i]);
                     }
@@ -296,10 +307,10 @@ Debug.Log("Item index: " + item.index);
                     {
                         SessionData.OwnedItems.Add(ItemSet.ShipItems[i]);
                         MarkItemAsOwned(GetVisualElementItem(ItemSet.ShipItems[i]));
-                         Debug.Log("Comprando item con ID: " + ItemSet.ShipItems[i].index);
+                        Debug.Log("Comprando item con ID: " + ItemSet.ShipItems[i].index);
                         GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.ShipItems[i].index);
                         Debug.Log("ID jugador: " + id_juador_instance.instance.id_jugador);
-Debug.Log("Item index: " + item.index);
+                        Debug.Log("Item index: " + item.index);
                         // SendPurhcaseToDB(ItemSet.ShipItems[i]);
                     }
                     for (int i = 0; i <= 30; i += 5)
@@ -308,11 +319,11 @@ Debug.Log("Item index: " + item.index);
                         SessionData.OwnedItems.Add(ItemSet.TrailItems[i]);
                         MarkItemAsOwned(GetVisualElementItem(ItemSet.ProjectileItems[i]));
                         MarkItemAsOwned(GetVisualElementItem(ItemSet.TrailItems[i]));
-                         Debug.Log("Comprando item con ID: " + ItemSet.ProjectileItems[i].index);
+                        Debug.Log("Comprando item con ID: " + ItemSet.ProjectileItems[i].index);
                         GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.ProjectileItems[i].index);
                         GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.TrailItems[i].index);
                         Debug.Log("ID jugador: " + id_juador_instance.instance.id_jugador);
-Debug.Log("Item index: " + item.index);
+                        Debug.Log("Item index: " + item.index);
                         // SendPurhcaseToDB(ItemSet.ProjectileItems[i]);
                         // SendPurhcaseToDB(ItemSet.TrailItems[i]);
                     }
@@ -322,10 +333,10 @@ Debug.Log("Item index: " + item.index);
                     {
                         SessionData.OwnedItems.Add(ItemSet.ShipItems[i]);
                         MarkItemAsOwned(GetVisualElementItem(ItemSet.ShipItems[i]));
-                         Debug.Log("Comprando item con ID: " + ItemSet.ShipItems[i].index);
+                        Debug.Log("Comprando item con ID: " + ItemSet.ShipItems[i].index);
                         GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.ShipItems[i].index);
                         Debug.Log("ID jugador: " + id_juador_instance.instance.id_jugador);
-Debug.Log("Item index: " + item.index);
+                        Debug.Log("Item index: " + item.index);
                         // SendPurhcaseToDB(ItemSet.ShipItems[i]);
                     }
                     for (int i = 4; i <= 34; i += 5)
@@ -334,12 +345,12 @@ Debug.Log("Item index: " + item.index);
                         SessionData.OwnedItems.Add(ItemSet.TrailItems[i]);
                         MarkItemAsOwned(GetVisualElementItem(ItemSet.ProjectileItems[i]));
                         MarkItemAsOwned(GetVisualElementItem(ItemSet.TrailItems[i]));
-                         Debug.Log("Comprando item con ID: " + ItemSet.ProjectileItems[i].index);
+                        Debug.Log("Comprando item con ID: " + ItemSet.ProjectileItems[i].index);
                         GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.ProjectileItems[i].index);
-                         Debug.Log("Comprando item con ID: " + ItemSet.TrailItems[i].index);
+                        Debug.Log("Comprando item con ID: " + ItemSet.TrailItems[i].index);
                         GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.TrailItems[i].index);
                         Debug.Log("ID jugador: " + id_juador_instance.instance.id_jugador);
-Debug.Log("Item index: " + item.index);
+                        Debug.Log("Item index: " + item.index);
                         // SendPurhcaseToDB(ItemSet.ProjectileItems[i]);
                         // SendPurhcaseToDB(ItemSet.TrailItems[i]);
                     }
@@ -381,7 +392,7 @@ Debug.Log("Item index: " + item.index);
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickDiscard);
         CleanUpDialogCallbacks();
         confirmPurchaseDialog.style.display = DisplayStyle.None;
-        
+
     }
     private void CloseUnaffordableDialog(ClickEvent evt)
     {
