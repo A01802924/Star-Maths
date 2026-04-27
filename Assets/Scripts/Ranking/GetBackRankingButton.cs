@@ -32,12 +32,9 @@ public class GetBackRankingButton : MonoBehaviour
         
         // Limpiar filas iniciales
         rankingScrollView.Clear();
-    }
-
-    void OnEnable()
-    {
         StartCoroutine(ranking());
     }
+
 
     private IEnumerator ranking()
     {
