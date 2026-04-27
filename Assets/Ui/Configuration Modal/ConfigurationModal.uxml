@@ -3,7 +3,7 @@
     <ui:VisualElement name="ModalContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.53); width: 100%; height: 100%; display: none;">
         <ui:VisualElement name="TutorialContainer" style="flex-grow: 1; padding-top: 50px; padding-right: 75px; padding-bottom: 50px; padding-left: 75px; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Containers/Extra%20Large/setting-container-extra-large.png?fileID=2800000&amp;guid=aa3438aa1d398674d8b1a32c1176337f&amp;type=3#setting-container-extra-large&quot;); background-color: rgba(22, 20, 57, 0.25);">
             <ui:VisualElement name="BodyContainer" style="flex-grow: 1; margin-top: 75px; margin-right: 75px; margin-bottom: 75px; margin-left: 75px;">
-                <ui:Label text="CONFIGURACIÓN" enable-rich-text="true" name="Header" class="scene_title" style="height: 10%;"/>
+                <ui:Label text="CONFIGURACIÓN" enable-rich-text="true" name="Header" class="scene_title" style="height: 10%; -unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/8-bit-operator/8bitOperatorPlus8-Bold.ttf?fileID=12800000&amp;guid=8077e79d276ee4f4989326a4ab5e1899&amp;type=3#8bitOperatorPlus8-Bold&quot;);"/>
                 <ui:ScrollView name="OptionsScrollView" style="height: 70%; margin-top: 10px;">
                     <ui:Label text="Pantalla" name="ScreenHeader" class="section_header"/>
                     <ui:VisualElement name="ScreenDivider" class="horizontal-rule" style="width: 14.5%;"/>

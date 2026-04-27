@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 using Assets.Scripts.Core;
-using Unity.VisualScripting;
 
 public class ConfiguracionBD : MonoBehaviour
 {

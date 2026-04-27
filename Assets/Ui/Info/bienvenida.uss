@@ -7,10 +7,12 @@
 
 .boton:hover {
     scale: 1.15 1.15;
+    background-image: none;
 }
 
 .boton:active {
     opacity: 0.42;
+    background-image: none;
 }
 
 .texto {

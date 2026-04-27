@@ -1,10 +1,10 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Ui/LogScene/UI_log.uss?fileID=7433441132597879392&amp;guid=f6e2d8cf5ac05bb4b81f9cd65acc4094&amp;type=3#UI_log"/>
-    <Style src="project://database/Assets/Resources/Unity-UIToolkit-DatePicker-main/Unity-UIToolkit-DatePicker-main/Assets/One%20Mechanic%20Games/Date%20Picker%20(UI%20Toolkit)/PackageResources/Styles/DatePicker.uss?fileID=7433441132597879392&amp;guid=338a0a5de87c3489698075dbecf050fa&amp;type=3#DatePicker"/>
-    <ui:VisualElement name="ContenedorInicio" class="contenedor" style="display: flex;">
+    <Style src="project://database/Assets/Plugins/One%20Mechanic%20Games/Date%20Picker%20(UI%20Toolkit)/PackageResources/Styles/DatePicker.uss?fileID=7433441132597879392&amp;guid=338a0a5de87c3489698075dbecf050fa&amp;type=3#DatePicker"/>
+    <ui:VisualElement name="ContenedorInicio" class="contenedor" style="display: none;">
         <ui:VisualElement name="fondo" style="flex-grow: 1; position: absolute; width: 1373px; height: 1200px; top: -55px; left: 244px; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Grid_Components/Extra%20Large/level-highlight-extra-large%201.png?fileID=2800000&amp;guid=c71f8697cb761f8479d76f0a739a6e8e&amp;type=3#level-highlight-extra-large 1&quot;);"/>
         <ui:VisualElement name="InicioSesion" class="miniContenedor" style="height: 892px; width: 1124px; top: 67px; left: 379px; border-left-color: rgb(55, 55, 55); border-right-color: rgb(55, 55, 55); border-top-color: rgb(55, 55, 55); border-bottom-color: rgb(55, 55, 55); display: flex;">
-            <ui:Label text="INICIAR SESION" name="IniciarSesion" style="font-size: 100px; -unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/Righteous-Regular.ttf?fileID=12800000&amp;guid=3365d868468c1f143aa3fbb4d8a4e397&amp;type=3#Righteous-Regular&quot;); color: rgb(252, 255, 213); position: relative; bottom: 50px;"/>
+            <ui:Label text="INICIAR SESION" name="IniciarSesion" style="font-size: 100px; -unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/8-bit-operator/8bitOperatorPlus8-Bold.ttf?fileID=12800000&amp;guid=8077e79d276ee4f4989326a4ab5e1899&amp;type=3#8bitOperatorPlus8-Bold&quot;); color: rgb(252, 255, 213); position: relative; bottom: 50px;"/>
             <ui:TextField label="" placeholder-text="Usuario" name="Usuario" focusable="true" class="inputsLabel inputsLabelInicio unity-text-field__label"/>
             <ui:TextField label="" placeholder-text="Contraseña" name="Contrasenia" password="true" readonly="false" class="inputsLabel inputsLabelInicio unity-text-field__label"/>
             <ui:Label text="${ExceptionError}" name="SignInExceptionLabel" class="exception-text" style="display: none;"/>
@@ -12,9 +12,10 @@
             <ui:Button text="Ingresar" name="Ingresar" class="botones" style="color: rgb(0, 0, 0); top: 80px; background-color: rgba(188, 188, 188, 0);"/>
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="ContenedorRegistro" class="contenedor" style="display: none;">
+    <ui:VisualElement name="ContenedorRegistro" class="contenedor" style="display: flex;">
         <ui:VisualElement name="fondo" style="flex-grow: 1; position: absolute; width: 1373px; height: 1200px; top: -55px; left: 244px; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Grid_Components/Large/level-highlight-large%201.png?fileID=2800000&amp;guid=3bba298781e12fd4c9f8361b92fe91ea&amp;type=3#level-highlight-large 1&quot;); padding-top: 150px; padding-right: 180px; padding-bottom: 150px; padding-left: 180px; align-items: center;">
-            <ui:Label text="REGISTRO" name="Registro" style="font-size: 100px; -unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/Righteous-Regular.ttf?fileID=12800000&amp;guid=3365d868468c1f143aa3fbb4d8a4e397&amp;type=3#Righteous-Regular&quot;); color: rgb(252, 255, 213); padding-top: 0;"/>
+            <ui:Label text="REGISTRO" name="Registro" style="font-size: 120px; -unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/8-bit-operator/8bitOperatorPlus8-Bold.ttf?fileID=12800000&amp;guid=8077e79d276ee4f4989326a4ab5e1899&amp;type=3#8bitOperatorPlus8-Bold&quot;); color: rgb(252, 255, 213); padding-top: 4px;"/>
+            <ui:VisualElement style="flex-grow: 0; width: 100%; height: 70px; min-height: auto;"/>
             <ui:TextField label="" placeholder-text="Usuario" name="Usuario2" class="inputsLabel inputsLabelRegistro"/>
             <ui:TextField label="" placeholder-text="Correo Electrónico" name="CorreoElectronico" class="inputsLabelRegistro"/>
             <ui:TextField label="" placeholder-text="Contraseña" name="Contrasenia2" password="true" readonly="false" class="inputsLabel inputsLabelRegistro"/>
@@ -28,7 +29,7 @@
             <ui:VisualElement name="BirthDateContainer" style="flex-grow: 1; width: 400px; height: 60px; flex-direction: row; align-items: center;">
                 <ui:Button text="" name="CalendarButton" class="calendar-button"/>
                 <ui:VisualElement name="BirthDateLabelsContainer" style="flex-grow: 1;">
-                    <ui:Label text="Fecha de Nacimiento" name="BirthDateTitleLabel" class="label-title-text"/>
+                    <ui:Label text="Fecha de Nacimiento" name="BirthDateTitleLabel" class="label-title-text" style="color: rgb(253, 255, 213);"/>
                     <ui:Label text="yyyy-MM-dd" name="BirthDateValue" class="label-value-text" style="display: none;"/>
                 </ui:VisualElement>
             </ui:VisualElement>
