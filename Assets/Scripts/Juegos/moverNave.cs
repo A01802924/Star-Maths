@@ -21,12 +21,14 @@ public class moverNave : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
+    private AudioSource audio;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         disparador = GetComponentInChildren<disparaNave>();
         anim = GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -102,6 +104,7 @@ public class moverNave : MonoBehaviour
 
     private void Disparo(InputAction.CallbackContext context)
     {
+        audio.Play();
         anim.Play("disparo", 0, 0f);
         disparador.Disparar();
     }
