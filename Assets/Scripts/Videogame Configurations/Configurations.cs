@@ -1,8 +1,5 @@
-using System.Collections.Generic;
 using Assets.Scripts.Core;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class Configurations : MonoBehaviour
@@ -26,7 +23,7 @@ public class Configurations : MonoBehaviour
     private Button discardExitConfigurationButton;
     private Button exitConfigurationCrossButton;
     private Button closePopUpCrossButton;
-    
+
     void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -55,11 +52,8 @@ public class Configurations : MonoBehaviour
         brightnessSlider.SetValueWithoutNotify(tempBrightnessValue);
         musicSlider.SetValueWithoutNotify(tempMusicValue);
         SFXSlider.SetValueWithoutNotify(tempSFXValue);
-        //brightnessSlider.value = tempBrightnessValue;
         brightnessPercentageLabel.text = tempBrightnessValue.ToString() + "%";
-       // musicSlider.value = tempMusicValue;
         musicPercentageLabel.text = tempMusicValue.ToString() + "%";
-        //SFXSlider.value = tempSFXValue;
         SFXPercentageLabel.text = tempSFXValue.ToString() + "%";
 
         exitConfigurationCrossButton.clicked += TryGoingHome;
@@ -157,9 +151,6 @@ public class Configurations : MonoBehaviour
     private void SaveNewConfigurationPreferences()
     {
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickSaveChanges);
-        /*ConfigurationPreferences.ScreenBrightness = tempBrightnessValue;
-        ConfigurationPreferences.MusicVolume = tempMusicValue;
-        ConfigurationPreferences.SFXVolume = tempSFXValue;*/
         SessionData.ScreenBrightness = Mathf.RoundToInt(tempBrightnessValue);
         SessionData.MusicVolumen = Mathf.RoundToInt(tempMusicValue);
         SessionData.SFXVolumen = Mathf.RoundToInt(tempSFXValue);

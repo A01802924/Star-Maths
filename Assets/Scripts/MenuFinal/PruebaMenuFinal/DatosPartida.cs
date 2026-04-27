@@ -1,4 +1,3 @@
-using Assets.Scripts.Core;
 using UnityEngine;
 
 public class DatosPartida : MonoBehaviour
@@ -9,7 +8,6 @@ public class DatosPartida : MonoBehaviour
     public int vidasIniciales;
     public int numPreguntas;
     public int numPreguntasCorrectas;
-    public int numPreguntasIncorrectas;
     public double time;
 
 

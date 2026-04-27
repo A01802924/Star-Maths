@@ -15,13 +15,11 @@ public class SelectLevel : MonoBehaviour
         worldButtonGroup = root.Q<RadioButtonGroup>("WorldRadioGroup");
         levelButtonGroup = root.Q<RadioButtonGroup>("LevelRadioGroup");
         playButton.RegisterCallback<ClickEvent>(PlayLevelGame);
-        worldButtonGroup.RegisterValueChangedCallback(evt =>
-        {
+        worldButtonGroup.RegisterValueChangedCallback(evt => {
            SessionData.SelectedWorldID = evt.newValue + 1;
            print($"New world selection: {evt.newValue + 1}");
         });
-        levelButtonGroup.RegisterValueChangedCallback(evt =>
-        {
+        levelButtonGroup.RegisterValueChangedCallback(evt => {
            SessionData.SelectedLevelID = evt.newValue + 1;
            print($"New level selection: {evt.newValue + 1}");
         });
