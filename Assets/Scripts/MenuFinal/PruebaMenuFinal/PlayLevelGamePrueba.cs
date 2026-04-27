@@ -1,5 +1,4 @@
 using Assets.Scripts.Core;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -17,11 +16,8 @@ public class PlayLevelGamePrueba : MonoBehaviour
     private int correctCounter = 0;
     private VisualElement root;
 
-
     //Añandiendo para la prueba
     private MostrarMenu menuFinal;
-
-
 
     void Start()
     {
@@ -54,7 +50,6 @@ public class PlayLevelGamePrueba : MonoBehaviour
 
         playNewGameButton = root.Q<Button>("NewGameButton");
         playNewGameButton.RegisterCallback<ClickEvent>(NewGame);
-
 
         //Añadiendo para prueba
         if(menuFinal == null)

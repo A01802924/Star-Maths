@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
 using Assets.Scripts.Core;
-using NUnit.Framework.Internal;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -36,19 +33,16 @@ public class MostrarMenu : MonoBehaviour
 
     private moverNave naveController;
 
-    //
     private Label score;
     [SerializeField]
     private int totalPuntos = 0;
     public int TotalPuntos => totalPuntos;
 
-    //
     private Label time;
     [SerializeField]
     private float totalTiempo = 0;
     public float TotalTiempo => totalTiempo;
 
-    //Elementos añadidos en la última versión
     private VisualElement contenedorMenu;
     private Button resumen;
     private VisualElement contenedorResumen;
@@ -91,7 +85,6 @@ public class MostrarMenu : MonoBehaviour
         menuPrincipal = root.Q<Button>("Salir");
         menuPrincipal.clicked += MenuPrincipal;
 
-
         //Estrellas desbloqueadas y ND (No desbloqueadas)
         estrella1 = root.Q<Image>("Estrella_1");
         estrella2 = root.Q<Image>("Estrella_2");
@@ -108,10 +101,6 @@ public class MostrarMenu : MonoBehaviour
         menu.style.display = DisplayStyle.None;
 
         naveController = FindAnyObjectByType<moverNave>();
-
-        //Muestra el menu tras 5 segundos
-        // StartCoroutine(MuestraMenu(totalPuntos, totalTiempo, vidasRes, preguntasT, preguntasC, preguntasI));     
-
 
         //Elementos añadidos en la última versión
         contenedorMenu = root.Q<VisualElement>("ContenedorMenu");
@@ -136,7 +125,6 @@ public class MostrarMenu : MonoBehaviour
         menuPrincipalGO.clicked += MenuPrincipal;
 
         menuGameOver.style.display = DisplayStyle.None;
-
     }
 
     private void CerrarStats()

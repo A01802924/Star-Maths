@@ -6,8 +6,6 @@ public class CerrarJuego : MonoBehaviour
     private UIDocument scene;
     private Button cerrar;
 
-
-
     void OnEnable()
     {
         scene = GetComponent<UIDocument>();

@@ -1,8 +1,6 @@
-using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
-using UnityEditor;
 using Assets.Scripts.Core;
 
 

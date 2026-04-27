@@ -1,8 +1,5 @@
-using System;
-using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.SceneManagement;
 using Assets.Scripts.Core;
 
 
@@ -19,7 +16,7 @@ public class MenuManager : MonoBehaviour
     {
         UIDocument = GetComponent<UIDocument>();
         var root = UIDocument.rootVisualElement;
-        
+
         root.Add(ConfigurationPreferences.DarkScreenLayer);
         AudioManager.Instance.Resume();
         //obteniendo referencias a UI Elements
@@ -28,23 +25,15 @@ public class MenuManager : MonoBehaviour
         lblRegistro = root.Q<Label>("Registro");
         lblIniciarSesion = root.Q<Label>("InicioSesion");
 
-      
-
-
-
         lblRegistro.RegisterCallback<ClickEvent>(OnRegistroClicked);
         lblIniciarSesion.RegisterCallback<ClickEvent>(OnIniciarSesionClicked);
-
-
     }
-  
-    
 
     private void OnIniciarSesionClicked(ClickEvent evt)
     {
         contenedorRegistro.style.display = DisplayStyle.None;
         contenedorInicio.style.display = DisplayStyle.Flex;
-        
+
         Debug.Log("Cambiando a pantalla de Inicio de Sesión");
     }
 
@@ -52,7 +41,7 @@ public class MenuManager : MonoBehaviour
     {
         contenedorInicio.style.display = DisplayStyle.None;
         contenedorRegistro.style.display = DisplayStyle.Flex;
-        
+
         Debug.Log("Cambiando a pantalla de Registro");
     }
 
