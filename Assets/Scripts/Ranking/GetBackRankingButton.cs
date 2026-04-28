@@ -11,6 +11,7 @@ public class GetBackRankingButton : MonoBehaviour
     private Button getBackButton;
     private Button web;
     private ScrollView rankingScrollView;
+    private VisualElement myPositionContainer;
 
     // Lista procesada para la interfaz
     private List<(int pos, string name, int score)> rankingValues = new();
@@ -24,19 +25,18 @@ public class GetBackRankingButton : MonoBehaviour
         getBackButton = root.Q<Button>("GetBackButton");
         rankingScrollView = root.Q<ScrollView>("RankingContainer");
         web = root.Q<Button>("WebButton");
+        myPositionContainer = root.Q<VisualElement>("MyPositionContainer");
 
         getBackButton.clicked += GetBack;
         web.clicked += AbrirWeb;
 
-        rankingScrollView.Q<Label>("NullRowsLabels").style.display = DisplayStyle.None;
-        
         // Limpiar filas iniciales
         rankingScrollView.Clear();
-        StartCoroutine(ranking());
+        StartCoroutine(Ranking());
     }
 
 
-    private IEnumerator ranking()
+    private IEnumerator Ranking()
     {
         // Se asume que id_juador_instance ya está configurado correctamente
         int playerId = id_juador_instance.instance.id_jugador;
@@ -57,24 +57,24 @@ public class GetBackRankingButton : MonoBehaviour
                 rankingValues.Clear();
                 rankingScrollView.Clear();
 
-                // Procesamos cada posición (Verificamos que el nombre no esté vacío como en tu top2)
-                if (r.top1 != null && !string.IsNullOrEmpty(r.top1.nombre_usuario)) 
-                    rankingValues.Add((1, r.top1.nombre_usuario, r.top1.puntaje_total));
-                
-                if (r.top2 != null && !string.IsNullOrEmpty(r.top2.nombre_usuario)) 
-                    rankingValues.Add((2, r.top2.nombre_usuario, r.top2.puntaje_total));
-                
-                if (r.top3 != null && !string.IsNullOrEmpty(r.top3.nombre_usuario)) 
-                    rankingValues.Add((3, r.top3.nombre_usuario, r.top3.puntaje_total));
-                
-                if (r.top4 != null && !string.IsNullOrEmpty(r.top4.nombre_usuario)) 
-                    rankingValues.Add((4, r.top4.nombre_usuario, r.top4.puntaje_total));
-
-                // Añadimos tu puntaje personal al final
+                // Añadimos tu puntaje personal al inicio
                 if (r.mipuntaje != null)
                 {
-                    rankingValues.Add((r.posicion, r.mipuntaje.nombre_usuario, r.mipuntaje.puntaje_total));
+                    myPositionContainer.Add(RankingUIs.BuildRankingRow(r.posicion, r.mipuntaje.nombre_usuario + " (Tú)", r.mipuntaje.puntaje_total));
                 }
+
+                // Procesamos cada posición (Verificamos que el nombre no esté vacío como en tu top2)
+                if (r.top1 != null && !string.IsNullOrEmpty(r.top1.nombre_usuario))
+                    rankingValues.Add((1, r.top1.nombre_usuario, r.top1.puntaje_total));
+
+                if (r.top2 != null && !string.IsNullOrEmpty(r.top2.nombre_usuario))
+                    rankingValues.Add((2, r.top2.nombre_usuario, r.top2.puntaje_total));
+
+                if (r.top3 != null && !string.IsNullOrEmpty(r.top3.nombre_usuario))
+                    rankingValues.Add((3, r.top3.nombre_usuario, r.top3.puntaje_total));
+
+                if (r.top4 != null && !string.IsNullOrEmpty(r.top4.nombre_usuario))
+                    rankingValues.Add((4, r.top4.nombre_usuario, r.top4.puntaje_total));
 
                 // Dibujar en la interfaz
                 foreach (var user in rankingValues)
@@ -89,7 +89,11 @@ public class GetBackRankingButton : MonoBehaviour
         }
     }
 
-    private void GetBack() => SceneManager.LoadScene("Informacion");
+    private void GetBack()
+    {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
+        SceneManager.LoadScene("Informacion");
+    }
     private void AbrirWeb() => Application.OpenURL("http://star-maths.s3-website-us-east-1.amazonaws.com/ranking.html");
 
     // --- CLASES CORREGIDAS SEGÚN TU JSON ---
@@ -97,7 +101,7 @@ public class GetBackRankingButton : MonoBehaviour
     public class UsuarioRanking
     {
         // Estos nombres DEBEN ser iguales a los del JSON de la imagen
-        public string nombre_usuario; 
+        public string nombre_usuario;
         public int puntaje_total;
     }
 

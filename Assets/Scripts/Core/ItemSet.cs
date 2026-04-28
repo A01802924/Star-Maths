@@ -17,21 +17,13 @@ namespace Assets.Scripts.Core
             newRow.Q<Label>("PositionNumber").text = position.ToString();
             newRow.Q<Label>("UsernameText").text = username;
             newRow.Q<Label>("ScoreNumber").text = score.ToString("N0");
-            switch (position)
+            newRow.Q<VisualElement>("PositionContainer").style.backgroundImage = position switch
             {
-                case 1:
-                    newRow.Q<VisualElement>("PositionContainer").style.backgroundImage = new StyleBackground(FirstPlaceContainer);
-                    break;
-                case 2:
-                    newRow.Q<VisualElement>("PositionContainer").style.backgroundImage = new StyleBackground(SecondPlaceContainer);
-                    break;
-                case 3:
-                    newRow.Q<VisualElement>("PositionContainer").style.backgroundImage = new StyleBackground(ThirdPlaceContainer);
-                    break;
-                default:
-                    newRow.Q<VisualElement>("PositionContainer").style.backgroundImage = new StyleBackground(OtherPlaceContainer);
-                    break;
-            }
+                1 => new StyleBackground(FirstPlaceContainer),
+                2 => new StyleBackground(SecondPlaceContainer),
+                3 => new StyleBackground(ThirdPlaceContainer),
+                _ => new StyleBackground(OtherPlaceContainer),
+            };
             return newRow;
         }
     }

@@ -8,7 +8,7 @@ public class GetBackStoreButton : MonoBehaviour
     private Button getBackButton;
     void Start()
     {
-        var root = GetComponent<UIDocument>().rootVisualElement;
+        VisualElement root = GetComponent<UIDocument>().rootVisualElement;
         root.Add(ConfigurationPreferences.DarkScreenLayer);
         AudioManager.Instance.Resume();
         getBackButton = root.Q<Button>("CloseButton");
