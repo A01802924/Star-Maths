@@ -12,7 +12,7 @@ public class MenuPrincipal : MonoBehaviour
     private VisualElement dialogContainer;
     private Button btnInfo;
     private Button btnJugar;
-    private Button btnSalir;
+    // private Button btnSalir;
     private Button btnCreditos;
     private Button btnRegresarMenu;
     private Button btnConfig;
@@ -30,7 +30,7 @@ public class MenuPrincipal : MonoBehaviour
 
         btnInfo = root.Q<Button>("Info");
         btnJugar = root.Q<Button>("Jugar");
-        btnSalir = root.Q<Button>("Salir");
+        // btnSalir = root.Q<Button>("Salir");
         btnCreditos = root.Q<Button>("btnCreditos");
         btnRegresarMenu = root.Q<Button>("RegresarBoton");
         btnConfig = root.Q<Button>("Config");
@@ -39,7 +39,7 @@ public class MenuPrincipal : MonoBehaviour
 
         btnInfo.RegisterCallback<ClickEvent>(OnInfoClicked);
         btnJugar.RegisterCallback<ClickEvent>(OnModosClicked);
-        btnSalir.RegisterCallback<ClickEvent>(OnSalirClicked);
+        // btnSalir.RegisterCallback<ClickEvent>(OnSalirClicked);
         btnCreditos.RegisterCallback<ClickEvent>(OnCreditosClicked);
         btnRegresarMenu.RegisterCallback<ClickEvent>(OnRegresarMenuClicked);
         btnConfig.clicked += OnConfigClicked;
@@ -72,6 +72,7 @@ public class MenuPrincipal : MonoBehaviour
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
         SceneManager.LoadScene("ModosJuegoScene");
     }
+    /*
     private void OnSalirClicked(ClickEvent evt)
     {
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
@@ -83,4 +84,5 @@ public class MenuPrincipal : MonoBehaviour
             Application.Quit();
         #endif    
     }
+    */
 }

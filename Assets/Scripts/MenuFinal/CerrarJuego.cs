@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -20,3 +21,4 @@ public class CerrarJuego : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
     }
 }
+*/
