@@ -147,13 +147,9 @@ public class ItemConfig : MonoBehaviour
         {
             MarkItemAsOwned(newItem);
         }
-        newItem.RegisterCallback<ClickEvent>(evt => OpenConfirmDialog(item, newItem, type));
+        newItem.RegisterCallback<ClickEvent>(evt => OpenConfirmDialog(item, newItem));
         itemUIMap[item] = newItem;
         scrollView.Add(newItem);
-    }
-    private VisualElement GetVisualElementItem(Item item)
-    {
-        return itemUIMap.TryGetValue(item, out VisualElement uiElement) ? uiElement : null;
     }
     private void MarkItemAsOwned(VisualElement item)
     {
@@ -170,7 +166,7 @@ public class ItemConfig : MonoBehaviour
             item.Q<Label>("ItemType").style.color = darkOwnedColor;
         }
     }
-    private void OpenConfirmDialog(Item item, VisualElement uiElement, string type)
+    private void OpenConfirmDialog(Item item, VisualElement uiElement)
     {
         if (SessionData.OwnedItems.IndexOf(item) == -1)
         {
@@ -183,7 +179,7 @@ public class ItemConfig : MonoBehaviour
                 root.Q<Label>("BuyDescription").text = $"¿Estás seguro de comprar {item.name} por {item.price}?";
                 root.Q<VisualElement>("ItemBuySource").style.backgroundImage = new StyleBackground(item.itemIcon);
 
-                _confirmCallback = (evt) => PurchaseItem(item, uiElement, type);
+                _confirmCallback = (evt) => PurchaseItem(item, uiElement);
                 _cancelCallback = (evt) => CloseConfirmPurchaseDialog();
                 _crossCallback = (evt) => CloseConfirmPurchaseDialog();
 
@@ -215,22 +211,8 @@ public class ItemConfig : MonoBehaviour
             _crossCallback = null;
         }
     }
-    private void PurchaseItem(Item item, VisualElement uiElement, string type)
+    private void PurchaseItem(Item item, VisualElement uiElement)
     {
-        /*
-        Recomiendo encarecidamente llamar desde aquí a la función de gestión de la base de datos:
-        TODO: Cada vez que el usuario llame a la función PurchaseItem(), el sistema
-        debería enviar estos cambios a la base de datos:
-        - Qué nuevo objeto acaba de comprar el usuario
-          (ya sea una nave, un proyectil o una estela,
-          el sistema solo envía a la base de datos el atributo Item.name
-          de la clase estática Item)
-        - Actualizar el total de monedas/estrellas que le quedan al usuario tras la compra
-          Tengan en cuenta que estos cambios en los datos se pueden recuperar fácilmente de la
-          clase estática SessionData mediante sus atributos SessionData.coins y
-          SessionData.OwnedItems
-        */
-          
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickAccept);
         print("Initial coin status: " + SessionData.coins);
         print("Item price: " + item.price);
@@ -238,155 +220,12 @@ public class ItemConfig : MonoBehaviour
         numStarsLabel.text = SessionData.coins.ToString();
         SessionData.OwnedItems.Add(item);
         MarkItemAsOwned(uiElement);
-        if (type == "Bundle Set")
-        {
-            /*
-            Para el caso en que el usuario compre un Bundle (un bundle en
-            este sentido sería un comodín que, con solo comprarlo, ya habilite el uso
-            de todos los sprites del color del bundle -naves, proyectiles y estelas-
-            en una sola compra) se debería iterar la función de la Base de Datos para
-            actualizar todos los items que se involucren en cada bundle, algo parecido
-            como describo a continuación:
-            */
-            switch (item.index)
-            {
-                case 0:
-                    for (int i = 2; i <= 47; i += 5)
-                    {
-                        SessionData.OwnedItems.Add(ItemSet.ShipItems[i]);
-                        MarkItemAsOwned(GetVisualElementItem(ItemSet.ShipItems[i]));
-                        Debug.Log("Comprando item con ID: " + ItemSet.ShipItems[i].index);
-                        GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.ShipItems[i].index);
-                        Debug.Log("ID jugador: " + id_juador_instance.instance.id_jugador);
-                        Debug.Log("Item index: " + item.index);
-                        // SendPurhcaseToDB(ItemSet.ShipItems[i]);
-                    }
-                    for (int i = 2; i <= 32; i += 5)
-                    {
-                        SessionData.OwnedItems.Add(ItemSet.ProjectileItems[i]);
-                        SessionData.OwnedItems.Add(ItemSet.TrailItems[i]);
-                        MarkItemAsOwned(GetVisualElementItem(ItemSet.ProjectileItems[i]));
-                        MarkItemAsOwned(GetVisualElementItem(ItemSet.TrailItems[i]));
-                        Debug.Log("Comprando item con ID: " + ItemSet.ProjectileItems[i].index);
-                        GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.ProjectileItems[i].index);
-                        GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.TrailItems[i].index);
-                        Debug.Log("ID jugador: " + id_juador_instance.instance.id_jugador);
-                        Debug.Log("Item index: " + item.index);
-                        // SendPurhcaseToDB(ItemSet.ProjectileItems[i]);
-                        // SendPurhcaseToDB(ItemSet.TrailItems[i]);
-                    }
-                    break;
-                case 1:
-                    for (int i = 3; i <= 48; i += 5)
-                    {
-                        SessionData.OwnedItems.Add(ItemSet.ShipItems[i]);
-                        MarkItemAsOwned(GetVisualElementItem(ItemSet.ShipItems[i]));
-                        Debug.Log("Comprando item con ID: " + ItemSet.ShipItems[i].index);
-                        GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.ShipItems[i].index);
-                        Debug.Log("ID jugador: " + id_juador_instance.instance.id_jugador);
-                        Debug.Log("Item index: " + item.index);
-                        // SendPurhcaseToDB(ItemSet.ShipItems[i]);
-                    }
-                    for (int i = 3; i <= 33; i += 5)
-                    {
-                        SessionData.OwnedItems.Add(ItemSet.ProjectileItems[i]);
-                        SessionData.OwnedItems.Add(ItemSet.TrailItems[i]);
-                        MarkItemAsOwned(GetVisualElementItem(ItemSet.ProjectileItems[i]));
-                        MarkItemAsOwned(GetVisualElementItem(ItemSet.TrailItems[i]));
-                        Debug.Log("Comprando item con ID: " + ItemSet.ProjectileItems[i].index);
-                        GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.ProjectileItems[i].index);
-                        GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.TrailItems[i].index);
-                        Debug.Log("ID jugador: " + id_juador_instance.instance.id_jugador);
-                        Debug.Log("Item index: " + item.index);
-                        // SendPurhcaseToDB(ItemSet.ProjectileItems[i]);
-                        // SendPurhcaseToDB(ItemSet.TrailItems[i]);
-                    }
-                    break;
-                case 2:
-                    for (int i = 0; i <= 45; i += 5)
-                    {
-                        SessionData.OwnedItems.Add(ItemSet.ShipItems[i]);
-                        MarkItemAsOwned(GetVisualElementItem(ItemSet.ShipItems[i]));
-                        Debug.Log("Comprando item con ID: " + ItemSet.ShipItems[i].index);
-                        GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.ShipItems[i].index);
-                        Debug.Log("ID jugador: " + id_juador_instance.instance.id_jugador);
-                        Debug.Log("Item index: " + item.index);
-                        // SendPurhcaseToDB(ItemSet.ShipItems[i]);
-                    }
-                    for (int i = 0; i <= 30; i += 5)
-                    {
-                        SessionData.OwnedItems.Add(ItemSet.ProjectileItems[i]);
-                        SessionData.OwnedItems.Add(ItemSet.TrailItems[i]);
-                        MarkItemAsOwned(GetVisualElementItem(ItemSet.ProjectileItems[i]));
-                        MarkItemAsOwned(GetVisualElementItem(ItemSet.TrailItems[i]));
-                        Debug.Log("Comprando item con ID: " + ItemSet.ProjectileItems[i].index);
-                        GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.ProjectileItems[i].index);
-                        GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.TrailItems[i].index);
-                        Debug.Log("ID jugador: " + id_juador_instance.instance.id_jugador);
-                        Debug.Log("Item index: " + item.index);
-                        // SendPurhcaseToDB(ItemSet.ProjectileItems[i]);
-                        // SendPurhcaseToDB(ItemSet.TrailItems[i]);
-                    }
-                    break;
-                case 3:
-                    for (int i = 4; i <= 49; i += 5)
-                    {
-                        SessionData.OwnedItems.Add(ItemSet.ShipItems[i]);
-                        MarkItemAsOwned(GetVisualElementItem(ItemSet.ShipItems[i]));
-                        Debug.Log("Comprando item con ID: " + ItemSet.ShipItems[i].index);
-                        GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.ShipItems[i].index);
-                        Debug.Log("ID jugador: " + id_juador_instance.instance.id_jugador);
-                        Debug.Log("Item index: " + item.index);
-                        // SendPurhcaseToDB(ItemSet.ShipItems[i]);
-                    }
-                    for (int i = 4; i <= 34; i += 5)
-                    {
-                        SessionData.OwnedItems.Add(ItemSet.ProjectileItems[i]);
-                        SessionData.OwnedItems.Add(ItemSet.TrailItems[i]);
-                        MarkItemAsOwned(GetVisualElementItem(ItemSet.ProjectileItems[i]));
-                        MarkItemAsOwned(GetVisualElementItem(ItemSet.TrailItems[i]));
-                        Debug.Log("Comprando item con ID: " + ItemSet.ProjectileItems[i].index);
-                        GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.ProjectileItems[i].index);
-                        Debug.Log("Comprando item con ID: " + ItemSet.TrailItems[i].index);
-                        GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, ItemSet.TrailItems[i].index);
-                        Debug.Log("ID jugador: " + id_juador_instance.instance.id_jugador);
-                        Debug.Log("Item index: " + item.index);
-                        // SendPurhcaseToDB(ItemSet.ProjectileItems[i]);
-                        // SendPurhcaseToDB(ItemSet.TrailItems[i]);
-                    }
-                    break;
-                default:
-                    break;
-            }
-            /*
-            IMPORTANTE: Es posible que la implementación de estos 'Bundles' no se lleve a
-            cabo para el final del videojuego, así que prioricen llamar a su función de
-            base de datos para el caso general (es decir, cuando tipo de item no sea de Bundle)
-            */
-        }
-        else
-        {
-            /*
-            Que sería en este bloque else (Todos los items que no son de tipo Bundle deberán
-            llegarán a esta parte del código, por lo que aquí se llamaría a la función de la 
-            base de datos):
-            SendPurhcaseToDB(item);
-            */
-            GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, item.index);
-        }
+        GetComponent<TiendaBD>().ComprarItem(id_juador_instance.instance.id_jugador, item.index);
         print("Coins status after purchase: " + SessionData.coins);
 
         CleanUpDialogCallbacks();
         confirmPurchaseDialog.style.display = DisplayStyle.None;
     }
-    /*
-    Quizás crear una función como:
-    private void SendPurhcaseToDB(Item item) {
-        Líneas de código
-    }
-    O, mejor aún, crear una clase DataBase para agrupar
-    todas las funciones relacionadas con la base de datos
-    */
     private void CloseConfirmPurchaseDialog()
     {
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickDiscard);

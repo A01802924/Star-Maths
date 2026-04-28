@@ -19,7 +19,7 @@ public class MenuPrincipal : MonoBehaviour
     void OnEnable()
     {
         UIDocument = GetComponent<UIDocument>();
-        var root = UIDocument.rootVisualElement;
+        VisualElement root = UIDocument.rootVisualElement;
 
         ConfigurationPreferences.UpdateDarkScreenLayer();
         root.Add(ConfigurationPreferences.DarkScreenLayer);

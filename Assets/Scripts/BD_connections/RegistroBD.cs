@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
+using Assets.Scripts.Core;
 using OMG.UI.DatePickerUITK;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -13,7 +14,6 @@ public class RegistroBD : MonoBehaviour
     private TextField tfcorreoElectronico;
     private TextField tfNombre;
     private TextField tfApellido;
-    private TextField tfFechaNacimiento;
     private DropdownField dfGrado;
     private Button btnRegistrar;
     private RadioButtonGroup genreOptionsGroup;
@@ -54,7 +54,6 @@ public class RegistroBD : MonoBehaviour
         tfcorreoElectronico = root.Q<TextField>("CorreoElectronico");
         tfNombre = root.Q<TextField>("NombreJugador");
         tfApellido = root.Q<TextField>("ApellidoJugador");
-        tfFechaNacimiento = root.Q<TextField>("FechaNacimiento");
         dfGrado = root.Q<DropdownField>("Grado");
         btnRegistrar = root.Q<Button>("Ingresar2");
         genreOptionsGroup = root.Q<RadioButtonGroup>("Genero");
@@ -81,11 +80,13 @@ public class RegistroBD : MonoBehaviour
 
         btnRegistrar.clicked += () =>
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
             StartCoroutine(Registrar());
         };
     }
     private void SelectNewBirthDate(ChangeEvent<DateTime?> evt)
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNeutral);
         birthDateSelected.text = evt.newValue?.ToString("yyyy-MM-dd");
         birthDateSelected.style.display = DisplayStyle.Flex;
         datePickerContainer.style.display = DisplayStyle.None;
@@ -94,15 +95,18 @@ public class RegistroBD : MonoBehaviour
     {
         if (evt.target == evt.currentTarget)
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickClosePopUPDialog);
             datePickerContainer.style.display = DisplayStyle.None;
         }
     }
     private void ShowDatePicker()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
         datePickerContainer.style.display = DisplayStyle.Flex;
     }
     private void CloseErrorDialog()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickClosePopUPDialog);
         errorDialogContainer.style.display = DisplayStyle.None;
     }
     private IEnumerator Registrar()
@@ -115,20 +119,23 @@ public class RegistroBD : MonoBehaviour
             tfApellido.value != "" &&
             birthDateSelected.text != "" &&
             genreOptionsGroup.value != -1 &&
-            dfGrado.index != -1
+            dfGrado.index != -1 &&
+            tfPassword.value.Length > 7
         )
         {
+            signUpExceptionLabel.style.display = DisplayStyle.None;
+
             string generoUI = genreOptionsGroup.choices.ElementAt(genreOptionsGroup.value);
 
             string generoBD;
 
-                if (generoUI == "Niña")
-                    generoBD = "femenino";
-                else if (generoUI == "Niño")
-                    generoBD = "masculino";
-                else
-                    generoBD = "otro";
-            signUpExceptionLabel.style.display = DisplayStyle.None;
+            if (generoUI == "Niña")
+                generoBD = "femenino";
+            else if (generoUI == "Niño")
+                generoBD = "masculino";
+            else
+                generoBD = "otro";
+
             MandarDatos data = new()
             {
                 nombre_usuario = tfUsuario.value,
@@ -142,12 +149,12 @@ public class RegistroBD : MonoBehaviour
             };
 
             Debug.Log("Genero enviado: " + data.genero);
-Debug.Log("Grado enviado: " + data.grado_escolar);
-Debug.Log("Fecha enviada: " + data.fecha_nacimiento);
+            Debug.Log("Grado enviado: " + data.grado_escolar);
+            Debug.Log("Fecha enviada: " + data.fecha_nacimiento);
 
             string json = JsonUtility.ToJson(data);
 
-            UnityWebRequest request = UnityWebRequest.Post("https://ejqqvbkeso7awheffaw6brvsdi0prujw.lambda-url.us-east-1.on.aws/registro", json, "application/json"); 
+            UnityWebRequest request = UnityWebRequest.Post("https://ejqqvbkeso7awheffaw6brvsdi0prujw.lambda-url.us-east-1.on.aws/registro", json, "application/json");
 
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
@@ -160,7 +167,7 @@ Debug.Log("Fecha enviada: " + data.fecha_nacimiento);
                 {
                     id_juador_instance.instance.id_jugador = r.id_jugador;
                     print("Login exitoso, id_jugador: " + r.id_jugador);
-                    GetComponent<ConfiguracionBD>().CargarConfiguracion();//get para obtener la configuración del jugador después de iniciar sesión exitosamente, se espera a que se complete antes de continuar a cargar la escena del menú principal
+                    GetComponent<ConfiguracionBD>().CargarConfiguracion(); // get para obtener la configuración del jugador después de iniciar sesión exitosamente, se espera a que se complete antes de continuar a cargar la escena del menú principal
                     SceneManager.LoadScene("MenuPrincipalScene");
                 }
                 else
@@ -178,6 +185,11 @@ Debug.Log("Fecha enviada: " + data.fecha_nacimiento);
                 errorDialogContainer.style.display = DisplayStyle.Flex;
                 Debug.LogError("Error en la solicitud: " + request.downloadHandler.text);
             }
+        }
+        else if (tfPassword.value.Length < 8)
+        {
+            signUpExceptionLabel.text = "La contraseña debe tener al menos 8 caracteres";
+            signUpExceptionLabel.style.display = DisplayStyle.Flex;
         }
         else
         {

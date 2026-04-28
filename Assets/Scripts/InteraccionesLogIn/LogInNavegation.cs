@@ -15,11 +15,11 @@ public class MenuManager : MonoBehaviour
     void OnEnable()
     {
         UIDocument = GetComponent<UIDocument>();
-        var root = UIDocument.rootVisualElement;
+        VisualElement root = UIDocument.rootVisualElement;
 
         root.Add(ConfigurationPreferences.DarkScreenLayer);
         AudioManager.Instance.Resume();
-        //obteniendo referencias a UI Elements
+
         contenedorInicio = root.Q<VisualElement>("ContenedorInicio");
         contenedorRegistro = root.Q<VisualElement>("ContenedorRegistro");
         lblRegistro = root.Q<Label>("Registro");

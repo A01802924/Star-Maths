@@ -3,7 +3,7 @@
     <ui:VisualElement name="PositionContainer" class="container" style="flex-grow: 1; flex-direction: row; background-image: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Rank_System_Components/Extra%20Large/ranking-4+-extra-large%201.png?fileID=2800000&amp;guid=9042cacb9c2e5dd46bc209c7291fc7bf&amp;type=3#ranking-4+-extra-large 1&quot;); height: 130px; padding-bottom: 0; margin-bottom: 25px; width: 100%; margin-top: 25px; margin-right: 0; margin-left: 0;">
         <ui:Label text="${N]" name="PositionNumber" class="position-number-text" style="width: 12%;"/>
         <ui:VisualElement name="UsernameContainer" style="flex-grow: 1; flex-direction: row; width: 45%;">
-            <ui:Image name="UsernameIcon" source="project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Picto_Icons/White/person-256.png?fileID=2800000&amp;guid=53c4f0196b158ec4aa12711fb45d9a4e&amp;type=3#person-256" style="width: 20%;"/>
+            <ui:Image name="UsernameIcon" source="project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Icons/astronaut-512.png?fileID=2800000&amp;guid=05826b95b0f50c54e89864892e61b8eb&amp;type=3#astronaut-512" style="width: 20%; padding-top: 25px; padding-right: 25px; padding-bottom: 25px; padding-left: 25px;"/>
             <ui:Label text="${Username}" name="UsernameText" class="position-text username-text" style="-unity-font-definition: url(&quot;project://database/Assets/Sprites/Space_Exploration_GUI_Kit/Fonts/Font%20Sources/static/Asap_Condensed-SemiBold.ttf?fileID=12800000&amp;guid=6bdc3438c3d6c70489258aec63575da4&amp;type=3#Asap_Condensed-SemiBold&quot;); width: 80%;"/>
         </ui:VisualElement>
         <ui:VisualElement name="ScoreContainer" style="flex-grow: 1; flex-direction: row; width: 45%;">

@@ -45,14 +45,16 @@ public class LoginBD : MonoBehaviour
         btnLogin = root.Q<Button>("Ingresar");
         btnLogin.clicked += () =>
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
             StartCoroutine(Login());
         };
     }
     private void CloseErrorDialog()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
         errorDialogContainer.style.display = DisplayStyle.None;
     }
-    private IEnumerator Login() //para el api el IEnumerator (el tipo de dato que se utiliza)
+    private IEnumerator Login() // para el api el IEnumerator (el tipo de dato que se utiliza)
     {
         if (tfUsuario.value != "" && tfPassword.value != "")
         {
@@ -67,7 +69,7 @@ public class LoginBD : MonoBehaviour
 
             UnityWebRequest request = UnityWebRequest.Post("https://ejqqvbkeso7awheffaw6brvsdi0prujw.lambda-url.us-east-1.on.aws/login", json, "application/json"); //aqui esta el unitywebrequest el url esta declarado hasta arriba y post para enviar los datos al servidor 
 
-            yield return request.SendWebRequest(); //yo regreso de la funcion mientras, es lo que hace que regrese de inmediato arriba es el segundo thread de la programacion espera a que se complete la solicitud web antes de continuar con el siguiente paso
+            yield return request.SendWebRequest(); // yo regreso de la funcion mientras, es lo que hace que regrese de inmediato arriba es el segundo thread de la programacion espera a que se complete la solicitud web antes de continuar con el siguiente paso
 
             if (request.result == UnityWebRequest.Result.Success)
             {
@@ -79,7 +81,7 @@ public class LoginBD : MonoBehaviour
                 {
                     id_juador_instance.instance.id_jugador = r.id_jugador;
                     SessionData.ClearGameData();
-                    yield return StartCoroutine(GetComponent<ConfiguracionBD>().ObtenerConfiguracion());//get para obtener la configuración del jugador después de iniciar sesión exitosamente, se espera a que se complete antes de continuar a cargar la escena del menú principal
+                    yield return StartCoroutine(GetComponent<ConfiguracionBD>().ObtenerConfiguracion()); // get para obtener la configuración del jugador después de iniciar sesión exitosamente, se espera a que se complete antes de continuar a cargar la escena del menú principal
                     print("Login exitoso, id_jugador: " + r.id_jugador);
                     SceneManager.LoadScene("MenuPrincipalScene");
                 }
