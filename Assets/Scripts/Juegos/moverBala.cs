@@ -9,6 +9,7 @@ public class moverBala : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
         Destroy(gameObject, 1.2f);
     }
 
@@ -25,8 +26,12 @@ public class moverBala : MonoBehaviour
     {
         if(collision.CompareTag("Meteorito"))
         {
-            Instantiate(efectoChoque, transform.position, transform.rotation);
+            AudioSource efectoChoque = GameObject.Find("audioDestruyeMeteorito").GetComponent<AudioSource>();
+            efectoChoque.Play();
+
+            Instantiate(this.efectoChoque, transform.position, transform.rotation);
             Destroy(gameObject);
+
         }
     }
 }
