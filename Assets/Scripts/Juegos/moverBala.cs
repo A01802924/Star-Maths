@@ -1,16 +1,31 @@
+using Assets.Scripts.Core;
 using UnityEngine;
 
 public class moverBala : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
+
     private float velocidad = 15f;
     [SerializeField] private GameObject efectoChoque;
+    private int indexBala = 7;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
 
-        Destroy(gameObject, 1.2f);
+        Item naveSeleccionada = ItemSet.ProjectileItems[indexBala];
+
+        Debug.Log(naveSeleccionada.name);
+
+        Sprite nuevaSkin = Sprite.Create(
+            naveSeleccionada.itemIcon,
+            new Rect(0, 0, naveSeleccionada.itemIcon.width, naveSeleccionada.itemIcon.height),
+            new Vector2(0.5f, 0.5f)
+        );
+
+        sr.sprite = nuevaSkin;
     }
 
     void FixedUpdate()
