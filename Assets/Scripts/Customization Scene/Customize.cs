@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
+
 public class Customize : MonoBehaviour
 {
+    private CustomizeBD customizeBD;
     private VisualElement shipHeaderWindowContainer;
     private VisualElement projectileHeaderWindowContainer;
     private VisualElement trailHeaderWindowContainer;
@@ -27,8 +29,30 @@ public class Customize : MonoBehaviour
         root.Add(ConfigurationPreferences.DarkScreenLayer);
         AudioManager.Instance.Resume();
 
+       StartCoroutine(GetComponent<TiendaBD>().ObtenerTienda(() =>
+        {
+            InitUI();
+        }));
+        customizeBD = GetComponent<CustomizeBD>();
+        
+    }
+
+       private void InitUI()
+    {
         selectedItemSource = root.Q<VisualElement>("ItemSource");
-        selectedItemSource.style.backgroundImage = new StyleBackground(SessionData.CurrentShipItem.itemIcon);
+        if (SessionData.CurrentShipItem == null && SessionData.OwnedItems.Count > 0)
+        {
+            SessionData.CurrentShipItem = SessionData.OwnedItems[0];
+        }
+
+        if (SessionData.CurrentShipItem != null)
+        {
+            selectedItemSource.style.backgroundImage =
+                new StyleBackground(SessionData.CurrentShipItem.itemIcon);
+        }
+
+        //selectedItemSource = root.Q<VisualElement>("ItemSource");
+        //selectedItemSource.style.backgroundImage = new StyleBackground(SessionData.CurrentShipItem.itemIcon);
 
         getBackButton = root.Q<Button>("GetBackButton");
         getBackButton.RegisterCallback<ClickEvent>(GetBack);
@@ -40,6 +64,11 @@ public class Customize : MonoBehaviour
         scrollableShipContainer = root.Q<ScrollView>("ShipWindowScrollableContainer");
         scrollableProjectileContainer = root.Q<ScrollView>("ProjectileWindowScrollableContainer");
         scrollableTrailContainer = root.Q<ScrollView>("TrailWindowScrollableContainer");
+
+        scrollableShipContainer.Clear();
+        scrollableProjectileContainer.Clear();
+        scrollableTrailContainer.Clear();
+
 
         AddShipItemsToContainer();
         AddProjectileItemsToContainer();
@@ -245,6 +274,8 @@ public class Customize : MonoBehaviour
             default:
                 break;
         }
+        int idJugador = id_juador_instance.instance.id_jugador;
+        customizeBD.SeleccionarItem(idJugador, item.index);
         /*
         Y llamar al final la función con sus respectivos parámetros:
         SendItemSelectionToDB(item, type);
@@ -252,6 +283,7 @@ public class Customize : MonoBehaviour
         lógica como se implementó en esta función (a través de un switch).
         */
     }
+    
     /*
     Quizás crear una función como:
     private void SendItemSelectionToDB(Item item, char type) {
