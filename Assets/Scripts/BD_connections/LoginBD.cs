@@ -82,6 +82,7 @@ public class LoginBD : MonoBehaviour
                     id_juador_instance.instance.id_jugador = r.id_jugador;
                     SessionData.ClearGameData();
                     yield return StartCoroutine(GetComponent<ConfiguracionBD>().ObtenerConfiguracion()); // get para obtener la configuración del jugador después de iniciar sesión exitosamente, se espera a que se complete antes de continuar a cargar la escena del menú principal
+                    yield return StartCoroutine(GetComponent<CustomizeBD>().ObtenerSelectedItems(null)); // get para obtener los items seleccionados del jugador después de iniciar sesión exitosamente, se espera a que se complete antes de continuar a cargar la escena del menú principal                    
                     print("Login exitoso, id_jugador: " + r.id_jugador);
                     SceneManager.LoadScene("MenuPrincipalScene");
                 }
