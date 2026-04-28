@@ -1,3 +1,4 @@
+using Assets.Scripts.Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +23,9 @@ public class moverNave : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private AudioSource audio;
+    private SpriteRenderer sr;
+
+    private int indexNave = 7;
 
     void Start()
     {
@@ -29,6 +33,19 @@ public class moverNave : MonoBehaviour
         disparador = GetComponentInChildren<disparaNave>();
         anim = GetComponent<Animator>();
         audio = GetComponent<AudioSource>();
+        sr = GetComponent<SpriteRenderer>();
+
+        Item naveSeleccionada = ItemSet.ShipItems[indexNave];
+
+        Debug.Log(naveSeleccionada.name);
+
+        Sprite nuevaSkin = Sprite.Create(
+            naveSeleccionada.itemIcon,
+            new Rect(0, 0, naveSeleccionada.itemIcon.width, naveSeleccionada.itemIcon.height),
+            new Vector2(0.5f, 0.5f)
+        );
+
+        sr.sprite = nuevaSkin;
     }
 
     void Update()
