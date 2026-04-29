@@ -19,7 +19,6 @@ public class moverNave : MonoBehaviour
     private float cooldownTimer;
     private bool impulsando;
     private disparaNave disparador;
-
     private Rigidbody2D rb;
     private Animator anim;
     private AudioSource audio;

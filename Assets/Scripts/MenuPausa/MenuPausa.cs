@@ -94,6 +94,7 @@ public class MenuPausa : MonoBehaviour
 
     private void Continuar()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickClosePopUPDialog);
         // TODO: If game is resumed, resume game background music source but from the latest played second of the file before pause mode
         if (SessionData.JuegoJefe)
         {
@@ -110,6 +111,7 @@ public class MenuPausa : MonoBehaviour
 
     private void ReiniciarNivel()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickSaveChanges);
         Time.timeScale = 1f;
         if (SessionData.JuegoJefe)
         {
@@ -127,6 +129,7 @@ public class MenuPausa : MonoBehaviour
         // AudioManager.Instance.PlayNewTrack(AudioClipSet.MainBackgroundMusic);
         // config.MostrarMenu();
         // OcultarMenu();
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewTab);
         dialogContainer.style.display = DisplayStyle.Flex;
         HUD.style.display = DisplayStyle.None;
         infoHUD.style.display = DisplayStyle.None;
@@ -135,6 +138,7 @@ public class MenuPausa : MonoBehaviour
 
     private void VolverMenuPrincipal()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
         Time.timeScale = 1f;
         AudioManager.Instance.PlayNewTrack(AudioClipSet.MainBackgroundMusic);
         SceneManager.LoadScene("MenuPrincipalScene");
@@ -142,6 +146,7 @@ public class MenuPausa : MonoBehaviour
 
     private void Pausar()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickResetChanges);
         AudioManager.Instance.PlayNewTrack(AudioClipSet.PauseBackgroundMusic);
         MostrarMenu();
 

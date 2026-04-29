@@ -41,6 +41,7 @@ public class MUNDOS : MonoBehaviour
 
         earth.RegisterCallback<MouseEnterEvent>(evt =>
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickSelectItem);
             suma.AddToClassList("OBSCURO");
         });
 
@@ -58,6 +59,7 @@ public class MUNDOS : MonoBehaviour
 
         neptune.RegisterCallback<MouseEnterEvent>(evt =>
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickSelectItem);
             resta.AddToClassList("OBSCURO");
         });
 
@@ -74,6 +76,7 @@ public class MUNDOS : MonoBehaviour
 
         uranus.RegisterCallback<MouseEnterEvent>(evt =>
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickSelectItem);
             multiplicacion.AddToClassList("OBSCURO");
         });
 
@@ -90,6 +93,7 @@ public class MUNDOS : MonoBehaviour
 
         pluto.RegisterCallback<MouseEnterEvent>(evt =>
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickSelectItem);
             division.AddToClassList("OBSCURO");
         });
 
@@ -106,6 +110,7 @@ public class MUNDOS : MonoBehaviour
 
         moon.RegisterCallback<MouseEnterEvent>(evt =>
         {
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickSelectItem);
             union.AddToClassList("OBSCURO");
         });
 

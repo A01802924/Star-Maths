@@ -129,12 +129,14 @@ public class MostrarMenu : MonoBehaviour
 
     private void CerrarStats()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickClosePopUPDialog);
         contenedorResumen.style.display = DisplayStyle.None;
         contenedorMenu.style.display = DisplayStyle.Flex;
     }
 
     private void MostrarResumen(int vidasRestantes, int totalPreguntas, int resCorrectas, int resIncorrectas, float tiempo)
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewTab);
         contenedorMenu.style.display = DisplayStyle.None;
         contenedorResumen.style.display = DisplayStyle.Flex;
 
@@ -178,7 +180,7 @@ public class MostrarMenu : MonoBehaviour
         menu.style.display = DisplayStyle.Flex;
         menuGameOver.style.display = DisplayStyle.Flex;
         victoria.style.display = DisplayStyle.None;
-         if (!llamadoBD)
+        if (!llamadoBD)
         {
             llamadoBD = true;
             PuntajeBD.instance.Guardar(false, vidasRes);
@@ -235,6 +237,7 @@ public class MostrarMenu : MonoBehaviour
             estrella1.style.display = DisplayStyle.Flex;
             estrella1ND.style.display = DisplayStyle.None;
             yield return new WaitForSeconds(0.4f);
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickResetChanges);
         }
         if (vidasRes >= 2)
         {
@@ -242,6 +245,7 @@ public class MostrarMenu : MonoBehaviour
             estrella2ND.style.display = DisplayStyle.None;
             estrella2.style.display = DisplayStyle.Flex;
             yield return new WaitForSeconds(0.4f);
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickResetChanges);
         }
         if (vidasRes >= 3)
         {
@@ -249,6 +253,7 @@ public class MostrarMenu : MonoBehaviour
             estrella3ND.style.display = DisplayStyle.None;
             estrella3.style.display = DisplayStyle.Flex;
             yield return new WaitForSeconds(0.4f);
+            AudioManager.Instance.PlayUISFX(AudioClipSet.ClickSaveChanges);
         }
         if (!llamadoBD)
         {
@@ -263,6 +268,7 @@ public class MostrarMenu : MonoBehaviour
     {
         //SceneManager.LoadScene(nombreEscena);
         // TODO: handle different AudioClip source per game type
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewTab);
         AudioManager.Instance.SetTrackStartTime(0f);
         if (SessionData.JuegoJefe)
         {
@@ -277,6 +283,7 @@ public class MostrarMenu : MonoBehaviour
 
     private void MenuPrincipal()
     {
+        AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewTab);
         AudioManager.Instance.SetTrackStartTime(0f);
         AudioManager.Instance.PlayNewTrack(AudioClipSet.MainBackgroundMusic);
         SceneManager.LoadScene("MenuPrincipalScene");
