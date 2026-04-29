@@ -60,19 +60,19 @@ public class MenuPausa : MonoBehaviour
         restart.clicked += ReiniciarNivel;
         options.clicked += MenuOpciones;
         mainMenu.clicked += VolverMenuPrincipal;
-        // pausar.clicked += Pausar;
+        pausar.clicked += Pausar;
     }
 
 
-    void OnEnable()
-    {
-        pausar.clicked +=Pausar;
-    }
+    // void OnEnable()
+    // {
+    //     pausar.clicked +=Pausar;
+    // }
 
-    void OnDisable()
-    {
-        pausar.clicked -= Pausar;
-    }
+    // void OnDisable()
+    // {
+    //     pausar.clicked -= Pausar;
+    // }
 
     public void MostrarMenu()
     {
