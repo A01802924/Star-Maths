@@ -180,7 +180,7 @@ public class Customize : MonoBehaviour
     }
     private void AddItemToContainer(Item item, ScrollView container, bool isOwned, char type)
     {
-        visualTree = Resources.Load<VisualTreeAsset>("UI/CustomizationItem");
+        visualTree = Resources.Load<VisualTreeAsset>("Assets/UI/Customization Scene/CustomizationItem.uxml");
         VisualElement newItem = visualTree.Instantiate();
         VisualElement itemSource = newItem.Q<VisualElement>("ItemSource");
         Label itemTitle = newItem.Q<Label>("ItemTitle");

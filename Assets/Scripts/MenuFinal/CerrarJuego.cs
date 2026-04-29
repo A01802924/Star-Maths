@@ -18,7 +18,7 @@ public class CerrarJuego : MonoBehaviour
 
     private void CierreJuego()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        // UnityEditor.EditorApplication.isPlaying = false;
     }
 }
 */

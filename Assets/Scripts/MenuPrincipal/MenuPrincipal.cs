@@ -12,7 +12,7 @@ public class MenuPrincipal : MonoBehaviour
     private VisualElement dialogContainer;
     private Button btnInfo;
     private Button btnJugar;
-    // private Button btnSalir;
+    private Button btnRegresar;
     private Button btnCreditos;
     private Button btnRegresarMenu;
     private Button btnConfig;
@@ -30,7 +30,7 @@ public class MenuPrincipal : MonoBehaviour
 
         btnInfo = root.Q<Button>("Info");
         btnJugar = root.Q<Button>("Jugar");
-        // btnSalir = root.Q<Button>("Salir");
+        btnRegresar = root.Q<Button>("btnRegresar");
         btnCreditos = root.Q<Button>("btnCreditos");
         btnRegresarMenu = root.Q<Button>("RegresarBoton");
         btnConfig = root.Q<Button>("Config");
@@ -39,7 +39,7 @@ public class MenuPrincipal : MonoBehaviour
 
         btnInfo.RegisterCallback<ClickEvent>(OnInfoClicked);
         btnJugar.RegisterCallback<ClickEvent>(OnModosClicked);
-        // btnSalir.RegisterCallback<ClickEvent>(OnSalirClicked);
+        btnRegresar.RegisterCallback<ClickEvent>(OnRegresarClicked);
         btnCreditos.RegisterCallback<ClickEvent>(OnCreditosClicked);
         btnRegresarMenu.RegisterCallback<ClickEvent>(OnRegresarMenuClicked);
         btnConfig.clicked += OnConfigClicked;
@@ -72,17 +72,16 @@ public class MenuPrincipal : MonoBehaviour
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickNewWindow);
         SceneManager.LoadScene("ModosJuegoScene");
     }
-    /*
-    private void OnSalirClicked(ClickEvent evt)
+    //private void RegresarPaginaPrincipal() => Application.OpenURL("http://star-maths.s3-website-us-east-1.amazonaws.com/index.html");
+
+    private void OnRegresarClicked(ClickEvent evt)
     {
         AudioManager.Instance.PlayUISFX(AudioClipSet.ClickFormerWindow);
         Debug.Log("Saliendo del juego..."); // Para que verifiques en consola que sí detecta el clic
-        
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
-            Application.Quit();
-        #endif    
+        // RegresarPaginaPrincipal();
+        SceneManager.LoadScene("Bienvenido");
+
     }
-    */
+
+   
 }
