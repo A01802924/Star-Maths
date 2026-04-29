@@ -8,20 +8,15 @@ public class moverBala : MonoBehaviour
 
     private float velocidad = 15f;
     [SerializeField] private GameObject efectoChoque;
-    private int indexBala = 7;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
 
-        Item naveSeleccionada = ItemSet.ProjectileItems[indexBala];
-
-        Debug.Log(naveSeleccionada.name);
-
         Sprite nuevaSkin = Sprite.Create(
-            naveSeleccionada.itemIcon,
-            new Rect(0, 0, naveSeleccionada.itemIcon.width, naveSeleccionada.itemIcon.height),
+            SessionData.CurrentProjectileItem.itemIcon,
+            new Rect(0, 0, SessionData.CurrentProjectileItem.itemIcon.width, SessionData.CurrentProjectileItem.itemIcon.height),
             new Vector2(0.5f, 0.5f)
         );
 

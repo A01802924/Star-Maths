@@ -119,5 +119,25 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7047838003272070809, guid: c4faa00abe33ef44aa9eced7a20886d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3924784785748090996}
   m_SourcePrefab: {fileID: 100100000, guid: c4faa00abe33ef44aa9eced7a20886d3, type: 3}
+--- !u!1 &7524996819004145606 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7047838003272070809, guid: c4faa00abe33ef44aa9eced7a20886d3, type: 3}
+  m_PrefabInstance: {fileID: 693796159862868319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3924784785748090996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7524996819004145606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2b7140fa4d8db43aef81c0af311fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::destruirSonido
