@@ -22,6 +22,7 @@ public class Customize : MonoBehaviour
     private VisualElement currentProjectileSelected;
     private VisualElement currentTrailSelected;
     private Button getBackButton;
+    
     void OnEnable()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
@@ -180,7 +181,7 @@ public class Customize : MonoBehaviour
     }
     private void AddItemToContainer(Item item, ScrollView container, bool isOwned, char type)
     {
-        visualTree = Resources.Load<VisualTreeAsset>("Assets/UI/Customization Scene/CustomizationItem.uxml");
+        visualTree = Resources.Load<VisualTreeAsset>("UI/CustomizationItem");
         VisualElement newItem = visualTree.Instantiate();
         VisualElement itemSource = newItem.Q<VisualElement>("ItemSource");
         Label itemTitle = newItem.Q<Label>("ItemTitle");
@@ -275,8 +276,7 @@ public class Customize : MonoBehaviour
                 break;
         }
         int idJugador = id_juador_instance.instance.id_jugador;
-        customizeBD.SeleccionarItem(idJugador, item.index);
-        /*
+        customizeBD.GuardarTodo();        /*
         Y llamar al final la función con sus respectivos parámetros:
         SendItemSelectionToDB(item, type);
         Podrían manejar el tipo de Item por la variable char type, casi con la misma

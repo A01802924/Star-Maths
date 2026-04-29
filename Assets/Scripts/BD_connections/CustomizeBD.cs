@@ -6,16 +6,15 @@ using System.Collections.Generic;
 
 public class CustomizeBD : MonoBehaviour
 {
-     public struct MandarDatos
-    {
-        public int id_jugador;
-        public int id_item;
-    }
-public class RegresarDatos
-    {
-        public bool exito;
-        public string aviso;
-    }
+    [System.Serializable]
+public class MandarTodo
+{
+    public int id_jugador;
+    public int ship;
+    public int projectile;
+    public int trail;
+}
+
     [System.Serializable]
 public class SelectedItemDatos
 {
@@ -31,53 +30,39 @@ public class GetSelectedItemsResponse
 }
 
 
-    public void SeleccionarItem(int idJugador, int idItem)
+public void GuardarTodo()
+{
+    StartCoroutine(EnviarTodo());
+}
+
+private IEnumerator EnviarTodo()
+{
+    MandarTodo data = new MandarTodo
     {
-        StartCoroutine(EnviarSeleccion(idJugador, idItem));
-    }
+        id_jugador = id_juador_instance.instance.id_jugador,
 
-public void ComprarItem(int idJugador, int idItem)
+
+        ship = SessionData.CurrentShipItem.index,
+        projectile = SessionData.CurrentProjectileItem.index,
+        trail = SessionData.CurrentTrailItem.index
+    };
+
+    string json = JsonUtility.ToJson(data);
+
+    UnityWebRequest request = UnityWebRequest.Post("https://ejqqvbkeso7awheffaw6brvsdi0prujw.lambda-url.us-east-1.on.aws/customize", json, "application/json");
+
+    yield return request.SendWebRequest();
+
+    if (request.result == UnityWebRequest.Result.Success)
     {
-        StartCoroutine(EnviarSeleccion(idJugador, idItem));
+        Debug.Log("Todo guardado correctamente");
     }
-
-    private IEnumerator EnviarSeleccion(int idJugador, int idItem)
+    else
     {
-        Debug.Log("Enviando selección a la base de datos: Jugador ID = " + idJugador + ", Item ID = " + idItem);
-        MandarDatos data = new MandarDatos
-        {
-            id_jugador = idJugador,
-            id_item = idItem
-        };
-
-        string json = JsonUtility.ToJson(data);
-
-        UnityWebRequest request = UnityWebRequest.Post("https://ejqqvbkeso7awheffaw6brvsdi0prujw.lambda-url.us-east-1.on.aws/customize", json, "application/json"); 
-
-
-        yield return request.SendWebRequest();
-
-        if (request.result == UnityWebRequest.Result.Success)
-        {
-            print("Respuesta: " + request.downloadHandler.text);
-
-            RegresarDatos r = JsonUtility.FromJson<RegresarDatos>(request.downloadHandler.text);
-
-            if (r.exito)
-            {
-                Debug.Log("Seleccion guardada exitosamente");
-                ActualizarSeleccionLocal(idItem);
-            }
-            else
-            {
-                Debug.LogError("Error: " + r.aviso);
-            }
-        }
-        else
-        {
-            Debug.LogError("Error de red: " + request.error);
-        }
+        Debug.LogError("Error: " + request.error);
     }
+}
+
     private void ActualizarSeleccionLocal(int idItem)
     {
         Item item = BuscarItemPorID(idItem);
@@ -179,4 +164,5 @@ private void AplicarSelectedItems(GetSelectedItemsResponse data)
 
     Debug.Log("Items seleccionados aplicados correctamente");
 }
+
 }
