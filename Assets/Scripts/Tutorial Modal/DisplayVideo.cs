@@ -27,12 +27,12 @@ public class DisplayVideo : MonoBehaviour
         videoContainer.style.backgroundImage = new StyleBackground(Background.FromRenderTexture(videoTexture));
         videoContainer.style.unityBackgroundImageTintColor = Color.white;
 
-        levelGameTutorial.clicked += () => PlayVideo("TutorialVideoTemplate.mp4"); // TODO: Level Game Tutorial Video Source
-        bossGameTutorial.clicked += () => PlayVideo("TutorialVideoTemplate.mp4"); // TODO: Boss Game Tutorial Video Source
-        storeTutorial.clicked += () => PlayVideo("TutorialVideoTemplate.mp4"); // TODO: Store Tutorial Video Source
-        customizationTutorial.clicked += () => PlayVideo("TutorialVideoTemplate.mp4"); // TODO: Customization Tutorial Video Source
-        settingsTutorial.clicked += () => PlayVideo("TutorialVideoTemplate.mp4"); // TODO: Settings Tutorial Video Source
-        string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, "TutorialVideoTemplate.mp4");
+        levelGameTutorial.clicked += () => PlayVideo("LevelGameTutorial.mp4");
+        bossGameTutorial.clicked += () => PlayVideo("BossGameTutorial.mp4"); // TODO: Edit Boss Game Tutorial Video Source
+        storeTutorial.clicked += () => PlayVideo("StoreTutorial.mp4"); // TODO: Edit Store Tutorial Video Source
+        customizationTutorial.clicked += () => PlayVideo("CustomizationTutorial.mp4"); // TODO: Edit Customization Tutorial Video Source
+        settingsTutorial.clicked += () => PlayVideo("SettingsTutorial.mp4");
+        string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, "LevelGameTutorial.mp4");
         videoPlayer.url = videoPath;
         videoPlayer.Play();
     }

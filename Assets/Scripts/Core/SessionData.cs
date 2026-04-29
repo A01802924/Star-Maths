@@ -56,11 +56,18 @@ namespace Assets.Scripts.Core
             ItemSet.ShipItems[0],
             ItemSet.ShipItems[1],
             ItemSet.ShipItems[2],
+            ItemSet.ShipItems[33],
+            ItemSet.ShipItems[47],
             ItemSet.ProjectileItems[0],
             ItemSet.ProjectileItems[1],
             ItemSet.ProjectileItems[2],
+            ItemSet.ProjectileItems[9],
+            ItemSet.ProjectileItems[16],
             ItemSet.TrailItems[0],
-            ItemSet.TrailItems[2]
+            ItemSet.TrailItems[1],
+            ItemSet.TrailItems[2],
+            ItemSet.TrailItems[21],
+            ItemSet.TrailItems[25],
         }; // TODO: Handle List<Item> through DB query. Notice that the base case is a List<Item> containing the very first items of each category (Ship, Projectile, and Trail). For testing pruposes, this List<Item> object is used to test accurate blocking and owned item appearance on the scenes
         public static Item CurrentShipItem { get; set; } = ItemSet.ShipItems[0];// By default, a new user will always have at least the very first ship item as owned
         public static Item CurrentProjectileItem { get; set; } = ItemSet.ProjectileItems[0]; // By default, a new user will always have at least the very first projectile item as owned
